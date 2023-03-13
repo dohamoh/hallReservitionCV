@@ -1,62 +1,78 @@
-<div id="booking" class="section h-auto py-5">
-  <div class="section-center">
-    <div class="booking-cta text-center mb-3">
-      <h1 class="mb-4 text-white fw-bold">Make Your Reservation</h1>
+<section id='booking' class=" w-100  d-flex align-items-center justify-content-center ">
+  <div class=" w-50 h-50 bg-black bg-opacity-75 rounded-3 position-relative ">
+
+
+    <div class="p-3 w-100">
+      <h2 class=" text-center text-capitalize mainColor ">make reversion</h2>
     </div>
-    <div class="container w-75">
-      <div class="booking-form">
-        <form class="row justify-content-center">
-          <div class="col-12 z-5">
-            <div class="form-group">
-              <!-- <span class="form-label">Destination</span> -->
-              <input class="form-control" type="text" placeholder="اسم الأدارة">
-            </div>
-          </div>
-          <div class="col-md-6 col-12 z-5">
-            <div class="form-group">
-              <input class="form-control" type="text" placeholder="عدد الحاضرين">
-              <!-- <span class="select-arrow"></span> -->
-            </div>
-          </div>
-          <div class="col-md-6 col-12 z-5">
-            <div class="form-group">
-              <span class="form-label">التاريخ</span>
-              <input class="form-control" type="date" required>
-            </div>
-          </div>
-          <div class="col-md-4 col-6 z-5">
-            <div class="form-group">
-              <input class="form-control radioBtn" type="radio" id="timeOne" name="time" value="timeOne">
-              <label class="form-label fs-4 p-3" for="timeOne">8am - 10am</label>
-            </div>
-          </div>
-          <div class="col-md-4 col-6 z-5">
-            <div class="form-group">
-              <input class="form-control radioBtn" type="radio" id="timeTwo" name="time" value="timeTwo">
-              <label class="form-label fs-4 p-3" for="timeTwo">12pm - 8pm</label>
-            </div>
-          </div>
-          <!-- <div class="row justify-content-center"> -->
-            <!-- <h3 class="text-center mainColor fw-bold bg-opacity-75 bg-white">نوع اللقاء</h3> -->
-            <div class="col-md-4 col-6 z-5">
-              <div class="d-flex justify-content-center">
-                <select class="p-1" name="meetType">
-                  <option value="program">برنامج</option>
-                  <option value="meet">لقاء</option>
-                  <option value="meeting">اجتماع</option>
-                  <option value="workingPlace">ورشة عمل</option>
-                  <option value="other">اخرئ</option>
-                </select>
-              </div>
-            </div>
-          <!-- </div> -->
-          <div class="col-md-4 col-12 z-5">
-            <div class="form-btn">
-              <button class="submit-btn">Check availability</button>
-            </div>
-          </div>
-        </form>
+
+
+    <div class=" row w-100  m-0 px-3">
+      <div class=" col-8 p-2 d-flex align-items-start justify-content-center flex-column">
+        <input type="text" class=" w-100 rounded-5 p-2 pe-3" placeholder="اسم الادارة">
+      </div>
+
+      <div class=" col-4 p-2 d-flex align-items-start justify-content-center flex-column">
+        <input type="text" class=" w-100 rounded-5 p-2 pe-3" placeholder="عدد الاعضاء">
+      </div>
+
+      <div class=" col-4 p-2">
+        <label class="m-2 mainColor" for="name">التاريخ</label>
+        <input id="name" type="date" class=" w-100 rounded-5 p-2" placeholder="اسم الادارة">
+      </div>
+
+
+      <div class=" col-3 p-2  d-flex align-items-end">
+        <div class="dropdown w-100">
+          <button
+            class="btn bg-white w-100 dropdown-toggle d-flex justify-content-between align-items-center flex-row rounded-5"
+            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{meeting}}
+          </button>
+          <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" (click)="type($event)">برنامج</a></li>
+            <li><a class="dropdown-item" (click)="type($event)">لقاء</a></li>
+            <li><a class="dropdown-item" (click)="type($event)">اجتماع</a></li>
+            <li><a class="dropdown-item" (click)="type($event)">ورشه عمل</a></li>
+            <li><a class="dropdown-item" (click)="type($event)">اخري</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+      <div class="row col-5 p-0 py-2 m-0 d-flex align-items-end justify-content-center  ">
+
+        <div class=" col"> <button class=" btn bg-white rounded-0 w-100 rounded-5" #time1
+            (click)="time1.classList.add('timeFocus')" (click)="time2.classList.remove('timeFocus')">12pm-8pm</button>
+        </div>
+        <div class=" col"> <button class=" btn bg-white rounded-0 w-100 rounded-5" #time2
+            (click)="time1.classList.remove('timeFocus')" (click)="time2.classList.add('timeFocus')">12pm-8pm</button>
+        </div>
       </div>
     </div>
+    <button class=" btn mainBg text-white position-absolute bottom-0 end-0 m-3 rounded-5 p-2 px-4">CHECK
+      AVAILABILITY</button>
   </div>
-</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
