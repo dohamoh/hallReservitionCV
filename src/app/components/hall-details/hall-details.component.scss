@@ -1,0 +1,26 @@
+section {
+  position: relative;
+  z-index: 5;
+  width: 75vw;
+  height: 80vh;
+  margin-top: 6rem;
+    img{
+      height: 20rem;
+    }
+  @media screen and (max-width: 768px) {
+    height: 60vh !important;
+    img{
+      height: 100%;
+    }
+  }
+  .details{
+    @media screen and (max-width: 768px) {
+      width: 100% !important;
+      margin-top: 3rem;
+      p{
+        width: 100% !important;
+      }
+    }
+  }
+}
+

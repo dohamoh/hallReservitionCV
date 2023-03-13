@@ -1,0 +1,14 @@
+nav{
+  img{
+    width: 40% !important;
+  }
+  .navbar-brand{
+    @media screen and (max-width:600px) {
+      width: 70%;
+    }
+  }
+  .logo{
+    transition: all 1s;
+    padding-bottom: 10px;
+  }
+}

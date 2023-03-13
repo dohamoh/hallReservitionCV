@@ -1,0 +1,32 @@
+section{
+  position: relative;
+  height: 50vh;
+  background-image: url('../../../assets/images/footerPic.jpeg');
+  background-position: center top;
+  background-size: cover;
+  @media screen and (max-width: 760px) {
+    height: 60vh;
+  }
+    .mask{
+      position: absolute;
+      height: 50vh;
+      width: 100%;
+      background-color: black;
+      opacity: .7;
+      @media screen and (max-width: 760px) {
+        height: 60vh;
+      }
+    }
+    .iconDiv{
+      color: #f1ecec !important;
+    }
+    .iconBorder{
+      border: 2px solid #f1ecec !important;
+      opacity: .5;
+      border-radius: 1.3rem;
+    }
+}
+.iconDiv :hover{
+  color: #ffffff;
+  opacity: 1;
+}

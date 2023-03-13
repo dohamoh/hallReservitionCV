@@ -1,0 +1,62 @@
+<div id="booking" class="section h-auto py-5">
+  <div class="section-center">
+    <div class="booking-cta text-center mb-3">
+      <h1 class="mb-4 text-white fw-bold">Make Your Reservation</h1>
+    </div>
+    <div class="container w-75">
+      <div class="booking-form">
+        <form class="row justify-content-center">
+          <div class="col-12 z-5">
+            <div class="form-group">
+              <!-- <span class="form-label">Destination</span> -->
+              <input class="form-control" type="text" placeholder="اسم الأدارة">
+            </div>
+          </div>
+          <div class="col-md-6 col-12 z-5">
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="عدد الحاضرين">
+              <!-- <span class="select-arrow"></span> -->
+            </div>
+          </div>
+          <div class="col-md-6 col-12 z-5">
+            <div class="form-group">
+              <span class="form-label">التاريخ</span>
+              <input class="form-control" type="date" required>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 z-5">
+            <div class="form-group">
+              <input class="form-control radioBtn" type="radio" id="timeOne" name="time" value="timeOne">
+              <label class="form-label fs-4 p-3" for="timeOne">8am - 10am</label>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 z-5">
+            <div class="form-group">
+              <input class="form-control radioBtn" type="radio" id="timeTwo" name="time" value="timeTwo">
+              <label class="form-label fs-4 p-3" for="timeTwo">12pm - 8pm</label>
+            </div>
+          </div>
+          <!-- <div class="row justify-content-center"> -->
+            <!-- <h3 class="text-center mainColor fw-bold bg-opacity-75 bg-white">نوع اللقاء</h3> -->
+            <div class="col-md-4 col-6 z-5">
+              <div class="d-flex justify-content-center">
+                <select class="p-1" name="meetType">
+                  <option value="program">برنامج</option>
+                  <option value="meet">لقاء</option>
+                  <option value="meeting">اجتماع</option>
+                  <option value="workingPlace">ورشة عمل</option>
+                  <option value="other">اخرئ</option>
+                </select>
+              </div>
+            </div>
+          <!-- </div> -->
+          <div class="col-md-4 col-12 z-5">
+            <div class="form-btn">
+              <button class="submit-btn">Check availability</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

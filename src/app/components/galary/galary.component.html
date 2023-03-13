@@ -1,0 +1,67 @@
+<section class="my-5 px-4">
+  <div class="galary">
+
+    <div class="tall position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3458.jpg"  alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+
+    <div class=" position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3462.jpg" alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+    <div class=" position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3470.jpg" alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+    <div class="tall position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3466.jpg" alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+    <div class=" position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3480.jpg" alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+    <div class=" position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3483.jpg" alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+    <div class=" position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3464.jpg" alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+    <div class=" position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3481.jpg" alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+    <div class="wide position-relative" (click)="getSrc($event)">
+      <img class="" src="../../../assets/images/halls/DSC_3472.jpg" alt="">
+      <div class="mask">
+        <h1 class="text-white">hall name</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<div class=" top-0 w-100 vh-100 bg-black bg-opacity-75 position-fixed d-flex align-items-center justify-content-center "
+  *ngIf="disPlayHall!=''">
+  <div class="">
+    <i class="bi bi-x p-1 rounded-2 fs-1 fw-bold position-absolute closeIcon" (click)="closeDetails()"></i>
+    <app-hall-details [hallData]="disPlayHall"></app-hall-details>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+section {
+
+  .slide {
+    height: 80vh;
+
+    img {
+      object-fit: cover !important;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #000000;
+      opacity: .6;
+      box-sizing: border-box;
+    }
+  }
+}
+// .owl-nav .ng-star-inserted {
+//   margin-top: 0px !important;
+//   background-color: black !important;
+// }

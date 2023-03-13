@@ -1,0 +1,73 @@
+<section class=" vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 justify-content-center">
+        <div class="row flex-column align-items-start">
+          <div [ngStyle]="{width:width}" [ngStyle]="{right:right}" #sideNav
+            class="side-nav d-flex flex-column align-items-start justify-content-center col-6 col-md-6 mb-5 p-md-4">
+            <div (click)="open()" class="point fs-4 mainColor p-2">
+              <i class="bi bi-arrow-left-right"></i></div>
+            <div #user class="user p-3 pe-0 fs-4">
+              <h5>الأسم :</h5>
+              <h5>الأدارة :</h5>
+              <h5>التليفون :</h5>
+              <h5>الجنس :</h5>
+            </div>
+            <ul class="text-decoration-none mt-2 list-unstyled p-3" id="v-pills-tab" role="tablist"
+              aria-orientation="vertical">
+              <li class="cursor-pointer d-flex justify-content-start align-items-center" id="v-pills-approved-tab"
+                data-bs-toggle="pill" data-bs-target="#v-pills-approved" type="button" role="tab"
+                aria-controls="v-pills-approved" aria-selected="true">
+                <img class="w-10 ms-3" src="../../../assets/images/calendar-check.svg" alt="">
+                <p class="pt-3">approved</p>
+              </li>
+              <li class="cursor-pointer d-flex justify-content-start align-items-center my-2" id="v-pills-on-hold-tab"
+                data-bs-toggle="pill" data-bs-target="#v-pills-on-hold" type="button" role="tab"
+                aria-controls="v-pills-on-hold" aria-selected="false">
+                <img class="w-10 ms-3 my-4" src="../../../assets/images/clock-history.svg" alt="">
+                <p class="pt-3">on hold</p>
+              </li>
+              <li class="cursor-pointer d-flex justify-content-start align-items-center my-2"
+                id="v-pills-unapproved-tab" data-bs-toggle="pill" data-bs-target="#v-pills-unapproved" type="button"
+                role="tab" aria-controls="v-pills-unapproved" aria-selected="false">
+                <img class="w-10 ms-3" src="../../../assets/images/calendar-x.svg" alt="">
+                <p class="pt-3">unapproved</p>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="col-md-10 bg-light p-md-4">
+            <div class="d-flex align-items-start">
+
+              <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-approved-tab" data-bs-toggle="pill"
+                  data-bs-target="#v-pills-approved" type="button" role="tab" aria-controls="v-pills-approved"
+                  aria-selected="true">approved</button>
+
+                <button class="nav-link" id="v-pills-on-hold-tab" data-bs-toggle="pill" data-bs-target="#v-pills-on-hold"
+                  type="button" role="tab" aria-controls="v-pills-on-hold" aria-selected="false">on hold</button>
+
+                  <button class="nav-link" id="v-pills-unapproved-tab" data-bs-toggle="pill"
+                  data-bs-target="#v-pills-unapproved" type="button" role="tab" aria-controls="v-pills-unapproved"
+                  aria-selected="false">unapproved</button>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="reservation col-md-8 mt-5 justify-content-start">
+        <div class="tab-content" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <div class="tab-pane fade show active" id="v-pills-approved" role="tabpanel"
+            aria-labelledby="v-pills-approved-tab" aria-controls="v-pills-approved" >
+            <app-reservations></app-reservations>
+          </div>
+          <div class="tab-pane fade" id="v-pills-on-hold" role="tabpanel" aria-controls="v-pills-on-hold" aria-labelledby="v-pills-on-hold-tab"
+            >ON HOLD</div>
+
+          <div class="tab-pane fade" id="v-pills-unapproved" role="tabpanel" aria-controls="v-pills-unapproved" aria-labelledby="v-pills-unapproved-tab"
+            >UNAPPROVED</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
