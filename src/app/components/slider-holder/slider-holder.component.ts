@@ -65,6 +65,6 @@ export class SliderHolderComponent {
         items: 1
       }
     },
-    nav: true
+    nav: false
   }
 }

@@ -61,7 +61,7 @@
 <div class=" top-0 w-100 vh-100 bg-black bg-opacity-75 position-fixed d-flex align-items-center justify-content-center "
   *ngIf="disPlayHall!=''">
   <div class="">
-    <i class="bi bi-x p-1 rounded-2 fs-1 fw-bold position-absolute closeIcon" (click)="closeDetails()"></i>
+    <i class="bi bi-x p-1 rounded-2 fs-1 fw-bold position-absolute closeIcon cursor-pointer" (click)="closeDetails()"></i>
     <app-hall-details [hallData]="disPlayHall"></app-hall-details>
   </div>
 </div>

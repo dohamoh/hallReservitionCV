@@ -7,6 +7,28 @@ section {
     img{
       height: 20rem;
     }
+    .details{
+      h2{
+        &:hover {
+          .editHall, .deleteHall{
+            opacity: 1;
+            transition: 0.5s;
+          }
+        }
+        .editHall{
+          right: -20px;
+          top: -15px;
+          font-size: 15px;
+          opacity: 0;
+        }
+        .deleteHall{
+          right: -45px;
+          top: -15px;
+          font-size: 15px;
+          opacity: 0;
+        }
+      }
+    }
   @media screen and (max-width: 768px) {
     height: 60vh !important;
     img{
@@ -23,4 +45,6 @@ section {
     }
   }
 }
+
+
 

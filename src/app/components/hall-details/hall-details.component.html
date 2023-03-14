@@ -1,11 +1,18 @@
 <section class=" bg-light p-5 pt-5">
-  <!-- <div class="bg-img"></div> -->
   <div class="w-100 h-auto d-flex justify-content-center">
     <img class=" w-75 rounded-3" src="{{hallData}}" alt="">
   </div>
   <div class="details w-75 rounded-2 mt-md-4 pe-5 p-2">
-    <h2 class="mb-3">اسم القاعة</h2>
-    <p class="w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sequi facilis recusandae asperiores commodi
+    <h2 class="mb-3 position-relative">اسم القاعة
+      <i class="bi bi-pencil-fill position-absolute editHall transition cursor-pointer text-danger" (click)="editHall=!editHall"></i>
+      <i class="bi bi-trash3-fill position-absolute deleteHall transition cursor-pointer mainColor" (click)="confirmDeletion=!confirmDeletion"></i>
+    </h2>
+    <p class="w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sequi facilis recusandae asperiores
+      commodi
       debitis a perspiciatis unde pariatur maiores?</p>
   </div>
 </section>
+  <app-confirm-deletion style="z-index: 5; " *ngIf="confirmDeletion" (confirmDeletion)="closeConfirmDeletion($event)" ></app-confirm-deletion>
+
+<app-edit-hall *ngIf="editHall" (editPage)="closeEditPage($event)"></app-edit-hall>
+

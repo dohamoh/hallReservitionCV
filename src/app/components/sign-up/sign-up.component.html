@@ -4,34 +4,127 @@
       <div class="main p-0 rounded-3 col-lg-5 col-md-8 col-10">
         <input type="checkbox" id="chk" aria-hidden="true">
         <div class="signup h-100">
-          <form>
+          <form [formGroup]="registerForm" (ngSubmit)="signUp()">
             <label for="chk" aria-hidden="true">Sign up</label>
-            <div class="d-flex justify-content-center align-items-center mb-3 w-100">
-              <input class="w-10 m-0 my-auto align-items-center" type="checkbox" id="exampleCheck">
-            <label class="fs-5 m-0 w-50 justify-content-start" for="exampleCheck">أنا من خارج وزارة التعليم</label>
+
+
+            <div class="d-flex justify-content-center align-items-center mb-3 w-100 ">
+              <div class=" w-75 d-flex align-items-center justify-content-start">
+
+                <input class="w-10 m-0 my-auto align-items-center" type="checkbox" id="exampleCheck"
+                  (click)="ifChecked()" formControlName="outMinistry">
+                <label class="fs-5 m-0 w-50 justify-content-start" for="exampleCheck">أنا من خارج وزارة التعليم</label>
+              </div>
+
             </div>
 
-            <input type="text" name="name" placeholder="اسم الأدارة" required="">
-            <input class="my-2" type="email" name="email" placeholder="البريد الألكتروني" required="">
-            <input class="my-2" type="password" name="password" placeholder="كلمة المرور" required="">
-            <input type="number" name="phone" placeholder="رقم هاتفك" required="">
 
-            <div class="d-flex justify-content-center w-100 mt-3">
-              <select class="p-1" name="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
+
+
+
+
+
+            <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
+              <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
+                <input class="mb-1" type="text" name="managementName" id="managementName"
+                  formControlName="managementName" placeholder="اسم الأدارة" required="">
+                <div class="signUpErrs"
+                  *ngIf="registerForm.get('managementName')?.errors !==null && registerForm.get('managementName')?.touched && registerForm.get('managementName')">
+                  <p *ngIf="registerForm.get('managementName')?.errors?.['minlength'] ">Management Name min char is 4
+                  </p>
+                  <p *ngIf="registerForm.get('managementName')?.errors?.['maxlength'] ">Management Name min char is 20
+                  </p>
+                </div>
+              </div>
             </div>
-            
-            <button class="">Sign up</button>
+
+
+            <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
+              <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
+                <input class="my-1" type="email" formControlName="email" name="email" placeholder="البريد الألكتروني"
+                  required="">
+                <div class="signUpErrs"
+                  *ngIf="registerForm.get('email')?.errors !==null && registerForm.get('email')?.touched">
+                  <p *ngIf="registerForm.get('email')?.errors?.['required'] ">Email is required</p>
+                  <p *ngIf="registerForm.get('email')?.errors?.['email'] ">Email is Invalid </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
+              <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
+                <input class="my-1" type="password" formControlName="password" name="password"
+                  placeholder="كلمة المرور">
+                <div class="signUpErrs"
+                  *ngIf="registerForm.get('password')?.errors !==null && registerForm.get('password')?.touched">
+                  <p *ngIf="registerForm.get('password')?.errors?.['required'] ">Password is required</p>
+                  <p *ngIf="registerForm.get('password')?.errors?.['minlength'] ">Password min char is 4 </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
+              <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
+                <input class="mt-1" type="number" name="phone" formControlName="phone" placeholder="رقم هاتفك"
+                  required="">
+                <div class="signUpErrs"
+                  *ngIf="registerForm.get('phone')?.errors !==null && registerForm.get('phone')?.touched">
+                  <p *ngIf="registerForm.get('phone')?.errors?.['required'] ">phone is required</p>
+                  <p *ngIf="registerForm.get('phone')?.errors?.['minlength'] ">phone min char is 4 </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-100 d-flex align-items-center justify-content-center flex-column ">
+
+              <div class=" w-75">
+                <div class="d-flex justify-content-center w-100 mt-3 flex-column">
+                  <select class="p-1 w-100" name="gender" formControlName="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                  <div class=" signUpErrs "
+                    *ngIf="registerForm.get('gender')?.errors !==null && registerForm.get('gender')?.touched">
+                    <p *ngIf="registerForm.get('gender')?.errors?.['required'] ">gender is required</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="" type="submit" [ngClass]="{'invalid': registerForm.invalid}">Sign up</button>
           </form>
         </div>
         <div class="login">
-          <form>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
             <label class="" for="chk" aria-hidden="true">Login</label>
-            <input class="mb-3 bg-white" type="email" name="email" placeholder="البريد الألكتروني" required="">
-            <input class="bg-white" type="password" name="password" placeholder="كلمة المرور" required="">
-            <button class="mainColor bg-light">Login</button>
+
+            <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
+              <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
+                <p class=" text-white">{{emailErr}}</p>
+                <input class="my-1" type="email" formControlName="email" name="email" placeholder="البريد الألكتروني"
+                  required="">
+                <div class=" loginErrs "
+                  *ngIf="loginForm.get('email')?.errors !==null && loginForm.get('email')?.touched">
+                  <p *ngIf="loginForm.get('email')?.errors?.['required'] ">Email is required</p>
+                  <p *ngIf="loginForm.get('email')?.errors?.['email'] ">Email is Invalid </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
+              <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
+                <p class=" text-white">{{passwordErr}}</p>
+
+                <input class="my-1" type="password" formControlName="password" name="password"
+                  placeholder="كلمة المرور">
+                <div class=" loginErrs "
+                  *ngIf="loginForm.get('password')?.errors !==null && loginForm.get('password')?.touched">
+                  <p *ngIf="loginForm.get('password')?.errors?.['required'] ">Password is required</p>
+                  <p *ngIf="loginForm.get('password')?.errors?.['minlength'] ">Password min char is 4 </p>
+                </div>
+              </div>
+            </div>
+            <button class="mainColor bg-light" type="submit">Login</button>
           </form>
         </div>
       </div>

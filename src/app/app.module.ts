@@ -1,7 +1,7 @@
+import {  HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,9 @@ import { HallDetailsComponent } from './components/hall-details/hall-details.com
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { SliderHolderComponent } from './components/slider-holder/slider-holder.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDeletionComponent } from './components/confirm-deletion/confirm-deletion.component';
+import { EditHallComponent } from './components/edit-hall/edit-hall.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +32,18 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     SignUpComponent,
     HallDetailsComponent,
     ReservationsComponent,
-    SliderHolderComponent
+    SliderHolderComponent,
+    ConfirmDeletionComponent,
+    EditHallComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

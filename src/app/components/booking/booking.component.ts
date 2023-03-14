@@ -1,16 +1,21 @@
 import { Component, ElementRef } from '@angular/core';
-import * as $ from 'jquery';
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.scss']
+  styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent {
-ngOnInit(): void {
-  
-}
-  meeting='نوع اللقاء'
-constructor(private elementRef: ElementRef){}
+  meeting = 'نوع اللقاء';
+  constructor(private elementRef: ElementRef) {}
+  ngOnInit(): void {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    let date = yyyy + '-' + mm + '-' + dd;
+
+    this.elementRef.nativeElement.querySelector('#date').min = date;
+  }
   type(event: any) {
     const dom: HTMLElement = this.elementRef.nativeElement;
     const elements = dom.querySelectorAll('.activeType');
@@ -19,7 +24,5 @@ constructor(private elementRef: ElementRef){}
     }
     this.meeting = event.target.innerHTML;
     event.target.classList.add('activeType');
-
   }
-
 }

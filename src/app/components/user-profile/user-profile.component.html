@@ -8,10 +8,10 @@
             <div (click)="open()" class="point fs-4 mainColor p-2">
               <i class="bi bi-arrow-left-right"></i></div>
             <div #user class="user p-3 pe-0 fs-4">
-              <h5>الأسم :</h5>
-              <h5>الأدارة :</h5>
-              <h5>التليفون :</h5>
-              <h5>الجنس :</h5>
+              <h5 class="w-100">الأسم :{{userData?.username}}</h5>
+              <h5 *ngIf="!userData?.outMinistry" class="w-100">الأدارة :{{userData?.managementName}}</h5>
+              <h5 class="w-100">التليفون :{{userData?.phone}}</h5>
+              <h5 class="w-100">الجنس :{{userData?.gender}}</h5>
             </div>
             <ul class="text-decoration-none mt-2 list-unstyled p-3" id="v-pills-tab" role="tablist"
               aria-orientation="vertical">

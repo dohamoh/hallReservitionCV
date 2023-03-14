@@ -1,5 +1,5 @@
-<section id='booking' class=" w-100  d-flex align-items-center justify-content-center ">
-  <div class=" w-50 h-50 bg-black bg-opacity-75 rounded-3 position-relative ">
+<section id='booking' class=" w-100 row d-flex align-items-center justify-content-center ">
+  <div class=" col-md-6 col-8 h-auto bg-black bg-opacity-75 rounded-3 position-relative p-3">
 
 
     <div class="p-3 w-100">
@@ -7,72 +7,76 @@
     </div>
 
 
-    <div class=" row w-100  m-0 px-3">
-      <div class=" col-8 p-2 d-flex align-items-start justify-content-center flex-column">
+    <div class=" row w-100  m-0 ">
+      <div class=" col-12 col-sm-7  d-flex align-items-start justify-content-center flex-column">
         <input type="text" class=" w-100 rounded-5 p-2 pe-3" placeholder="اسم الادارة">
       </div>
 
-      <div class=" col-4 p-2 d-flex align-items-start justify-content-center flex-column">
+      <div class=" col-12 col-sm-5 py-2  d-flex align-items-start justify-content-end flex-column">
         <input type="text" class=" w-100 rounded-5 p-2 pe-3" placeholder="عدد الاعضاء">
       </div>
 
-      <div class=" col-4 p-2">
-        <label class="m-2 mainColor" for="name">التاريخ</label>
-        <input id="name" type="date" class=" w-100 rounded-5 p-2" placeholder="اسم الادارة">
+      <div class=" col-12 col-md-7 py-2 ">
+        <label class="m-2 mainColor" for="date">التاريخ</label>
+        <input id="date" type="date"   class=" w-100 rounded-5 p-2" placeholder="اسم الادارة">
       </div>
 
 
-      <div class=" col-3 p-2  d-flex align-items-end">
-        <div class="dropdown w-100">
-          <button
-            class="btn bg-white w-100 dropdown-toggle d-flex justify-content-between align-items-center flex-row rounded-5"
-            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{meeting}}
-          </button>
-          <ul class="dropdown-menu ">
-            <li><a class="dropdown-item" (click)="type($event)">برنامج</a></li>
-            <li><a class="dropdown-item" (click)="type($event)">لقاء</a></li>
-            <li><a class="dropdown-item" (click)="type($event)">اجتماع</a></li>
-            <li><a class="dropdown-item" (click)="type($event)">ورشه عمل</a></li>
-            <li><a class="dropdown-item" (click)="type($event)">اخري</a></li>
-          </ul>
+      <div class=" col-12 col-md-5 py-2  d-flex align-items-end">
+
+        <div class="justify-content-center w-100 ">
+          <label class="m-2 mainColor" for="name">نوع اللقاء
+          </label>
+
+          <select class="rounded-5 w-100 p-2">
+            <option value="برنامج">برنامج</option>
+            <option value="لقاء">لقاء</option>
+            <option value="اجتماع">اجتماع</option>
+            <option value="ورشه عمل">ورشه عمل</option>
+            <option value="اخري">اخري</option>
+          </select>
         </div>
       </div>
 
 
+      <div class="row col-12  py-2 m-0 mt-2  d-flex align-items-end justify-content-between  ">
+        <div class="p-0 ps-lg-1 col-12 col-lg-4">
+          <!-- <button class=" btn btn-danger w-100 m-0 rounded-5 p-2">sd</button> -->
+
+          <label class="m-2 mainColor" for="name">القاعة
+          </label>
+
+          <select class="rounded-5 w-100 p-2 mb-2 mb-lg-0">
+            <option value="قاعه رقم 1">قاعه رقم 1</option>
+            <option value="قاعه رقم 2">قاعه رقم 2</option>
+            <option value="قاعه رقم 3">قاعه رقم 3</option>
+            <option value="قاعه رقم 4">قاعه رقم 4</option>
+            <option value="قاعه رقم 5">قاعه رقم 5</option>
+            <option value="قاعه رقم 6">قاعه رقم 6</option>
 
 
-      <div class="row col-5 p-0 py-2 m-0 d-flex align-items-end justify-content-center  ">
-
-        <div class=" col"> <button class=" btn bg-white rounded-0 w-100 rounded-5" #time1
+          </select>
+        </div>
+        <div class=" col-6 col-lg-4 p-0 px-lg-1 m-0"> <button class=" btn   bg-white rounded-0 w-100 rounded-5 p-2" #time1
             (click)="time1.classList.add('timeFocus')" (click)="time2.classList.remove('timeFocus')">12pm-8pm</button>
         </div>
-        <div class=" col"> <button class=" btn bg-white rounded-0 w-100 rounded-5" #time2
+        <div class=" col-6 col-lg-4 p-0 pe-lg-1  m-0"> <button class=" btn   bg-white rounded-0 w-100 rounded-5 p-2 " #time2
             (click)="time1.classList.remove('timeFocus')" (click)="time2.classList.add('timeFocus')">12pm-8pm</button>
         </div>
       </div>
     </div>
-    <button class=" btn mainBg text-white position-absolute bottom-0 end-0 m-3 rounded-5 p-2 px-4">CHECK
-      AVAILABILITY</button>
+    <div class=" w-100 row mt-3 m-0 d-flex align-items-center justify-content-between ">
+      <div class=" col-8 d-flex justify-content-start ">
+
+      <button class=" btn mainBg offset-1 text-white  rounded-5 ">CHECK AVAILABILITY</button>
+    </div>
+
+      <div class=" col-3 d-flex justify-content-end m-0">
+        <input type="file" id="uploadeFile" class="d-none">
+      <label for="uploadeFile" class="bg-white rounded-5 cursor-pointer"><i class="bi bi-file-earmark-arrow-up-fill fs-4"></i>
+      </label>
+      </div>
+    </div>
+
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

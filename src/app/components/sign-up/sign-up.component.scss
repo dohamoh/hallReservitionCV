@@ -21,8 +21,12 @@
     cursor: pointer;
     transition: .5s ease-in-out;
   }
+  .inputDiv{
+width: 100%;
+position: relative;
+  }
   input{
-    width: 60%;
+    width: 100%;
     background: #f3f3f3;
     justify-content: center;
     display: flex;
@@ -31,6 +35,8 @@
     border: none;
     outline: none;
     border-radius: 5px;
+    position: relative;
+    
   }
   button{
     width: 60%;
@@ -78,3 +84,20 @@
 .w-10{
   width: 10% !important;
 }
+
+.signUpErrs{
+  p{
+    color: rgb(137, 0, 0);
+  }
+}
+.loginErrs{
+  p{
+    color: white !important;
+  }
+}
+.invalid{
+  pointer-events: none;
+  opacity: 50%;
+}
+
+

@@ -4,6 +4,9 @@ body {
   font-family: 'IBM Plex Sans Arabic', sans-serif;
   // font-family: 'Mada', sans-serif;
 }
+p{
+  margin: 0 !important;
+}
 .mainColor {
   color: #2fab99 !important;
 }
@@ -28,7 +31,9 @@ body {
   width: 50% !important;
   margin: auto;
 }
-
+.transition{
+  transition: 0.5s;
+}
 .cursor-pointer {
   cursor: pointer;
 }
