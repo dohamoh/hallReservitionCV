@@ -1,3 +1,5 @@
+import { LogoutGuard } from './services/logout.guard';
+import { LoginGuard } from './services/login.guard';
 import { BookingComponent } from './components/booking/booking.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
@@ -11,8 +13,8 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'booking',component:BookingComponent},
   {path:'galary',component:GalaryComponent},
-  {path:'register',component:SignUpComponent},
-  {path:'userProfile',component:UserProfileComponent},
+  {path:'register',canActivate:[LogoutGuard],component:SignUpComponent},
+  {path:'userProfile',canActivate:[LoginGuard],component:UserProfileComponent},
 ];
 
 @NgModule({
