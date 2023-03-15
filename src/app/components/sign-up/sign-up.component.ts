@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -37,7 +38,7 @@ export class SignUpComponent {
   constructor(
     private AuthService: AuthService,
     private ElementRef: ElementRef
-  ) { }
+  ) {}
   ifChecked() {
     if (this.ElementRef.nativeElement.querySelector('#exampleCheck').checked) {
       this.registerForm.removeControl('managementName');
@@ -66,9 +67,8 @@ export class SignUpComponent {
 
     this.AuthService.login(this.loginForm.value).subscribe(
       (data: any) => {
-        if (data.message == 'welcome') {
-          localStorage.setItem('userToken', data.token);
-        }
+        console.log(data);
+        localStorage.setItem('userToken', data.token);
       },
       (err: HttpErrorResponse) => {
         if (err.error.message == 'in valid password') {

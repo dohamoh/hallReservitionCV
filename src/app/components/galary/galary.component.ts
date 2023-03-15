@@ -7,11 +7,7 @@ import { Component } from '@angular/core';
 })
 export class GalaryComponent {
   disPlayHall: any = ''
-
   getSrc(event: any) {
    this.disPlayHall = event.target.parentElement.children[0].attributes.src.nodeValue
- }
- closeDetails() {
-   this.disPlayHall = ''
  }
 }

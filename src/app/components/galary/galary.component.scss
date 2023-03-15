@@ -4,14 +4,7 @@
   box-sizing: border-box;
 }
 
-.closeIcon {
-  top: 17%;
-  right: 15%;
-  z-index: 8;
-  @media screen and (max-width: 768px) {
-    top: 25%;
-  }
-}
+
 
 img {
   max-width: 100%;

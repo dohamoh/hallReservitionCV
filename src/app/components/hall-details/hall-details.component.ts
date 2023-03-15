@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hall-details',
@@ -9,6 +9,13 @@ export class HallDetailsComponent {
   confirmDeletion:Boolean=false
   editHall:Boolean=false
   @Input()hallData:any
+
+
+  @Output() closeHallDetails:EventEmitter<any> =new EventEmitter<any>();
+
+  closeDetails() {
+    this.closeHallDetails.emit('');
+  }
   closeConfirmDeletion(data:any){
     this.confirmDeletion = data
   }
