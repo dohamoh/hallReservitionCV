@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hall-details',
@@ -6,5 +6,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./hall-details.component.scss']
 })
 export class HallDetailsComponent {
+  confirmDeletion:Boolean=false
+  editHall:Boolean=false
   @Input()hallData:any
+  closeConfirmDeletion(data:any){
+    this.confirmDeletion = data
+  }
+  closeEditPage(data:any){
+    this.editHall = data
+  }
 }
