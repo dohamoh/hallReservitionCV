@@ -37,7 +37,8 @@ export class SignUpComponent {
   passwordErr: any;
   constructor(
     private AuthService: AuthService,
-    private ElementRef: ElementRef
+    private ElementRef: ElementRef,
+    private Router:Router
   ) {}
   ifChecked() {
     if (this.ElementRef.nativeElement.querySelector('#exampleCheck').checked) {
@@ -67,8 +68,10 @@ export class SignUpComponent {
 
     this.AuthService.login(this.loginForm.value).subscribe(
       (data: any) => {
-        console.log(data);
-        localStorage.setItem('userToken', data.token);
+        if (data.token) {
+          localStorage.setItem('userToken', data.token);
+this.Router.navigate(['/home'])
+        }
       },
       (err: HttpErrorResponse) => {
         if (err.error.message == 'in valid password') {
