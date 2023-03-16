@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
       <ul class="navbar-nav justify-content-around d-flex">
         <li class="nav-item">
-          <a class="nav-link active text-white fw-semibold" aria-current="page" routerLink="/home">الرئسية</a>
+          <a class="nav-link active text-white fw-semibold" aria-current="page" routerLink="/home">{{'navBar.home' | translate}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white fw-semibold px-lg-3" routerLink="/booking">أحجز الأن</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white fw-semibold px-lg-3" routerLink="/galary">معرض الصور</a>
+          <a class="nav-link text-white fw-semibold px-lg-3" routerLink="/gallery">معرض الصور</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white fw-semibold px-lg-3" routerLink="/userProfile">الحجوزات</a>
@@ -34,11 +34,21 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li> -->
+
       </ul>
+      <span class="ps-md-3 pb-2 pb-md-0 mainBg text-white">
+        <select class="form-control text-white mainBg border-0 fs-5 " #selectedLang
+          (change)="switchLang(selectedLang.value)">
+          <option *ngFor="let language of translate.getLangs()" [value]="language"
+            [selected]="language === translate.currentLang">
+            {{ language }}
+          </option>
+        </select>
+      </span>
       <div class="sign py-2 pt-lg-0 pe-4 pe-lg-0 ms-xxl-5 ps-xxl-3">
         <li class="nav-item text-decoration-none list-unstyled">
           <a class="nav-link text-white fw-semibold" routerLink="/register">تسجيل الدخول</a>
-          <a class="nav-link text-white fw-semibold" (click)="logout()" routerLink="/register" >تسجيل الخروج</a>
+          <!-- <a class="nav-link text-white fw-semibold" (click)="logout()" routerLink="/register" >تسجيل الخروج</a> -->
         </li>
       </div>
     </div>

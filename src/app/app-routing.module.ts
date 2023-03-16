@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'',redirectTo:"home",pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'booking',component:BookingComponent},
-  {path:'galary',component:GalaryComponent},
+  {path:'gallery',component:GalaryComponent},
   {path:'register',canActivate:[LogoutGuard],component:SignUpComponent},
   {path:'userProfile',canActivate:[LoginGuard],component:UserProfileComponent},
 ];

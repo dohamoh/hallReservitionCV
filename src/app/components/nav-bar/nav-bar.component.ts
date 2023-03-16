@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-logout(){
-  localStorage.removeItem('userToken')
-}
+  constructor(public translate:TranslateService) {
+    translate.addLangs(['ar' , 'en']);
+    translate.setDefaultLang('ar');
+    translate.use('ar')
+  }
+  switchLang(lang: string) {
+    this.translate.use(lang);
+ }
 }

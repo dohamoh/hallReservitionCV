@@ -10,8 +10,7 @@ export class HallDetailsComponent {
   editHall:Boolean=false
   @Input()hallData:any
 
-
-  @Output() closeHallDetails:EventEmitter<any> =new EventEmitter<any>();
+  @Output() closeHallDetails:EventEmitter<any> = new EventEmitter<any>();
 
   closeDetails() {
     this.closeHallDetails.emit('');

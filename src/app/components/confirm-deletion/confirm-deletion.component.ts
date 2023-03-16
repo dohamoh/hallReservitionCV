@@ -8,17 +8,17 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrls: ['./confirm-deletion.component.scss']
 })
 export class ConfirmDeletionComponent {
-  @Output() confirmDeletion:EventEmitter<any> =new EventEmitter<any>();
-constructor(private HallService:HallService,private Router:Router){}
+  @Output() confirmDeletion: EventEmitter<any> = new EventEmitter<any>();
+  constructor(private HallService: HallService, private Router: Router) { }
   closeConfirmDeletion() {
     this.confirmDeletion.emit(false);
   }
-delete(){
-this.HallService.deleteHall('id').subscribe((data:any)=>{
-  console.log(data);
-  if (data.message == 'deleted') {
-this.Router.navigate(["/galary"])
+  delete() {
+    this.HallService.deleteHall('id').subscribe((data: any) => {
+      console.log(data);
+      if (data.message == 'deleted') {
+        this.Router.navigate(["/galary"])
+      }
+    })
   }
-})
-}
 }

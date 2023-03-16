@@ -16,10 +16,7 @@ constructor(private SharedService:SharedService){}
   ngOnInit(): void {
 
     this.SharedService.currentUserData.subscribe((data: any) => {
-
-
       this.userData = data;
-
     });
     if (window.innerWidth <= 375) {
       this.width = '55%';

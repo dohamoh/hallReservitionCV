@@ -7,7 +7,6 @@
           <form [formGroup]="registerForm" (ngSubmit)="signUp()">
             <label for="chk" aria-hidden="true">Sign up</label>
 
-
             <div class="d-flex justify-content-center align-items-center mb-3 w-100 ">
               <div class=" w-75  d-flex align-items-center justify-content-start">
 
@@ -18,15 +17,9 @@
 
             </div>
 
-
-
-
-
-
-
             <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
               <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
-                <input class="mb-1" type="text" name="managementName" id="managementName" 
+                <input class="mb-1" type="text" name="managementName" id="managementName"
                   formControlName="managementName" placeholder="اسم الأدارة" required="">
                 <div class="signUpErrs"
                   *ngIf="registerForm.get('managementName')?.errors !==null && registerForm.get('managementName')?.touched && registerForm.get('managementName')">

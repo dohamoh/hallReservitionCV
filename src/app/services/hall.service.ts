@@ -7,8 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class HallService {
   private baseUrl = 'http://localhost:3000/hall';
 
-  constructor(private HttpClient:HttpClient) { }
+  constructor(private HttpClient: HttpClient) { }
   deleteHall(id: any): any {
     return this.HttpClient.delete(`${this.baseUrl}/deleteHall/${id}`);
   }
+  // editHall(data:any , id:any): any {
+  //   return this.HttpClient.patch(`${this.baseUrl}/editHall/${id}`);
+  // }
 }

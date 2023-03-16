@@ -4,9 +4,9 @@
 //     border: 1px solid #2fab99;
 //     width: 100%;
 //   }
-  // background-image: url('../../../assets/images/bookingBg.jpeg');
-  // background-size: cover;
-  // background-position: center;
+// background-image: url('../../../assets/images/bookingBg.jpeg');
+// background-size: cover;
+// background-position: center;
 //   &::after{
 //     content: '';
 //     position: absolute;
@@ -104,6 +104,10 @@
     border-right: #2fab99 solid 7px;
   }
 
+  .radioBtn:checked {
+    background-color: #c6f3dfd0 !important;
+  }
+
   input,
   button {
     outline: none !important;
@@ -113,13 +117,16 @@
   .activeType {
     background-color: #2fab99;
   }
+
   .timeFocus {
     background-color: #2fab99 !important;
     color: white;
   }
+
   .dropdown-menu {
     --bs-dropdown-link-active-bg: #2fab99;
     width: 100%;
+
     li {
       a {
         text-align: initial !important;
@@ -127,17 +134,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -10,16 +10,17 @@ Router
 export class SharedService {
   private userData = new BehaviorSubject<any>([]);
   currentUserData = this.userData.asObservable();
+
   constructor(private AuthService:AuthService,private Router:Router) { }
 
   updateUserData() {
-
-
     if (localStorage.getItem('userToken')) {
       this.AuthService.getUserData(localStorage.getItem('userToken')).subscribe(
         (data: any) => {
+          if (data.userData) {
+            this.userData.next(data.userData);
+          }
 
-          this.userData.next(data.userData);
         },
         (err: HttpErrorResponse) => {
           if (

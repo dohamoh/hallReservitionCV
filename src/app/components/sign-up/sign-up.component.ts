@@ -38,8 +38,8 @@ export class SignUpComponent {
   constructor(
     private AuthService: AuthService,
     private ElementRef: ElementRef,
-    private Router:Router
-  ) {}
+    private Router: Router
+  ) { }
   ifChecked() {
     if (this.ElementRef.nativeElement.querySelector('#exampleCheck').checked) {
       this.registerForm.removeControl('managementName');
@@ -70,7 +70,7 @@ export class SignUpComponent {
       (data: any) => {
         if (data.token) {
           localStorage.setItem('userToken', data.token);
-this.Router.navigate(['/home'])
+          this.Router.navigate(['/home'])
         }
       },
       (err: HttpErrorResponse) => {
