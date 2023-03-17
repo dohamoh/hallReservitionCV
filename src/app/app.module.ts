@@ -21,7 +21,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDeletionComponent } from './components/confirm-deletion/confirm-deletion.component';
 import { EditHallComponent } from './components/edit-hall/edit-hall.component';
-
+import { AddHallComponent } from './components/add-hall/add-hall.component';
+import { ConnectUsComponent } from './components/connect-us/connect-us.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -40,7 +41,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReservationsComponent,
     SliderHolderComponent,
     ConfirmDeletionComponent,
-    EditHallComponent
+    EditHallComponent,
+    AddHallComponent,
+    ConnectUsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,48 +3,51 @@
     <a class="navbar-brand me-xxl-5 pe-xxl-3 me-0 pe-0 d-flex justify-content-lg-center" routerLink="/home">
       <img class="logo" src="../../../assets/images/Logo.svg" alt="">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
-      <ul class="navbar-nav justify-content-start d-flex">
+      <ul class="navbar-nav fs-5 justify-content-start d-flex">
         <li class="nav-item">
-          <a class="nav-link active text-white fw-semibold" aria-current="page" routerLink="/home">{{'navBar.home' | translate}}</a>
+          <a class="nav-link active text-white" aria-current="page" routerLink="/home">{{'navBar.home' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white fw-semibold px-lg-3" routerLink="/booking">{{'navBar.bookNow' | translate}} </a>
+          <a class="nav-link text-white px-xl-4 px-lg-3 px-0" routerLink="/booking">{{'navBar.bookNow' | translate}}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white fw-semibold px-lg-3" routerLink="/gallery">{{'navBar.gallery' | translate}} </a>
+          <a class="nav-link text-white px-xl-4 px-lg-3 px-0" routerLink="/gallery">{{'navBar.gallery' | translate}}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white fw-semibold px-lg-3" routerLink="/userProfile">{{'navBar.reservations' | translate}} </a>
+          <a class="nav-link text-white px-xl-4 px-lg-3 px-0" routerLink="/userProfile">{{'navBar.reservations' |
+            translate}} </a>
         </li>
-        <div class="sign pe-lg-4 pe-0">
-          <li class="nav-item text-decoration-none list-unstyled">
-            <a class="nav-link text-white fw-semibold" routerLink="/register">تسجيل الدخول</a>
-            <!-- <a class="nav-link text-white fw-semibold" (click)="logout()" routerLink="/register">تسجيل الخروج</a> -->
-          </li>
-        </div>
       </ul>
+      <div class="sign fs-5 ps-lg-5 pe-0 d-flex justify-content-lg-end justify-content-center w-25">
+        <li *ngIf="!isLoggedIn" class="nav-item text-decoration-none list-unstyled">
+          <a class="nav-link text-white " #outOrIn routerLink="/register">{{'navBar.signIn' | translate}}</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item text-decoration-none list-unstyled">
+          <a class="nav-link text-white " routerLink="/register" (click)="logOut()">{{'navBar.logout' | translate}}</a>
+        </li>
+      </div>
       <!-- <label for="ar" class="arabicLang"></label>
       <label for="en" class="englishLang"></label> -->
       <span class="pb-2 pb-md-0 mainBg text-white">
-        <select class="form-control text-white mainBg border-0 fs-5" #selectedLang
+        <select class="form-control text-white mainBg border-0 fs-4 fw-semibold text-start" #selectedLang
           (change)="switchLang(selectedLang.value)">
+
           <option *ngFor="let language of translate.getLangs()" [value]="language"
             [selected]="language === translate.currentLang">
+            <!-- <label for="ar" class="arabicLang"></label>
+          <label for="en" class="englishLang"></label> -->
             {{ language }}
           </option>
         </select>
       </span>
-      <div class="sign py-2 pt-lg-0 pe-4 pe-lg-0 ms-xxl-5 ps-xxl-3">
-        <li class="nav-item text-decoration-none list-unstyled">
-          <a class="nav-link text-white fw-semibold" routerLink="/register">تسجيل الدخول</a>
-          <!-- <a class="nav-link text-white fw-semibold" (click)="logout()" routerLink="/register" >تسجيل الخروج</a> -->
-        </li>
-      </div>
+
     </div>
   </div>
 </nav>
-

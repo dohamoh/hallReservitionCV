@@ -1,7 +1,6 @@
 <section class="p-3 h-100 d-flex align-items-center justify-content-center">
   <div class="d-flex align-items-center justify-content-center">
-    <div
-      class="bg-light h-100 p-5 d-flex align-items-center justify-content-evenly flex-column w-75 rounded-3 my-5 position-relative">
+    <div class="bg-light h-100 p-5 d-flex align-items-center justify-content-evenly flex-column w-75 rounded-3 my-5 position-relative">
       <i class="bi bi-x position-absolute top-0 end-0 m-2 cursor-pointer fs-2" (click)="closeAddPage()"></i>
       <div class="container">
         <form [formGroup]="addHallForm" (ngSubmit)="addHall(addHallForm.value)">
@@ -30,16 +29,7 @@
           </div>
         </form>
       </div>
-      <!-- <div class="row d-flex w-100 justify-content-end">
-        <div class="col-md-2 col-6 d-flex justify-content-center">
-          <button class="btn mainBg text-white border-0" type="submit">حفط</button>
-        </div>
-
-        <div class="col-md-2 col-6 d-flex justify-content-start">
-          <button class="btn bg-danger text-white border-0" (click)="closeAddPage()">ألغاء</button>
-        </div>
-      </div> -->
     </div>
   </div>
 </section>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

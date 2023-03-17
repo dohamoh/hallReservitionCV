@@ -1,3 +1,4 @@
+import { SharedService } from './../../services/shared.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component, ElementRef } from '@angular/core';
@@ -38,7 +39,8 @@ export class SignUpComponent {
   constructor(
     private AuthService: AuthService,
     private ElementRef: ElementRef,
-    private Router: Router
+    private Router: Router,
+    private SharedService:SharedService
   ) { }
   ifChecked() {
     if (this.ElementRef.nativeElement.querySelector('#exampleCheck').checked) {
@@ -62,6 +64,7 @@ export class SignUpComponent {
   }
   signUp() {
     this.AuthService.signUp(this.registerForm.value).subscribe((data: any) => {
+      this.Router.navigate(['/home'])
     });
   }
   login() {
@@ -70,6 +73,7 @@ export class SignUpComponent {
       (data: any) => {
         if (data.token) {
           localStorage.setItem('userToken', data.token);
+          this.SharedService.isLoggedInFun()
           this.Router.navigate(['/home'])
         }
       },

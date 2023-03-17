@@ -11,6 +11,8 @@ export class SharedService {
   private userData = new BehaviorSubject<any>([]);
   currentUserData = this.userData.asObservable();
 
+  private LoggedIn = new BehaviorSubject<any>([]);
+  isLoggedIn = this.LoggedIn.asObservable();
   constructor(private AuthService:AuthService,private Router:Router) { }
 
   updateUserData() {
@@ -34,4 +36,25 @@ export class SharedService {
       );
     }
   }
+  isLoggedInFun() {
+    if (localStorage.getItem('userToken')) {
+      this.LoggedIn.next(true);
+    }else{
+      this.LoggedIn.next(false);
+
+    }
+  }
+  // LogIn() {
+  //   if (localStorage.getItem('userToken')) {
+  //     this.isLoggedIn = true
+  //   }
+  // }
+  // logOut() {
+  //   if (localStorage.getItem('userToken')) {
+  //     localStorage.removeItem('userToken');
+  //     this.isLoggedIn = false
+  //   }else{
+  //     this.isLoggedIn = false
+  //   }
+  // }
 }

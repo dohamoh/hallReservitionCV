@@ -1,12 +1,12 @@
 section {
 
   .slide {
-    height: 80vh;
+    height: auto;
 
     img {
       object-fit: cover !important;
+      height: 40rem !important;
     }
-
     &::after {
       content: '';
       position: absolute;
