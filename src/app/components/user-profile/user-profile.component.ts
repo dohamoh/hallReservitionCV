@@ -11,13 +11,15 @@ export class UserProfileComponent implements OnInit {
   right: any;
   userData:any
   @ViewChild('sideNav') sideNav: any;
-
+  userData1={
+    role:'admin'
+  }
 constructor(private SharedService:SharedService){}
   ngOnInit(): void {
 
-    this.SharedService.currentUserData.subscribe((data: any) => {
-      this.userData = data;
-    });
+    // this.SharedService.currentUserData.subscribe((data: any) => {
+    //   this.userData = data;
+    // });
     if (window.innerWidth <= 375) {
       this.width = '55%';
       this.right = '-55%';

@@ -1,38 +1,54 @@
 <section id='booking' class=" w-100 row d-flex align-items-center justify-content-center bg-light m-0 ">
-  <div class=" col-md-6 col-8 h-auto bg-black bg-opacity-75 rounded-3 position-relative p-3 "
-    style="box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);">
+
+  <form [formGroup]="reservationForm" (ngSubmit)="reservation()"
+    class=" col-md-6 col-8 h-auto bg-black bg-opacity-75 rounded-3 position-relative p-3 " style="box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+  ">
+
+
     <div class="p-3 w-100">
-      <h2 class=" text-center text-capitalize mainColor ">make reversion</h2>
+      <h2 class=" text-center text-capitalize mainColor ">{{'booking.MakeReservation' | translate}}</h2>
     </div>
     <div class=" row w-100  m-0 ">
-      <div class=" col-12 col-sm-7 d-flex align-items-start justify-content-center flex-column">
-        <input type="text" class=" w-100 rounded-5 p-2 pe-3" placeholder="اسم الادارة">
+
+      <div class=" col-12 col-sm-7  d-flex align-items-start justify-content-center flex-column">
+        <input type="text" class=" w-100 rounded-5 p-2 pe-3" formControlName="AdministrationName"
+          placeholder="{{'booking.AdministrationName' | translate}}">
       </div>
       <div class=" col-12 col-sm-5 py-2  d-flex align-items-start justify-content-end flex-column">
-        <input type="text" class=" w-100 rounded-5 p-2 pe-3" placeholder="عدد الاعضاء">
+        <input type="number" class=" w-100 rounded-5 p-2 pe-3" formControlName="members"
+          placeholder=" {{'booking.NumberOfMembers' | translate}}">
       </div>
       <div class=" col-12 col-md-7 py-2 ">
-        <label class="m-2 mainColor" for="date">التاريخ</label>
-        <input id="date" type="date" class=" w-100 rounded-5 p-2" placeholder="التاريخ ">
+        <label class="m-2 mainColor" for="date">{{'booking.date' | translate}}</label>
+        <input id="date" type="date" class=" w-100 rounded-5 p-2" formControlName="date"
+          placeholder="{{'booking.date' | translate}}">
       </div>
+
+
       <div class=" col-12 col-md-5 py-2  d-flex align-items-end">
+
         <div class="justify-content-center w-100 ">
-          <label class="m-2 mainColor" for="name">نوع اللقاء
+          <label class="m-2 mainColor" for="name">{{'booking.encounterType' | translate}}
           </label>
-          <select class="rounded-5 w-100 p-2">
-            <option value="برنامج">برنامج</option>
-            <option value="لقاء">لقاء</option>
-            <option value="اجتماع">اجتماع</option>
-            <option value="ورشه عمل">ورشه عمل</option>
-            <option value="اخري">اخري</option>
+
+          <select class="rounded-5 w-100 p-2" formControlName="encounterType">
+            <option [ngValue]="null" disabled>{{'booking.choose' | translate}}</option>
+            <option value="{{'booking.program' | translate}}">{{'booking.program' | translate}}</option>
+            <option value="{{'booking.encounter' | translate}}">{{'booking.encounter' | translate}}</option>
+            <option value="{{'booking.meeting' | translate}}">{{'booking.meeting' | translate}}</option>
+            <option value="{{'booking.Workshop' | translate}}">{{'booking.Workshop' | translate}}</option>
+            <option value="{{'booking.other' | translate}}">{{'booking.other' | translate}}</option>
           </select>
         </div>
       </div>
+
       <div class="row col-12  py-2 m-0 mt-2 d-flex align-items-end justify-content-between  ">
         <div class="p-0 ps-lg-1 col-12 col-lg-4">
           <!-- <button class=" btn btn-danger w-100 m-0 rounded-5 p-2">sd</button> -->
+
           <label class="m-2 mainColor" for="name">التاريخ
           </label>
+
           <select class="rounded-5 w-100 p-2 mb-2 mb-lg-0">
             <option value="قاعه رقم 1">قاعه رقم 1</option>
             <option value="قاعه رقم 2">قاعه رقم 2</option>
@@ -40,6 +56,8 @@
             <option value="قاعه رقم 4">قاعه رقم 4</option>
             <option value="قاعه رقم 5">قاعه رقم 5</option>
             <option value="قاعه رقم 6">قاعه رقم 6</option>
+
+
           </select>
         </div>
         <div class=" col-6 col-lg-4 p-0 px-lg-1 m-0">
@@ -47,25 +65,28 @@
           <label for="time1">8am - 12pm</label>
           <input class="radioBtn" type="radio" id="time2" name="time" value="time2">
           <label for="adult">2pm - 8pm</label> -->
-          <button class=" btn   bg-white rounded-0 w-100 rounded-5 p-2"
-            #time1 (click)="time1.classList.add('timeFocus')"
-            (click)="time2.classList.remove('timeFocus')">8am - 12pm
+          <button class=" btn   bg-white rounded-0 w-100 rounded-5 p-2" #time1
+            (click)="time1.classList.add('timeFocus')" (click)="time2.classList.remove('timeFocus')">8am - 12pm
           </button>
         </div>
         <div class=" col-6 col-lg-4 p-0 pe-lg-1 m-0">
           <button class=" btn bg-white rounded-0 w-100 rounded-5 p-2 " #time2
             (click)="time1.classList.remove('timeFocus')" (click)="time2.classList.add('timeFocus')">2pm - 8pm</button>
+
         </div>
       </div>
     </div>
     <div class=" w-100 row mt-3 m-0 d-flex align-items-center justify-content-between ">
       <div class=" col-8  d-flex justify-content-start ">
+
         <button class=" btn mainBg offset-1 text-white  rounded-5">CHECK AVAILABILITY</button>
+
         <div class=" d-flex align-items-center justify-content-start">
           <input class=" m-0 w-auto ms-3" type="checkbox" id="pdfCheck">
           <label class="fs-6 m-0  text-white" for="exampleCheck">print pdf</label>
         </div>
       </div>
+
       <div class=" col-3 d-flex justify-content-end m-0">
         <input type="file" id="uploadeFile" class="d-none">
         <label for="uploadeFile" class="bg-white rounded-5 cursor-pointer"><i
@@ -73,5 +94,5 @@
         </label>
       </div>
     </div>
-  </div>
+</form>
 </section>

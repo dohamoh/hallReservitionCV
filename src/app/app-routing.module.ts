@@ -1,3 +1,4 @@
+import { ConnectUsComponent } from './components/connect-us/connect-us.component';
 import { LogoutGuard } from './services/logout.guard';
 import { LoginGuard } from './services/login.guard';
 import { BookingComponent } from './components/booking/booking.component';

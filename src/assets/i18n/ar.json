@@ -1,5 +1,58 @@
  {
   "navBar": {
-    "home" : "الرئسية"
+    "home" : "الرئسية",
+    "bookNow" : "أحجز الأن",
+    "gallery" : "معرض الصور ",
+    "reservations" : "الحجوزات",
+    "signIn" : "تسجيل الدخول",
+    "logout" : "تسجيل الخروج"
+  },
+  "home": {
+    "bookNow" : "أحجز الأن",
+    "gallery" : "معرض الصور "
+
+  },
+  "booking": {
+    "MakeReservation" : "أحجز الأن",
+    "AdministrationName" : "اسم الادارة",
+    "NumberOfMembers" : "عدد الاعضاء",
+    "bookNow" : "أحجز الأن",
+    "encounterType" : "نوع اللقاء",
+    "choose" : "أختر",
+    "program" : "برنامج",
+    "Workshop" : "ورشة عمل",
+    "other" : "اخرى",
+    "meeting" : "اجتماع",
+    "encounter" : "لقاء",
+    "date" : "التاريخ",
+    "hall" : "القاعه",
+    "reserve" : "أحجز"
+
+  },
+  "editHall": {
+    "ChooseANewPhoto" : "أختر صورة جديدة",
+    "maximumNumberOfAttendees" : "الحد الأقصى لعدد الحاضرين",
+    "ChangingTheNameOfTheHall" : "تعديل علي أسم القاعة",
+    "ChangingTheDescriptionOfTheHall" : "تعديل علي وصف القاعة",
+    "done" : "تم",
+    "cancel" : "إلغاء"
+
+
+  },
+  "footer": {
+    "forContactUs" : "للتواصل معنا",
+    "dimensions" :"أفضل أبعاد للموقع",
+    "AvailableHalls" : "القاعات المتوفرة",
+    "HallReservation" :"حجز القاعات",
+
+    "contactUs" : "تواصل معنا",
+    "login" : "تسجيل الدخول",
+    "footerText":"جميع الحقوق محفوظة لوزارة التعليم - المملكة العربية السعودية"
+
+
+
+  },
+  "deletion": {
+    "sure?" : "هل انت متاكد ؟"
   }
  }
