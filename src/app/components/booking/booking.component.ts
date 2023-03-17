@@ -1,3 +1,4 @@
+import { SharedService } from './../../services/shared.service';
 import { ReservationService } from './../../services/reservation.service';
 import { Component, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -7,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent {
+  allHalls:any
   meeting = 'نوع اللقاء';
   file:any
   encounterTime:any
@@ -19,8 +21,11 @@ export class BookingComponent {
     encounterTime: new FormControl(null, [Validators.required]),
     file: new FormControl(null, []),
   });
-  constructor(private elementRef: ElementRef,private ReservationService:ReservationService) {}
+  constructor(private elementRef: ElementRef,private ReservationService:ReservationService,private SharedService:SharedService) {}
   ngOnInit(): void {
+this.SharedService.currentAllHalls.subscribe((data:any)=>{
+this.allHalls = data
+})
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');

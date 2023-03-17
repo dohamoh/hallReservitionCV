@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-Router
+import { HallService } from './hall.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,11 @@ export class SharedService {
   private userData = new BehaviorSubject<any>([]);
   currentUserData = this.userData.asObservable();
 
-  constructor(private AuthService:AuthService,private Router:Router) { }
+
+  private allHalls = new BehaviorSubject<any>([]);
+  currentAllHalls = this.allHalls.asObservable();
+
+  constructor(private AuthService:AuthService,private Router:Router,private HallService:HallService) { }
 
   updateUserData() {
     if (localStorage.getItem('userToken')) {
@@ -33,5 +38,12 @@ export class SharedService {
         }
       );
     }
+  }
+  updateAllHalls() {
+    console.log('h');
+
+ this.HallService.getHalls().subscribe((data:any)=>{
+  this.allHalls.next(data.halls);
+ })
   }
 }

@@ -18,4 +18,7 @@ export class HallService {
   editHall(data:any , id:any): any {
     return this.HttpClient.patch(`${this.baseUrl}/editHall/${id}` , data);
   }
+  getHalls(): any {
+    return this.HttpClient.get(`${this.baseUrl}/getHalls`);
+  }
 }
