@@ -1,5 +1,56 @@
 {
   "navBar": {
-    "home" : "home"
+    "home" : "home",
+    "bookNow" : "Book Now",
+    "gallery" : "gallery",
+    "reservations" : "reservations",
+    "signIn" : "signIn",
+    "logout" : "logout"
+  },
+  "home": {
+    "bookNow" : "Book Now",
+    "gallery" : "gallery"
+  },
+  "booking": {
+    "MakeReservation" : "Make Reservation",
+    "AdministrationName" : "Administration Name",
+    "NumberOfMembers" : "Number Of Members",
+    "bookNow" : "Book Now",
+    "encounterType" : "EncounterType",
+    "choose" : "Choose",
+    "program" : "program",
+    "Workshop" : "Workshop",
+    "other" : "other",
+    "meeting" : "meeting",
+    "encounter" : "Encounter",
+    "date" : "Date",
+    "hall" : "Hall",
+    "reserve" : "reserve"
+
+  },
+  "editHall": {
+    "ChooseANewPhoto" : "Choose a new photo",
+    "maximumNumberOfAttendees" : "Maximum number of attendees",
+    "ChangingTheNameOfTheHall" : "Changing the name of the hall",
+    "ChangingTheDescriptionOfTheHall" : "Changing the description ofthe hall",
+    "done" : "done",
+    "cancel" : "cancel"
+
+
+  },
+  "footer": {
+    "forContactUs" : "for contact us",
+    "dimensions" :"Best site dimensions",
+    "AvailableHalls" : "Available halls",
+    "HallReservation" :"Hall reservation",
+
+    "contactUs" : "contacu s",
+    "login" : "login",
+"footerText":"All rights reserved to the Ministry of Education - Kingdom of Saudi Arabia"
+
+
+  },
+  "deletion": {
+    "sure?" : "Are you sure?"
   }
  }

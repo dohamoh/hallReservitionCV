@@ -11,22 +11,21 @@
           <div class="row justify-content-center mb-3">
             <div class="col-md-5 col-12">
               <div class="">
-                <label class="w-100 rounded-3 p-2" for="updateImg"><i class="bi bi-pencil-square ms-3"></i><span>أختر صورة
-                    جديدة</span></label>
+                <label class="w-100 rounded-3 p-2" for="updateImg"><i class="bi bi-pencil-square ms-3"></i><span>{{'editHall.ChooseANewPhoto' | translate}} </span></label>
                 <input class="opacity-0" type="file" id="updateImg" name="updateImg">
               </div>
             </div>
             <div class="col-md-5 col-12 justify-content-center">
-              <input class="w-100 rounded-3 p-2" type="text" placeholder="الحد الأقصئ من الحاضرين">
+              <input class="w-100 rounded-3 p-2" type="text" placeholder="{{'editHall.maximumNumberOfAttendees' | translate}}">
             </div>
           </div>
           <div class="row justify-content-center mb-3">
             <div class="col-md-5 col-12 justify-content-center">
-              <input class="w-100 rounded-3 p-2" type="text" placeholder="التعديل علي أسم القاعة" name="newName"
+              <input class="w-100 rounded-3 p-2" type="text" placeholder="{{'editHall.ChangingTheNameOfTheHall' | translate}}" name="newName"
                 formControlName="newName">
             </div>
             <div class="col-md-5 col-12 justify-content-center">
-              <input class="w-100 rounded-3 p-2" type="text" placeholder="التعديل علي وصف القاعة" name="newDesc"
+              <input class="w-100 rounded-3 p-2" type="text" placeholder="{{'editHall.ChangingTheDescriptionOfTheHall' | translate}}" name="newDesc"
                 formControlName="newDesc">
             </div>
           </div>
@@ -34,10 +33,10 @@
       </div>
       <div class="row d-flex w-75 justify-content-start align-items-end">
         <div class="col-md-2 col-6">
-          <button class="btn mainBg px-3 text-white border-0">Done</button>
+          <button class="btn mainBg px-3 text-white border-0">{{'editHall.done' | translate}}</button>
         </div>
         <div class="col-md-2 col-6">
-          <button class="btn bg-danger text-white border-0" (click)="closeEditPage()">Cancel</button>
+          <button class="btn bg-danger text-white border-0" (click)="closeEditPage()">{{'editHall.cancel' | translate}}</button>
         </div>
       </div>
     </div>

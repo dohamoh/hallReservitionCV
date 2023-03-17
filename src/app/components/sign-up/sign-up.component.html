@@ -73,6 +73,7 @@
               <div class=" w-75">
                 <div class="d-flex justify-content-center w-100 mt-3 flex-column">
                   <select class="p-1 w-100" name="gender" formControlName="gender">
+                    <option [ngValue]="null" disabled>أختر</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </select>
