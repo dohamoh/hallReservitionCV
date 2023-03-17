@@ -7,7 +7,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
-      <ul class="navbar-nav justify-content-around d-flex">
+      <ul class="navbar-nav justify-content-start d-flex">
         <li class="nav-item">
           <a class="nav-link active text-white fw-semibold" aria-current="page" routerLink="/home">{{'navBar.home' | translate}}</a>
         </li>
@@ -23,21 +23,17 @@
         <li class="nav-item">
           <a class="nav-link text-white fw-semibold" href="#">تواصل معنا</a>
         </li>
-
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> -->
-
+        <div class="sign pe-lg-4 pe-0">
+          <li class="nav-item text-decoration-none list-unstyled">
+            <a class="nav-link text-white fw-semibold" routerLink="/register">تسجيل الدخول</a>
+            <!-- <a class="nav-link text-white fw-semibold" (click)="logout()" routerLink="/register">تسجيل الخروج</a> -->
+          </li>
+        </div>
       </ul>
-      <span class="ps-md-3 pb-2 pb-md-0 mainBg text-white">
-        <select class="form-control text-white mainBg border-0 fs-5 " #selectedLang
+      <!-- <label for="ar" class="arabicLang"></label>
+      <label for="en" class="englishLang"></label> -->
+      <span class="pb-2 pb-md-0 mainBg text-white">
+        <select class="form-control text-white mainBg border-0 fs-5" #selectedLang
           (change)="switchLang(selectedLang.value)">
           <option *ngFor="let language of translate.getLangs()" [value]="language"
             [selected]="language === translate.currentLang">
@@ -45,12 +41,6 @@
           </option>
         </select>
       </span>
-      <div class="sign py-2 pt-lg-0 pe-4 pe-lg-0 ms-xxl-5 ps-xxl-3">
-        <li class="nav-item text-decoration-none list-unstyled">
-          <a class="nav-link text-white fw-semibold" routerLink="/register">تسجيل الدخول</a>
-          <!-- <a class="nav-link text-white fw-semibold" (click)="logout()" routerLink="/register" >تسجيل الخروج</a> -->
-        </li>
-      </div>
     </div>
   </div>
 </nav>

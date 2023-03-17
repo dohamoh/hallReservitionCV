@@ -8,10 +8,14 @@ export class HallService {
   private baseUrl = 'http://localhost:3000/hall';
 
   constructor(private HttpClient: HttpClient) { }
+
+  addHall(data:any){
+    return this.HttpClient.post(`${this.baseUrl}/addHall` , data);
+  }
   deleteHall(id: any): any {
     return this.HttpClient.delete(`${this.baseUrl}/deleteHall/${id}`);
   }
-  // editHall(data:any , id:any): any {
-  //   return this.HttpClient.patch(`${this.baseUrl}/editHall/${id}`);
-  // }
+  editHall(data:any , id:any): any {
+    return this.HttpClient.patch(`${this.baseUrl}/editHall/${id}` , data);
+  }
 }

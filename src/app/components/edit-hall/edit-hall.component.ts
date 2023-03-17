@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HallService } from './../../services/hall.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, EventEmitter, Input, Output, ElementRef } from '@angular/core';
@@ -8,21 +9,33 @@ import { Component, EventEmitter, Input, Output, ElementRef } from '@angular/cor
   styleUrls: ['./edit-hall.component.scss']
 })
 export class EditHallComponent {
-  newPic: any = ''
+  file: any = ''
   editHallForm: FormGroup = new FormGroup({
     newName: new FormControl(null, [Validators.required]),
     newDesc: new FormControl(null, [Validators.maxLength(300)]),
+    attendees: new FormControl(null),
   })
   @Output() editPage: EventEmitter<any> = new EventEmitter<any>();
-  @Input() hallData: any
-  constructor(private hallService: HallService, private ElementRef: ElementRef) { }
+
+  constructor(private hallService: HallService, private ElementRef: ElementRef, private router:Router) { }
   closeEditPage() {
     this.editPage.emit(false);
   }
   editHall(data: any) {
     const formData = new FormData();
-    formData.append('newPic', this.newPic);
+    formData.append('file', this.file);
     formData.append('newName', data.newName);
     formData.append('newDesc', data.newDesc);
+    formData.append('attendees', data.attendees);
+
+    this.hallService.editHall(formData , 'id').subscribe((Data:any) => {
+      if (Data.message == 'hall Updated') {
+        this.router.navigate(['/gallery'])
+      }
+    })
+  }
+  upload(event: any) {
+    const file = event.target.files[0];
+    this.file = file;
   }
 }

@@ -11,4 +11,18 @@ nav{
     transition: all 1s;
     padding-bottom: 10px;
   }
+  .arabicLang{
+    width: 20px;
+    height: 10px;
+    background-image: url(../../../assets/images/saudi-arabia-flag.png);
+    background-position: center;
+    background-size: contain;
+  }
+  .englishLang{
+    width: 20px;
+    height: 10px;
+    background-image: url(../../../assets/images/Flag_of_the_United_States.svg);
+    background-position: center;
+    background-size: contain;
+  }
 }

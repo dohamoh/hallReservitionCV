@@ -17,7 +17,7 @@ export class ConfirmDeletionComponent {
     this.HallService.deleteHall('id').subscribe((data: any) => {
       console.log(data);
       if (data.message == 'deleted') {
-        this.Router.navigate(["/galary"])
+        this.Router.navigate(["/gallery"])
       }
     })
   }
