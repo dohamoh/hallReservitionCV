@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-galary',
@@ -7,7 +8,17 @@ import { Component } from '@angular/core';
 })
 export class GalaryComponent {
   disPlayHall: any = ''
-  getSrc(event: any) {
-   this.disPlayHall = event.target.parentElement.children[0].attributes.src.nodeValue
- }
+  allHalls:any[]=[]
+  constructor(private SharedService:SharedService){}
+  ngOnInit(): void {
+    console.log(1%9);
+this.SharedService.currentAllHalls.subscribe((data:any)=>{
+  console.log(data);
+  this.allHalls = data
+
+})
+  }
+//   getSrc(event: any) {
+//    this.disPlayHall = event.target.parentElement.children[0].attributes.src.nodeValue
+//  }
 }

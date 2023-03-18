@@ -4,13 +4,14 @@
     <span class="fw-semibold">أضف قاعة</span>
   </a>
   <div class="galary">
-    <div class="tall position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3458.jpg"  alt="">
+    <div class="position-relative" (click)="disPlayHall = hall" *ngFor="let hall of allHalls let x = index" [ngClass]="[(x+1)%9 == 1 ? 'tall' : '',  (x+1)%9 == 4 ? 'tall' : '', (x+1)%9 == 0 ? 'wide' : '']">
+
+      <img class="" src="{{hall.hallImg}}"  alt="">
       <div class="mask">
-        <h1 class="text-white">hall name</h1>
+        <h1 class="text-white">{{hall.hallName}}</h1>
       </div>
     </div>
-
+<!--
     <div class=" position-relative" (click)="getSrc($event)">
       <img class="" src="../../../assets/images/halls/DSC_3462.jpg" alt="">
       <div class="mask">
@@ -58,7 +59,7 @@
       <div class="mask">
         <h1 class="text-white">hall name</h1>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 <div class=" top-0 w-100 vh-100 bg-black bg-opacity-75 position-fixed d-flex align-items-center justify-content-center "

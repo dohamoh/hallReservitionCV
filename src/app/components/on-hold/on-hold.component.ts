@@ -1,25 +1,27 @@
-import { SharedService } from './../../services/shared.service';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
-  selector: 'app-reservations',
-  templateUrl: './reservations.component.html',
-  styleUrls: ['./reservations.component.scss'],
+  selector: 'app-on-hold',
+  templateUrl: './on-hold.component.html',
+  styleUrls: ['./on-hold.component.scss']
 })
-export class ReservationsComponent {
-  constructor(private ReservationService: ReservationService,private SharedService:SharedService) {}
+export class OnHoldComponent {
   loading:Boolean=false
   ifNoData:Boolean=false
-  reservations:any
   userData: any;
+  reservations:any
+  constructor(private ReservationService: ReservationService,private SharedService:SharedService) {}
+
   ngOnInit(): void {
     this.SharedService.currentUserData.subscribe((data:any)=>{
       this.userData = data
+console.log(data);
 
-      this.reservations=data.reservations?.filter((element:any) => element.status == 'Approved');
+      this.reservations=data.reservations?.filter((element:any) => element.status == 'On hold');
 if (this.reservations?.length == 0) {
-this.ifNoData = true
+this.ifNoData = !this.ifNoData
 }
 
     })

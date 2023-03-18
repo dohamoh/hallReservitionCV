@@ -26,13 +26,13 @@
 
 
 
-    <div class=" col-12 col-md-4 my-2">
+    <div class=" col-12 col-md-4 my-2 d-flex align-items-end">
 
-      <label class="m-2 mainColor" for="name">{{'booking.hall' | translate}}
-      </label>
 
-      <select class="rounded-0 w-100 p-2 ">
-        <option *ngFor="let hall of allHalls" value="{{hall?.hallName}}">{{hall?.hallName}} </option>
+      <select class="rounded-0 w-100 p-2 " formControlName="hallId">
+        <option [ngValue]="null" disabled>{{'booking.hall' | translate}}
+        </option>
+        <option *ngFor="let hall of allHalls" value="{{hall?._id}}">{{hall?.hallName}} </option>
 
 
 
@@ -58,29 +58,28 @@
 
 
     <div class=" col-12 col-md-4 my-2">
-      <label class=" mainColor" for="name">{{'booking.encounterType' | translate}}
+      <label class=" mainColor" for="name">{{'booking.whatDoYouNeed' | translate}}
       </label>
 
-      <select class="rounded-0 w-100 p-2" formControlName="encounterType">
+      <select class="rounded-0 w-100 p-2" formControlName="whatDoYouNeed" >
         <option [ngValue]="null" disabled>{{'booking.choose' | translate}}</option>
-        <option value="{{'booking.program' | translate}}">{{'booking.program' | translate}}</option>
-        <option value="{{'booking.encounter' | translate}}">{{'booking.encounter' | translate}}</option>
-        <option value="{{'booking.meeting' | translate}}">{{'booking.meeting' | translate}}</option>
-        <option value="{{'booking.Workshop' | translate}}">{{'booking.Workshop' | translate}}</option>
-        <option value="{{'booking.other' | translate}}">{{'booking.other' | translate}}</option>
+        <option value="{{'booking.Projector' | translate}}">{{'booking.Projector' | translate}}</option>
+        <option value="{{'booking.displayScreen' | translate}}">{{'booking.displayScreen' | translate}}</option>
+        <option value="{{'booking.tables' | translate}}">{{'booking.tables' | translate}}</option>
+
       </select>
     </div>
 
     <div class=" col-12 col-md-8 col-lg-6 row m-0  my-2 d-flex  align-items-end ">
       <div class="form-check col p-0 ps-1 mb-0">
         <input class="form-check-input d-none" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label btn bg-white rounded-0 w-100 rounded-0 p-2" for="flexRadioDefault1">
+        <label class="form-check-label btn bg-white rounded-0 w-100 rounded-0 p-2" for="flexRadioDefault1" (click)="time($event)">
           8am-12pm
         </label>
       </div>
       <div class="form-check col p-0 pe-1 mb-0">
         <input class="form-check-input d-none" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label btn bg-white rounded-0 w-100 rounded-0 p-2" for="flexRadioDefault2">
+        <label class="form-check-label btn bg-white rounded-0 w-100 rounded-0 p-2" for="flexRadioDefault2" (click)="time($event)">
           1pm-8pm
         </label>
       </div>
@@ -88,10 +87,8 @@
 
 
     <div class=" col-12 col-lg-2 col-md-4 d-flex justify-content-end flex-column m-0 my-2">
-      <input type="file" id="uploadeFile" class="d-none">
-      <!-- <label for="uploadeFile" class="bg-white rounded-0 cursor-pointer"><i
-      class="bi bi-file-earmark-arrow-up-fill fs-4 m-0"></i>
-  </label> -->
+      <input type="file" id="uploadeFile" class="d-none" (change)="upload($event)">
+
       <label class="btn bg-white p-2 rounded-0" for="uploadeFile"><i
           class="bi bi-file-earmark-arrow-up-fill  m-0"></i></label>
     </div>
@@ -100,7 +97,7 @@
 
       <div class=" col-12 row m-0 my-2">
 
-        <button class=" btn mainBg  text-white  rounded-0 col-lg-5 col-md-7 col-10">CHECK AVAILABILITY</button>
+        <button  class=" btn mainBg  text-white  rounded-0 col-lg-5 col-md-7 col-10">CHECK AVAILABILITY</button>
 
         <div class=" d-flex align-items-center justify-content-start col-2 ">
           <input class=" m-0 w-auto ms-md-1 ms-0" type="checkbox" id="pdfCheck">
@@ -116,3 +113,4 @@
 
   </form>
 </section>
+<app-loading *ngIf="loading"></app-loading>

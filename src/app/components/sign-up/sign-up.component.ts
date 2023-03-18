@@ -40,8 +40,9 @@ export class SignUpComponent {
     private AuthService: AuthService,
     private ElementRef: ElementRef,
     private Router: Router,
-    private SharedService:SharedService
-  ) { }
+    private SharedService: SharedService
+  ) {}
+
   ifChecked() {
     if (this.ElementRef.nativeElement.querySelector('#exampleCheck').checked) {
       this.registerForm.removeControl('managementName');
@@ -64,17 +65,19 @@ export class SignUpComponent {
   }
   signUp() {
     this.AuthService.signUp(this.registerForm.value).subscribe((data: any) => {
-      this.Router.navigate(['/home'])
+      if (data.message == 'added successfully') {
+        this.ElementRef.nativeElement.querySelector('#chk').checked =
+          !this.ElementRef.nativeElement.querySelector('#chk').checked;
+      }
     });
   }
   login() {
-
     this.AuthService.login(this.loginForm.value).subscribe(
       (data: any) => {
         if (data.token) {
           localStorage.setItem('userToken', data.token);
-          this.SharedService.isLoggedInFun()
-          this.Router.navigate(['/home'])
+          this.SharedService.isLoggedInFun();
+          this.Router.navigate(['/home']);
         }
       },
       (err: HttpErrorResponse) => {
@@ -89,3 +92,4 @@ export class SignUpComponent {
     );
   }
 }
+

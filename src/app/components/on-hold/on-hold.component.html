@@ -1,4 +1,4 @@
-<section class=" p-4  rounded-3 my-3" *ngFor="let reservation of reservations">
+<section class=" p-4  rounded-3 my-3" *ngFor="let reservation of userData?.reservations">
   <div class="bg-img"></div>
 
   <div class="container">
@@ -28,11 +28,13 @@
             <span> {{reservation?.encounterType}}</span>
           </p>
         </div>
-
+        <div class="">
+          <button class="btn btn-danger" (click)="cancelReservation(reservation._id)">cancel</button>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 <app-no-data *ngIf="ifNoData"></app-no-data>
-
+<app-loading *ngIf="loading"></app-loading>

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { HallService } from './hall.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SharedService {
   private userData = new BehaviorSubject<any>([]);
@@ -17,7 +17,11 @@ export class SharedService {
 
   private allHalls = new BehaviorSubject<any>([]);
   currentAllHalls = this.allHalls.asObservable();
-  constructor(private AuthService:AuthService,private Router:Router,private HallService:HallService) { }
+  constructor(
+    private AuthService: AuthService,
+    private Router: Router,
+    private HallService: HallService
+  ) {}
 
   updateUserData() {
     if (localStorage.getItem('userToken')) {
@@ -26,7 +30,6 @@ export class SharedService {
           if (data.userData) {
             this.userData.next(data.userData);
           }
-
         },
         (err: HttpErrorResponse) => {
           if (
@@ -43,9 +46,8 @@ export class SharedService {
   isLoggedInFun() {
     if (localStorage.getItem('userToken')) {
       this.LoggedIn.next(true);
-    }else{
+    } else {
       this.LoggedIn.next(false);
-
     }
   }
   // LogIn() {
@@ -62,10 +64,12 @@ export class SharedService {
   //   }
   // }
   updateAllHalls() {
-    console.log('h');
-
- this.HallService.getHalls().subscribe((data:any)=>{
-  this.allHalls.next(data.halls);
- })
+    this.HallService.getHalls().subscribe((data: any) => {
+      this.allHalls.next(data.halls);
+    });
+  }
+  updateAllData(){
+    this.updateAllHalls()
+    this.updateUserData()
   }
 }

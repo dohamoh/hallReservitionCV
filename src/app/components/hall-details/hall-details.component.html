@@ -9,15 +9,13 @@
         (click)="editHall=!editHall"></i></button>
   </div>
   <div class="w-100 h-auto d-flex justify-content-center">
-    <img class=" w-75 rounded-3" src="{{hallData}}" alt="">
+    <img class=" w-75 rounded-3" src="{{hallData.hallImg}}" alt="">
   </div>
   <div class="details w-75 rounded-2 mt-md-4 pe-5 p-2">
-    <h2 class="mb-3 position-relative">اسم القاعة
+    <h2 class="mb-3 position-relative">{{hallData.hallName}}
 
     </h2>
-    <p class="w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sequi facilis recusandae asperiores
-      commodi
-      debitis a perspiciatis unde pariatur maiores?</p>
+    <p class="w-75">{{hallData.hallDesc}}</p>
 
   </div>
 </section>

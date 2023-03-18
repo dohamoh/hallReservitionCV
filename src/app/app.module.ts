@@ -24,6 +24,10 @@ import { EditHallComponent } from './components/edit-hall/edit-hall.component';
 import { ConnectUsComponent } from './components/connect-us/connect-us.component';
 import { DashComponent } from './components/dash/dash.component';
 import { AddHallComponent } from './components/add-hall/add-hall.component';
+import { UnapprovedComponent } from './components/unapproved/unapproved.component';
+import { OnHoldComponent } from './components/on-hold/on-hold.component';
+import { NoDataComponent } from './components/no-data/no-data.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 // import { FusionChartsModule } from 'angular-fusioncharts';
 // import * as FusionCharts from "fusioncharts";
@@ -51,7 +55,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditHallComponent,
     AddHallComponent,
     ConnectUsComponent,
-    DashComponent
+    DashComponent,
+    UnapprovedComponent,
+    OnHoldComponent,
+    UnapprovedComponent,
+    NoDataComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

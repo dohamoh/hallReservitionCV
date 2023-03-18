@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SharedService } from './../../services/shared.service';
 import { ReservationService } from './../../services/reservation.service';
 import { Component, ElementRef } from '@angular/core';
@@ -8,24 +9,35 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent {
-  allHalls:any
+  loading:Boolean = false
+  userData:any
+  allHalls: any;
   meeting = 'نوع اللقاء';
-  file:any
-  encounterTime:any
+  file: any;
+  encounterTime: any;
   reservationForm: FormGroup = new FormGroup({
     AdministrationName: new FormControl(null, [ Validators.required, Validators.minLength(4),]),
     members: new FormControl(null, [Validators.required]),
     date: new FormControl(null, [Validators.required]),
     encounterType: new FormControl(null, [Validators.required]),
+    whatDoYouNeed: new FormControl(null),
     hallId: new FormControl(null, [Validators.required]),
-    encounterTime: new FormControl(null, [Validators.required]),
-    file: new FormControl(null, []),
   });
-  constructor(private elementRef: ElementRef,private ReservationService:ReservationService,private SharedService:SharedService) {}
+
+
+  constructor(
+    private elementRef: ElementRef,
+    private ReservationService: ReservationService,
+    private SharedService: SharedService,
+    private Router:Router
+  ) {}
   ngOnInit(): void {
-this.SharedService.currentAllHalls.subscribe((data:any)=>{
-this.allHalls = data
-})
+
+  this.SharedService.currentAllHalls.subscribe((data: any) => {
+      this.allHalls = data;
+    });
+
+
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -43,16 +55,16 @@ this.allHalls = data
     this.meeting = event.target.innerHTML;
     event.target.classList.add('activeType');
   }
-time(event:any){
-this.encounterTime = event.target.innerHTML
+  time(event: any) {
 
-}
-upload(event: any) {
-  const file = event.target.files[0];
-  this.file = file;
+    this.encounterTime = event.target.innerHTML;
+    console.log(this.encounterTime);
 
-
-}
+  }
+  upload(event: any) {
+    const file = event.target.files[0];
+    this.file = file;
+  }
   // public generatePDF(): void {
   //   let pdf = '<p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">الأدارة: <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">عدد الاعضاء: <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">التاريخ: <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">سبب الحجز: <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">اسم القاعه : <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2"> الوقت : <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="text-center fs-4">تم تقديم طلبك للادارة بتاريخ .... الساعه ..., وسوف يتم اخبارك بالرد قريبا</p>'
   //   this.invoiceElement.nativeElement.innerHTML = pdf
@@ -70,19 +82,25 @@ upload(event: any) {
   //   });
   // }
   reservation() {
+    this.loading = !this.loading
     const formData = new FormData();
-    formData.append('AdministrationName', this.reservationForm.value.AdministrationName);
+    formData.append(
+      'AdministrationName',
+      this.reservationForm.value.AdministrationName
+    );
     formData.append('members', this.reservationForm.value.members);
     formData.append('date', this.reservationForm.value.date);
     formData.append('encounterType', this.reservationForm.value.encounterType);
     formData.append('hallId', this.reservationForm.value.hallId);
     formData.append('encounterTime', this.encounterTime);
+    formData.append('whatDoYouNeed', this.reservationForm.value.whatDoYouNeed);
     formData.append('file', this.file);
 
-    this.ReservationService.addReservation(formData).subscribe((data:any)=>{
-      console.log(data);
-
-    })
-
+    this.ReservationService.addReservation(formData).subscribe((data: any) => {
+      if (data.message == 'Reservation added') {
+        this.loading = !this.loading
+        this.Router.navigate(['/userProfile'])
+      }
+    });
   }
 }
