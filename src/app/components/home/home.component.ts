@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private SharedService:SharedService){}
-ngOnInit(): void {
-  this.SharedService.updateUserData()
-}
+  constructor(private SharedService: SharedService) { }
+  ngOnInit(): void {
+    this.SharedService.updateUserData()
+    // localStorage.clear()
+  }
 }

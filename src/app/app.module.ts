@@ -25,6 +25,11 @@ import { ConnectUsComponent } from './components/connect-us/connect-us.component
 import { DashComponent } from './components/dash/dash.component';
 import { AddHallComponent } from './components/add-hall/add-hall.component';
 
+// import { FusionChartsModule } from 'angular-fusioncharts';
+// import * as FusionCharts from "fusioncharts";
+// import * as charts from "fusioncharts/fusioncharts.charts";
+// import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -56,6 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    // FusionChartsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -64,7 +70,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: 'ar'
   })
-
   ],
   providers: [],
   bootstrap: [AppComponent]

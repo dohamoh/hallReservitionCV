@@ -7,6 +7,9 @@ nav{
       width: 70%;
     }
   }
+  a{
+    white-space: nowrap;
+  }
   .logo{
     transition: all 1s;
     padding-bottom: 10px;
