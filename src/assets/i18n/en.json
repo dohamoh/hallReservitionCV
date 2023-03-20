@@ -25,7 +25,12 @@
     "encounter" : "Encounter",
     "date" : "Date",
     "hall" : "Hall",
-    "reserve" : "reserve"
+    "reserve" : "reserve",
+    "whatDoYouNeed":"what do you need",
+
+    "Projector":"Projector",
+    "displayScreen":"displayScreen",
+    "tables":"tables"
 
   },
   "editHall": {

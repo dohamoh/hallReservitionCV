@@ -64,10 +64,12 @@ export class SharedService {
   //   }
   // }
   updateAllHalls() {
-    this.HallService.getHalls().subscribe((data: any) => {
-      this.allHalls.next(data.halls);
-    });
+
+ this.HallService.getHalls().subscribe((data:any)=>{
+  this.allHalls.next(data.halls);
+ })
   }
+
   updateAllData(){
     this.isLoggedInFun()
     this.updateAllHalls()

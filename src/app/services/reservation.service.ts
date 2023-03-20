@@ -10,33 +10,23 @@ export class ReservationService {
   constructor(private HttpClient: HttpClient) {}
 
   addReservation(data: any): any {
-    return this.HttpClient.post(`${this.baseUrl}/addReservation`, data,
-    {
-      headers: {
-        authorization: `Bearer__${localStorage.getItem("userToken")}`
-      }
-  });
-  }
-  cancelReservation(id: Object): any {
-    return this.HttpClient.post(
-      `${this.baseUrl}/cancelReservation/${id}`,
-
-      {
-        headers: {
-          authorization: `Bearer__${localStorage.getItem('userToken')}`,
-        },
-      }
-    );
+    return this.HttpClient.post(`${this.baseUrl}/addReservation`, data);
   }
   getAllReservation(): any {
-    return this.HttpClient.post(
-      `${this.baseUrl}/getAllReservation`,
-
+      return this.HttpClient.get(`${this.baseUrl}/getAllReservation`,
       {
         headers: {
-          authorization: `Bearer__${localStorage.getItem('userToken')}`,
-        },
-      }
-    );
-  }
+          authorization: `Bearer__${localStorage.getItem("userToken")}`
+        }
+    });
+    }
+    cancelReservation(id:Object): any {
+      return this.HttpClient.delete(`${this.baseUrl}/cancelReservation/${id}`,
+      {
+        headers: {
+          authorization: `Bearer__${localStorage.getItem("userToken")}`
+        }
+    });
+    }
 }
+

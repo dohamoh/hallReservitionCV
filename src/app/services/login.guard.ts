@@ -4,6 +4,7 @@ import {
   CanActivate,
   RouterStateSnapshot,
   UrlTree,
+  Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginGuard implements CanActivate {
+  constructor(private Router:Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -24,6 +26,7 @@ export class LoginGuard implements CanActivate {
     if (localStorage.getItem('userToken')) {
       return true;
     }
+    this.Router.navigate(['/register']);
     return false;
   }
 }
