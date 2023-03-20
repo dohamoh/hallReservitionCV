@@ -69,6 +69,7 @@ export class SharedService {
     });
   }
   updateAllData(){
+    this.isLoggedInFun()
     this.updateAllHalls()
     this.updateUserData()
   }

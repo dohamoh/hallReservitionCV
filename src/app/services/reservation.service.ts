@@ -10,7 +10,12 @@ export class ReservationService {
   constructor(private HttpClient: HttpClient) {}
 
   addReservation(data: any): any {
-    return this.HttpClient.post(`${this.baseUrl}/addReservation`, data);
+    return this.HttpClient.post(`${this.baseUrl}/addReservation`, data,
+    {
+      headers: {
+        authorization: `Bearer__${localStorage.getItem("userToken")}`
+      }
+  });
   }
   cancelReservation(id: Object): any {
     return this.HttpClient.post(
