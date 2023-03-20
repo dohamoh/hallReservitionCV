@@ -21,7 +21,7 @@ console.log(data);
 
       this.reservations=data.reservations?.filter((element:any) => element.status == 'On hold');
 if (this.reservations?.length == 0) {
-this.ifNoData = !this.ifNoData
+this.ifNoData = true
 }
 
     })

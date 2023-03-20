@@ -1,22 +1,27 @@
 import { Router } from '@angular/router';
 import { SharedService } from './../../services/shared.service';
 import { ReservationService } from './../../services/reservation.service';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { jsPDF } from 'jspdf';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent {
-  loading:Boolean = false
-  userData:any
+  loading: Boolean = false;
+  userData: any;
   allHalls: any;
   meeting = 'نوع اللقاء';
   file: any;
   encounterTime: any;
   reservationForm: FormGroup = new FormGroup({
-    AdministrationName: new FormControl(null, [ Validators.required, Validators.minLength(4),]),
+    AdministrationName: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(4),
+    ]),
     members: new FormControl(null, [Validators.required]),
     date: new FormControl(null, [Validators.required]),
     encounterType: new FormControl(null, [Validators.required]),
@@ -24,19 +29,16 @@ export class BookingComponent {
     hallId: new FormControl(null, [Validators.required]),
   });
 
-
   constructor(
     private elementRef: ElementRef,
     private ReservationService: ReservationService,
     private SharedService: SharedService,
-    private Router:Router
+    private Router: Router
   ) {}
   ngOnInit(): void {
-
-  this.SharedService.currentAllHalls.subscribe((data: any) => {
+    this.SharedService.currentAllHalls.subscribe((data: any) => {
       this.allHalls = data;
     });
-
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -56,33 +58,38 @@ export class BookingComponent {
     event.target.classList.add('activeType');
   }
   time(event: any) {
-
     this.encounterTime = event.target.innerHTML;
     console.log(this.encounterTime);
-
   }
   upload(event: any) {
     const file = event.target.files[0];
     this.file = file;
   }
-  // public generatePDF(): void {
-  //   let pdf = '<p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">الأدارة: <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">عدد الاعضاء: <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">التاريخ: <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">سبب الحجز: <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2">اسم القاعه : <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="fs-5 fw-bold my-2"> الوقت : <span _ngcontent-chr-c64="" class="opacity-75 mx-1 fw-normal">.....</span></p><p _ngcontent-chr-c64="" class="text-center fs-4">تم تقديم طلبك للادارة بتاريخ .... الساعه ..., وسوف يتم اخبارك بالرد قريبا</p>'
-  //   this.invoiceElement.nativeElement.innerHTML = pdf
-  //   html2canvas(this.invoiceElement.nativeElement, { scale: 3 }).then((canvas) => {
-  //     const imageGeneratedFromTemplate = canvas.toDataURL('image/png');
-  //     const fileWidth = 200;
-  //     const generatedImageHeight = (canvas.height * fileWidth) / canvas.width;
-  //     let PDF = new jsPDF('p', 'mm', 'a4',);
-  //     PDF.addImage(imageGeneratedFromTemplate, 'PNG', 0, 5, fileWidth, generatedImageHeight,);
+  pdf() {
 
-  //     PDF.html(this.invoiceElement.nativeElement.innerHTML)
-  //     PDF.save('angular-invoice-pdf-demo.pdf');
-  //     this.invoiceElement.nativeElement.innerHTML = ''
 
-  //   });
-  // }
+    let hall = this.allHalls?.filter(
+      (element: any) => element._id == this.reservationForm.value.hallId
+    );
+//     let text = `
+//  تم ارسال طلبك و جار مراجعته
+//  اسم الادارة:${this.reservationForm.value.AdministrationName}
+//  التاريخ:${this.reservationForm.value.date}
+//  الوقت:${this.encounterTime}
+//  السبب:${this.reservationForm.value.encounterType}
+//  عدد الحضور:${this.reservationForm.value.members}
+//  اسم القاعه: ${hall.hallName}
+//  احتاج لــ:${this.reservationForm.value.whatDoYouNeed}
+
+
+// `;
+    const doc = new jsPDF();
+    doc.getR2L()
+    doc.text('هلا يا حب', 10, 10);
+    doc.save('reservation.pdf');
+  }
   reservation() {
-    this.loading = !this.loading
+    this.loading = !this.loading;
     const formData = new FormData();
     formData.append(
       'AdministrationName',
@@ -98,8 +105,11 @@ export class BookingComponent {
 
     this.ReservationService.addReservation(formData).subscribe((data: any) => {
       if (data.message == 'Reservation added') {
-        this.loading = !this.loading
-        this.Router.navigate(['/userProfile'])
+        if (  this.elementRef.nativeElement.querySelector('#pdfCheck').checked) {
+          this.pdf()
+        }
+        this.loading = !this.loading;
+        this.Router.navigate(['/userProfile']);
       }
     });
   }

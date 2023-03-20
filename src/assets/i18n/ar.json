@@ -26,7 +26,11 @@
     "encounter" : "لقاء",
     "date" : "التاريخ",
     "hall" : "القاعه",
-    "reserve" : "أحجز"
+    "reserve" : "أحجز",
+    "whatDoYouNeed":"ماذا تحتاج",
+    "Projector":"جهاز عرض",
+    "displayScreen":"شاشة عرض",
+    "tables":"طاوالت"
 
   },
   "editHall": {

@@ -9,7 +9,7 @@ import { SharedService } from './services/shared.service';
 })
 export class AppComponent {
   title = 'hallReservation-code';
-  constructor(public translate:TranslateService , private SharedService:SharedService) {
+  constructor(public translate:TranslateService,private SharedService:SharedService) {
     translate.addLangs(['ar' , 'en']);
     translate.setDefaultLang('ar');
     translate.use('ar')
@@ -19,6 +19,7 @@ export class AppComponent {
  }
 
   ngOnInit(): void {
+   
     this.SharedService.updateAllHalls()
   }
 }
