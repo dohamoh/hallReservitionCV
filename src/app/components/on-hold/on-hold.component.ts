@@ -5,35 +5,54 @@ import { SharedService } from 'src/app/services/shared.service';
 @Component({
   selector: 'app-on-hold',
   templateUrl: './on-hold.component.html',
-  styleUrls: ['./on-hold.component.scss']
+  styleUrls: ['./on-hold.component.scss'],
 })
 export class OnHoldComponent {
-  loading:Boolean=false
-  ifNoData:Boolean=false
+  loading: Boolean = false;
   userData: any;
-  reservations:any
-  constructor(private ReservationService: ReservationService,private SharedService:SharedService) {}
+  reservations: any;
+  constructor(
+    private ReservationService: ReservationService,
+    private SharedService: SharedService
+  ) {}
 
-  ngOnInit(): void {
-    this.SharedService.currentUserData.subscribe((data:any)=>{
-      this.userData = data
-console.log(data);
+ngOnInit(): void {
+    this.SharedService.currentUserData.subscribe((data: any) => {
+      this.userData = data;
+      if (data.role == 'Admin') {
+        this.ReservationService.getAllReservation().subscribe((data: any) => {
+          this.reservations = data.allReservations?.filter(
+            (element: any) => element.status == 'On hold'
+          );
 
-      this.reservations=data.reservations?.filter((element:any) => element.status == 'On hold');
-if (this.reservations?.length == 0) {
-this.ifNoData = true
-}
+        });
+      } else {
+        this.reservations = data.reservations?.filter(
+                (element: any) => element.status == 'On hold'
+              );
 
-    })
+      }
 
-
+    });
   }
-  cancelReservation(id: Object) {
-this.loading = !this.loading
-    this.ReservationService.cancelReservation(id).subscribe((data: any) => {
-      if (data.message == 'canceled') {
-        this.SharedService.updateAllData()
-        this.loading = !this.loading
+
+  UnapprovedReservation(id: Object) {
+    this.loading = !this.loading;
+    this.ReservationService.UnapprovedReservation(id).subscribe((data: any) => {
+      if (data.message == 'Unapproved') {
+        this.SharedService.updateAllData();
+        this.loading = !this.loading;
+      }
+    });
+  }
+  ApprovedReservation(id: Object) {
+    console.log(id);
+
+    this.loading = !this.loading;
+    this.ReservationService.ApprovedReservation(id).subscribe((data: any) => {
+      if (data.message == 'Approved') {
+        this.SharedService.updateAllData();
+        this.loading = !this.loading;
       }
     });
   }

@@ -4,11 +4,11 @@
       <div class="col-md-2 justify-content-center">
         <div class="row flex-column align-items-start">
           <div [ngStyle]="{width:width}" [ngStyle]="{right:right}" #sideNav
-            class="side-nav d-flex flex-column align-items-start justify-content-center col-6 col-md-6 mb-5 p-md-4">
+            class="side-nav d-flex flex-column align-items-start justify-content-evenly col-6 col-md-6 mb-5 p-md-4">
             <div (click)="open()" class="point fs-4 mainColor p-2">
               <i class="bi bi-arrow-left-right"></i>
             </div>
-            <div #user class="user p-3 pe-0 fs-4" *ngIf="userData1.role == 'user'">
+            <div #user class="user p-3 pe-0 fs-4" *ngIf="userData.role == 'User'">
               <h5 class="w-100">الأسم :{{userData?.username}}</h5>
               <h5 *ngIf="!userData?.outMinistry" class="w-100">الأدارة :{{userData?.managementName}}</h5>
               <h5 class="w-100">التليفون :{{userData?.phone}}</h5>
@@ -20,25 +20,25 @@
                 id="v-pills-approved-tab" data-bs-toggle="pill" data-bs-target="#v-pills-approved" type="button"
                 role="tab" aria-controls="v-pills-approved" aria-selected="true">
                 <img class="w-10 ms-3" src="../../../assets/images/calendar-check.svg" alt="">
-                <p class="pt-3">approved</p>
+                <p class="pt-3" (click)="open()">approved</p>
               </li>
               <li class="cursor-pointer d-flex justify-content-start align-items-center my-2" id="v-pills-on-hold-tab"
                 data-bs-toggle="pill" data-bs-target="#v-pills-on-hold" type="button" role="tab"
                 aria-controls="v-pills-on-hold" aria-selected="false">
                 <img class="w-10 ms-3 pt-md-3" src="../../../assets/images/clock-history.svg" alt="">
-                <p class="pt-3">on hold</p>
+                <p class="pt-3" (click)="open()">on hold</p>
               </li>
               <li class="cursor-pointer d-flex justify-content-start align-items-center my-2"
                 id="v-pills-unapproved-tab" data-bs-toggle="pill" data-bs-target="#v-pills-unapproved" type="button"
                 role="tab" aria-controls="v-pills-unapproved" aria-selected="false">
                 <img class="w-10 ms-3 pt-md-3" src="../../../assets/images/calendar-x.svg" alt="">
-                <p class="pt-3">unapproved</p>
+                <p class="pt-3" (click)="open()">unapproved</p>
               </li>
               <li class="cursor-pointer d-flex justify-content-start align-items-center my-2" id="v-pills-dash-tab"
                 data-bs-toggle="pill" data-bs-target="#v-pills-dash" type="button" role="tab"
                 aria-controls="v-pills-dash" aria-selected="false">
                 <img class="w-10 ms-3 pt-md-3" src="../../../assets/images/graph-up.svg" alt="">
-                <p class="pt-3">dashboard</p>
+                <p class="pt-3" (click)="open()">dashboard</p>
               </li>
             </ul>
           </div>
@@ -63,7 +63,7 @@
       </div>
       <div class="reservation col-md-8 mt-5 justify-content-start">
         <div class="tab-content" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <div class="tab-pane fade active show" id="v-pills-approved" role="tabpanel" aria-labelledby="v-pills-approved-tab"
+          <div class="tab-pane fade " id="v-pills-approved" role="tabpanel" aria-labelledby="v-pills-approved-tab"
             aria-controls="v-pills-approved">
             <app-reservations></app-reservations>
           </div>
@@ -72,7 +72,7 @@
 
           <div class="tab-pane fade" id="v-pills-unapproved" role="tabpanel" aria-controls="v-pills-unapproved"
             aria-labelledby="v-pills-unapproved-tab"><app-unapproved></app-unapproved></div>
-          <div class="tab-pane fade " id="v-pills-dash" role="tabpanel" aria-controls="v-pills-dash"
+          <div class="tab-pane fade active show" id="v-pills-dash" role="tabpanel" aria-controls="v-pills-dash"
             aria-labelledby="v-pills-dash-tab"><app-dash></app-dash></div>
         </div>
       </div>

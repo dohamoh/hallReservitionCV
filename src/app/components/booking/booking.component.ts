@@ -62,8 +62,10 @@ export class BookingComponent {
     console.log(this.encounterTime);
   }
   upload(event: any) {
+
     const file = event.target.files[0];
     this.file = file;
+    console.log(file);
   }
   pdf() {
 
@@ -71,18 +73,18 @@ export class BookingComponent {
     let hall = this.allHalls?.filter(
       (element: any) => element._id == this.reservationForm.value.hallId
     );
-//     let text = `
-//  تم ارسال طلبك و جار مراجعته
-//  اسم الادارة:${this.reservationForm.value.AdministrationName}
-//  التاريخ:${this.reservationForm.value.date}
-//  الوقت:${this.encounterTime}
-//  السبب:${this.reservationForm.value.encounterType}
-//  عدد الحضور:${this.reservationForm.value.members}
-//  اسم القاعه: ${hall.hallName}
-//  احتاج لــ:${this.reservationForm.value.whatDoYouNeed}
+    let text = `
+ تم ارسال طلبك و جار مراجعته
+ اسم الادارة:${this.reservationForm.value.AdministrationName}
+ التاريخ:${this.reservationForm.value.date}
+ الوقت:${this.encounterTime}
+ السبب:${this.reservationForm.value.encounterType}
+ عدد الحضور:${this.reservationForm.value.members}
+ اسم القاعه: ${hall.hallName}
+ احتاج لــ:${this.reservationForm.value.whatDoYouNeed}
 
 
-// `;
+`;
     const doc = new jsPDF();
     doc.getR2L()
     doc.text('هلا يا حب', 10, 10);
@@ -90,6 +92,7 @@ export class BookingComponent {
   }
   reservation() {
     this.loading = !this.loading;
+
     const formData = new FormData();
     formData.append(
       'AdministrationName',
@@ -104,10 +107,13 @@ export class BookingComponent {
     formData.append('file', this.file);
 
     this.ReservationService.addReservation(formData).subscribe((data: any) => {
+
+
       if (data.message == 'Reservation added') {
         if (  this.elementRef.nativeElement.querySelector('#pdfCheck').checked) {
           this.pdf()
         }
+        this.SharedService.updateUserData()
         this.loading = !this.loading;
         this.Router.navigate(['/userProfile']);
       }

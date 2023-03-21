@@ -1,3 +1,4 @@
+<div class=" vh-100 scroll py-3" *ngIf="reservations?.length != 0">
 <section class=" p-4  rounded-3 my-3" *ngFor="let reservation of reservations">
   <div class="bg-img"></div>
 
@@ -10,7 +11,7 @@
         </div>
       </div>
       <div class="col-md-9 col-12 d-flex align-items-start justify-content-between">
-        <div class="resDetials mt-3 text-end fw-semibold">
+        <div class="resDetials mt-3 text-end fw-semibold  ">
           <p>
             التاريخ :
             <span>{{reservation?.date}}</span>
@@ -28,12 +29,13 @@
             <span> {{reservation?.encounterType}}</span>
           </p>
         </div>
+        <button class="btn btn-primary" (click)="OnHoldReservation(reservation._id)">On hold</button>
 
       </div>
 
     </div>
   </div>
 </section>
-
-<app-no-data *ngIf="ifNoData"></app-no-data>
-
+</div>
+<app-no-data *ngIf="reservations?.length == 0"></app-no-data>
+<app-loading *ngIf="loading"></app-loading>

@@ -8,30 +8,41 @@ import { ReservationService } from 'src/app/services/reservation.service';
   styleUrls: ['./reservations.component.scss'],
 })
 export class ReservationsComponent {
-  constructor(private ReservationService: ReservationService,private SharedService:SharedService) {}
-  loading:Boolean=false
-  ifNoData:Boolean=false
-  reservations:any
+  constructor(
+    private ReservationService: ReservationService,
+    private SharedService: SharedService
+  ) {}
+  loading: Boolean = false;
+
+  reservations: any;
   userData: any;
   ngOnInit(): void {
-    this.SharedService.currentUserData.subscribe((data:any)=>{
-      this.userData = data
+    this.SharedService.currentUserData.subscribe((data: any) => {
+      this.userData = data;
+      if (data.role == 'Admin') {
+        this.ReservationService.getAllReservation().subscribe((data: any) => {
+          this.reservations = data.allReservations?.filter(
+            (element: any) => element.status == 'Approved'
+          );
 
-      this.reservations=data.reservations?.filter((element:any) => element.status == 'Approved');
-if (this.reservations?.length == 0) {
-this.ifNoData = true
-}
+        });
+      } else {
+        this.reservations = data.reservations?.filter(
+          (element: any) => element.status == 'Approved'
+        );
 
-    })
-
-
+      }
+    });
   }
-  cancelReservation(id: Object) {
-this.loading = !this.loading
-    this.ReservationService.cancelReservation(id).subscribe((data: any) => {
-      if (data.message == 'canceled') {
-        this.SharedService.updateAllData()
-        this.loading = !this.loading
+
+  OnHoldReservation(id: Object) {
+    console.log(id);
+
+    this.loading = !this.loading;
+    this.ReservationService.OnHoldReservation(id).subscribe((data: any) => {
+      if (data.message == 'on hold') {
+        this.SharedService.updateAllData();
+        this.loading = !this.loading;
       }
     });
   }

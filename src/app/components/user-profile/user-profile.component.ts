@@ -21,15 +21,11 @@ export class UserProfileComponent implements OnInit {
     private ReservationService: ReservationService
   ) {}
   ngOnInit(): void {
-    this.SharedService.updateAllData()
+
 
     this.SharedService.currentUserData.subscribe((data: any) => {
       this.userData = data;
-      if (data.role == 'Admin') {
-        this.ReservationService.getAllReservation().subscribe((data: any) => {
-          console.log(data);
-        });
-      }
+
     });
     if (window.innerWidth <= 375) {
       this.width = '55%';
