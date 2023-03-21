@@ -16,7 +16,7 @@ export class EditHallComponent {
     attendees: new FormControl(null),
   })
   @Output() editPage: EventEmitter<any> = new EventEmitter<any>();
-
+  @Input()hallData:any
   constructor(private hallService: HallService, private ElementRef: ElementRef, private router:Router) { }
   closeEditPage() {
     this.editPage.emit(false);
@@ -28,7 +28,7 @@ export class EditHallComponent {
     formData.append('newDesc', data.newDesc);
     formData.append('attendees', data.attendees);
 
-    this.hallService.editHall(formData , 'id').subscribe((Data:any) => {
+    this.hallService.editHall(formData , this.hallData._id).subscribe((Data:any) => {
       if (Data.message == 'hall Updated') {
         this.router.navigate(['/gallery'])
       }

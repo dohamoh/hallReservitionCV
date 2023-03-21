@@ -8,17 +8,17 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class GalaryComponent {
   disPlayHall: any = ''
-  allHalls:any[]=[]
-  constructor(private SharedService:SharedService){}
+  allHalls: any[] = []
+  constructor(private SharedService: SharedService) { }
   ngOnInit(): void {
-    console.log(1%9);
-this.SharedService.currentAllHalls.subscribe((data:any)=>{
-  console.log(data);
-  this.allHalls = data
+    console.log(1 % 9);
+    this.SharedService.currentAllHalls.subscribe((data: any) => {
+      console.log(data);
+      this.allHalls = data
 
-})
+    })
   }
-//   getSrc(event: any) {
-//    this.disPlayHall = event.target.parentElement.children[0].attributes.src.nodeValue
-//  }
+  //   getSrc(event: any) {
+  //    this.disPlayHall = event.target.parentElement.children[0].attributes.src.nodeValue
+  //  }
 }
