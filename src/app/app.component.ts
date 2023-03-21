@@ -19,7 +19,8 @@ export class AppComponent {
  }
 
   ngOnInit(): void {
-   
-    this.SharedService.updateAllHalls()
+    console.log(localStorage.getItem("userToken"));
+
+    this.SharedService.updateAllData()
   }
 }

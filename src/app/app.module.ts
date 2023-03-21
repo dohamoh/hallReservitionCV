@@ -28,11 +28,7 @@ import { UnapprovedComponent } from './components/unapproved/unapproved.componen
 import { OnHoldComponent } from './components/on-hold/on-hold.component';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import { LoadingComponent } from './components/loading/loading.component';
-
-// import { FusionChartsModule } from 'angular-fusioncharts';
-// import * as FusionCharts from "fusioncharts";
-// import * as charts from "fusioncharts/fusioncharts.charts";
-// import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { ChartModule } from 'angular-highcharts';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -70,7 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // FusionChartsModule,
+    ChartModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

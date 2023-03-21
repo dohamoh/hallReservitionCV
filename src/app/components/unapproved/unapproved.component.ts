@@ -9,7 +9,6 @@ import { ReservationService } from 'src/app/services/reservation.service';
 })
 export class UnapprovedComponent {
   loading: Boolean = false;
-  ifNoData: Boolean = false;
   userData: any;
   reservations: any;
   constructor(
@@ -20,21 +19,28 @@ export class UnapprovedComponent {
   ngOnInit(): void {
     this.SharedService.currentUserData.subscribe((data: any) => {
       this.userData = data;
-      console.log(data);
+      if (data.role == 'Admin') {
+        this.ReservationService.getAllReservation().subscribe((data: any) => {
+          this.reservations = data.allReservations?.filter(
+            (element: any) => element.status == 'Unapproved'
+          );
 
-      this.reservations = data.reservations?.filter(
-        (element: any) => element.status == 'Unapproved'
-      );
-      if (this.reservations?.length == 0) {
-        console.log(this.reservations);
-        this.ifNoData = true;
+        });
+      } else {
+        this.reservations = data.reservations?.filter(
+          (element: any) => element.status == 'Unapproved'
+        );
+
       }
+
     });
   }
-  cancelReservation(id: Object) {
+  OnHoldReservation(id: Object) {
+
+
     this.loading = !this.loading;
-    this.ReservationService.cancelReservation(id).subscribe((data: any) => {
-      if (data.message == 'canceled') {
+    this.ReservationService.OnHoldReservation(id).subscribe((data: any) => {
+      if (data.message == 'on hold') {
         this.SharedService.updateAllData();
         this.loading = !this.loading;
       }

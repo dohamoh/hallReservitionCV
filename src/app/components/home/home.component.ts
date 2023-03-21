@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   constructor(private SharedService: SharedService) { }
   ngOnInit(): void {
-    this.SharedService.updateUserData()
-    // localStorage.clear()
+this.SharedService.updateAllData()
   }
 }

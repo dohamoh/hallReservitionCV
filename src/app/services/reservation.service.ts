@@ -10,23 +10,38 @@ export class ReservationService {
   constructor(private HttpClient: HttpClient) {}
 
   addReservation(data: any): any {
-    return this.HttpClient.post(`${this.baseUrl}/addReservation`, data);
+    return this.HttpClient.post(`${this.baseUrl}/addReservation`, data, {
+      headers: {
+        authorization: `Bearer__${localStorage.getItem('userToken')}`,
+      },
+    });
   }
   getAllReservation(): any {
-      return this.HttpClient.get(`${this.baseUrl}/getAllReservation`,
-      {
-        headers: {
-          authorization: `Bearer__${localStorage.getItem("userToken")}`
-        }
+    return this.HttpClient.get(`${this.baseUrl}/getAllReservation`, {
+      headers: {
+        authorization: `Bearer__${localStorage.getItem('userToken')}`,
+      },
     });
-    }
-    cancelReservation(id:Object): any {
-      return this.HttpClient.delete(`${this.baseUrl}/cancelReservation/${id}`,
-      {
-        headers: {
-          authorization: `Bearer__${localStorage.getItem("userToken")}`
-        }
+  }
+  OnHoldReservation(id: Object): any {
+    return this.HttpClient.patch(`${this.baseUrl}/OnHoldReservation/${id}`, {
+      headers: {
+        authorization: `Bearer__${localStorage.getItem('userToken')}`,
+      },
     });
-    }
+  }
+  ApprovedReservation(id: Object): any {
+    return this.HttpClient.patch(`${this.baseUrl}/ApprovedReservation/${id}`, {
+      headers: {
+        authorization: `Bearer__${localStorage.getItem('userToken')}`,
+      },
+    });
+  }
+  UnapprovedReservation(id: Object): any {
+    return this.HttpClient.patch(`${this.baseUrl}/UnapprovedReservation/${id}`, {
+      headers: {
+        authorization: `Bearer__${localStorage.getItem('userToken')}`,
+      },
+    });
+  }
 }
-
