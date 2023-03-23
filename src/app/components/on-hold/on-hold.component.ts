@@ -45,6 +45,15 @@ ngOnInit(): void {
       }
     });
   }
+  Cancel(id: Object) {
+    this.loading = !this.loading;
+    this.ReservationService.CancelReservation(id).subscribe((data: any) => {
+      if (data.message == 'Canceled') {
+        this.SharedService.updateAllData();
+        this.loading = !this.loading;
+      }
+    });
+  }
   ApprovedReservation(id: Object) {
     console.log(id);
 

@@ -29,7 +29,7 @@
             <span> {{reservation?.encounterType}}</span>
           </p>
         </div>
-        <button class="btn btn-primary" (click)="OnHoldReservation(reservation._id)">On hold</button>
+        <button class="btn btn-primary" (click)="OnHoldReservation(reservation._id)" *ngIf="userData?.role == 'Admin'">On hold</button>
 
       </div>
 

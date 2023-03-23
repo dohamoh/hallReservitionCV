@@ -1,4 +1,45 @@
-<div class="charts">
-  <div class="pie"></div>
-  <div class="line"> </div>
-</div>
+<section>
+  <div><button class=" btn btn-light box-shadow mainColor" (click)="openFilter()">filter<i class="bi bi-funnel-fill"></i></button></div>
+  <div class="close transition row w-100 rounded-3 mt-3 d-flex align-items-center justify-content-center" id='filter'>
+    <div class=" col my-2 d-flex align-items-end">
+      <select class="rounded-0 w-100 p-2 rounded-3 border-0 box-shadow" id="name" (change)="name()">
+
+        <option *ngFor="let hall of halls" value="{{hall?._id}}">{{hall?.hallName}} </option>
+        <option [ngValue]="null" selected>جميع القاعات</option>
+      </select>
+    </div>
+    <div class=" col my-2 d-flex align-items-end">
+      <select class="rounded-0 w-100 p-2 rounded-3 border-0 box-shadow" id="date" (change)="getDate()">
+        <option value="اليوم">اليوم</option>
+        <option value="الاسبوع الاخير" selected>الاسبوع الاخير</option>
+        <option value="الشهر الاخير">الشهر الاخير</option>
+        <option value="السنه الاخيره">السنه الاخيره</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class=" w-100 h-100 d-flex align-items-center justify-content-center" style="pointer-events: none;">
+  <div style="width: 80%;">
+    <canvas id="chart" #chart width="600" height="200"></canvas>
+  </div>
+</section>

@@ -44,4 +44,11 @@ export class ReservationService {
       },
     });
   }
+  CancelReservation(id: Object): any {
+    return this.HttpClient.delete(`${this.baseUrl}/CancelReservation/${id}`, {
+      headers: {
+        authorization: `Bearer__${localStorage.getItem('userToken')}`,
+      },
+    });
+  }
 }
