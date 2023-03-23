@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="col-md-5 col-12 justify-content-center">
-              <input class="w-100 rounded-3 p-2" type="text" placeholder="الحد الأقصئ من الحاضرين">
+              <input class="w-100 rounded-3 p-2" formControlName="newAttendees" type="text" placeholder="الحد الأقصئ من الحاضرين">
             </div>
           </div>
           <div class="row justify-content-center mb-3">
@@ -30,16 +30,24 @@
                 formControlName="newDesc">
             </div>
           </div>
+          <div class="row d-flex w-100 me-md-4 me-0 me-lg-0 mt-lg-5 mt-1 justify-content-lg-center justify-content-start align-items-end">
+            <div class="col-lg-4 col-md-3 col-12">
+              <button type="submit" class="btn mainBg w-100 px-3 text-white border-0">Done</button>
+            </div>
+            <div class="col-lg-4 col-md-3 col-12 mt-md-0 mt-3">
+              <button class="btn bg-danger text-white w-100 border-0" (click)="closeEditPage()">Cancel</button>
+            </div>
+          </div>
         </form>
       </div>
-      <div class="row d-flex w-75 justify-content-start align-items-end">
+      <!-- <div class="row d-flex w-75 justify-content-start align-items-end">
         <div class="col-md-2 col-6">
           <button class="btn mainBg px-3 text-white border-0">Done</button>
         </div>
         <div class="col-md-2 col-6">
           <button class="btn bg-danger text-white border-0" (click)="closeEditPage()">Cancel</button>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

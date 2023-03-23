@@ -16,7 +16,8 @@ export class HallService {
     return this.HttpClient.delete(`${this.baseUrl}/deleteHall/${id}`);
   }
   editHall(data:any , id:any): any {
-    return this.HttpClient.patch(`${this.baseUrl}/editHall/${id}` , data);
+    // console.log(data);
+    return this.HttpClient.put(`${this.baseUrl}/editHall/${id}` , data);
   }
   getHalls(): any {
     return this.HttpClient.get(`${this.baseUrl}/getHalls`);

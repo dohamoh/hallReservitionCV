@@ -19,6 +19,9 @@ section{
     }
     .iconDiv{
       color: #f1ecec !important;
+      @media screen and (max-width: 600px) {
+        width: 50% !important;
+      }
     }
     .iconBorder{
       border: 2px solid #f1ecec !important;
