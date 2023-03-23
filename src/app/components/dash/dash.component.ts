@@ -1,4 +1,3 @@
-
 import { Component, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
 import { last } from 'rxjs';
@@ -137,8 +136,11 @@ export class DashComponent {
         if (month < 0) {
           month = 11;
         }
-
-        this.x.push(x[month]);
+        if (month == new Date().getUTCMonth()) {
+          this.x.push(`هذا الشهر`);
+        } else {
+          this.x.push(x[month]);
+        }
       }
       this.x.reverse();
       this.lastYear();
@@ -359,13 +361,15 @@ export class DashComponent {
       for (let i = 0; i < this.halls?.length; i++) {
         const element = this.halls[i];
         data = [];
-        for (let x = 0; x < new Date().getDate(); x++) {
+        for (let x = 0; x < 12; x++) {
           let num = [];
           for (let z = 0; z < element?.reservations.length; z++) {
             const reservation = element?.reservations[z];
             let date = new Date();
-            date.setDate(date.getDate() - x);
-            if (new Date(reservation.createdAt).getDate() == date.getDate()) {
+            date.setDate(date.getUTCMonth() - x);
+            if (
+              new Date(reservation.createdAt).getUTCMonth() == date.getDate()
+            ) {
               num.push(reservation);
             }
           }
@@ -386,18 +390,19 @@ export class DashComponent {
       let element = this.halls?.filter(
         (element: any) => element._id == this.hallName
       )[0];
+console.log(element);
 
       this.datasets = [];
-      let data = [];
-      let datasets = [];
-
-      for (let x = 0; x < new Date().getDate(); x++) {
+      data = [];
+      for (let x = 0; x < 12; x++) {
         let num = [];
         for (let z = 0; z < element?.reservations.length; z++) {
           const reservation = element?.reservations[z];
           let date = new Date();
-          date.setDate(date.getDate() - x);
-          if (new Date(reservation.createdAt).getDate() == date.getDate()) {
+          date.setDate(date.getUTCMonth() - x);
+          if (
+            new Date(reservation.createdAt).getUTCMonth() == date.getDate()
+          ) {
             num.push(reservation);
           }
         }
@@ -405,15 +410,20 @@ export class DashComponent {
         data.push(`${num.length}`);
       }
       data.reverse();
+      console.log({
+        label: `${element.hallName}`,
+        data: data,
+        borderWidth: 1,
+      });
 
       datasets.push({
         label: `${element.hallName}`,
         data: data,
         borderWidth: 1,
       });
-      this.datasets = datasets;
-
-      this.handelChart();
     }
+    this.datasets = datasets;
+
+    this.handelChart();
   }
 }
