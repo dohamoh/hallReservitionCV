@@ -30,8 +30,9 @@
           </p>
         </div>
         <div class="">
-          <button class="btn mainBg ms-3 text-white" (click)="ApprovedReservation(reservation._id)">Approved</button>
-          <button class="btn btn-danger" (click)="UnapprovedReservation(reservation._id)">Unapproved</button>
+          <button class="btn mainBg ms-3 text-white" (click)="ApprovedReservation(reservation._id)" *ngIf="userData?.role == 'Admin'">Approved</button>
+          <button class="btn btn-danger" (click)="UnapprovedReservation(reservation._id)" *ngIf="userData?.role == 'Admin'">Unapproved</button>
+          <button class="btn btn-danger" (click)="Cancel(reservation._id)" *ngIf="userData?.role == 'User'">Cancel</button>
         </div>
       </div>
 

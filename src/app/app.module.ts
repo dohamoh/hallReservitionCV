@@ -1,11 +1,10 @@
 import {  HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule,enableProdMode  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -22,13 +21,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDeletionComponent } from './components/confirm-deletion/confirm-deletion.component';
 import { EditHallComponent } from './components/edit-hall/edit-hall.component';
 import { ConnectUsComponent } from './components/connect-us/connect-us.component';
-import { DashComponent } from './components/dash/dash.component';
 import { AddHallComponent } from './components/add-hall/add-hall.component';
 import { UnapprovedComponent } from './components/unapproved/unapproved.component';
 import { OnHoldComponent } from './components/on-hold/on-hold.component';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { ChartModule } from 'angular-highcharts';
+import { DashComponent } from './components/dash/dash.component';
+
+import { ChartsModule } from 'ng2-charts';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,12 +52,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditHallComponent,
     AddHallComponent,
     ConnectUsComponent,
-    DashComponent,
+
     UnapprovedComponent,
     OnHoldComponent,
     UnapprovedComponent,
     NoDataComponent,
-    LoadingComponent
+    LoadingComponent,
+    DashComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ChartModule,
+    ChartsModule,
+
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
