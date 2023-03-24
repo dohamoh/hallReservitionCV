@@ -33,12 +33,31 @@ export class DashComponent {
   halls: any;
   hallName: any;
   date: any;
+  height:any
   ngOnInit(): void {
+console.log(window.innerWidth);
+if (window.innerWidth >=1000) {
+this.height = 300
+}else if (window.innerWidth<1000 && window.innerWidth>=800) {
+  this.height = 400
+  }else if (window.innerWidth<800 && window.innerWidth>=600) {
+    this.height = 550
+    }else if (window.innerWidth<600) {
+      this.height = 600
+      }
     this.SharedService.currentAllHalls.subscribe((data: any) => {
       this.halls = data;
 
       this.defaultData();
     });
+  }
+  getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
   defaultData() {
     this.ElementRef.nativeElement.querySelector('#date').value =
@@ -55,7 +74,7 @@ export class DashComponent {
       data: {
         labels: this.x,
         datasets: this.datasets,
-      },
+      }
     });
   }
 
@@ -79,13 +98,11 @@ export class DashComponent {
       let now = new Date();
       let date = new Date();
 
-      for (let i = 0; i < 24; i++) {
-        date.setDate(date.getHours() - i);
-
-        if (now.getHours() == date.getDate()) {
+      for (let i = 0; i < now.getHours() + 1; i++) {
+        if (now.getHours() == date.getHours() - i) {
           this.x.push(`الان`);
         } else {
-          this.x.push(`${-i}`);
+          this.x.push(`${date.getHours() - i}`);
         }
       }
       this.x.reverse();
@@ -156,7 +173,7 @@ export class DashComponent {
       for (let i = 0; i < this.halls?.length; i++) {
         const element = this.halls[i];
         data = [];
-        for (let x = 0; x < 24; x++) {
+        for (let x = 0; x <= new Date().getHours(); x++) {
           let num = [];
           for (let z = 0; z < element?.reservations.length; z++) {
             const reservation = element?.reservations[z];
@@ -179,6 +196,8 @@ export class DashComponent {
           label: `${element.hallName}`,
           data: data,
           borderWidth: 1,
+          borderColor: 'white',
+          backgroundColor: this.getRandomColor(),
         });
       }
       this.datasets = datasets;
@@ -189,7 +208,7 @@ export class DashComponent {
         (element: any) => element._id == this.hallName
       )[0];
       data = [];
-      for (let x = 0; x < 24; x++) {
+      for (let x = 0; x <= new Date().getHours(); x++) {
         let num = [];
         for (let z = 0; z < element?.reservations.length; z++) {
           const reservation = element?.reservations[z];
@@ -198,7 +217,9 @@ export class DashComponent {
           date.setDate(date.getHours() - x);
 
           if (new Date(reservation.createdAt).getDate() == today.getDate()) {
-            if (new Date(reservation.createdAt).getHours() == date.getDate()) {
+            if (
+              new Date(reservation.createdAt).getHours() == date.getDate()
+            ) {
               num.push(reservation);
             }
           }
@@ -210,6 +231,8 @@ export class DashComponent {
         label: `${element.hallName}`,
         data: data,
         borderWidth: 1,
+        borderColor: 'white',
+        backgroundColor: this.getRandomColor(),
       });
 
       this.datasets = datasets;
@@ -245,6 +268,8 @@ export class DashComponent {
           label: `${element.hallName}`,
           data: data,
           borderWidth: 1,
+          borderColor: 'white',
+          backgroundColor: this.getRandomColor(),
         });
       }
       this.datasets = datasets;
@@ -278,6 +303,8 @@ export class DashComponent {
         label: `${element.hallName}`,
         data: data,
         borderWidth: 1,
+        borderColor: 'white',
+        backgroundColor: this.getRandomColor(),
       });
       this.datasets = datasets;
 
@@ -312,6 +339,8 @@ export class DashComponent {
           label: `${element.hallName}`,
           data: data,
           borderWidth: 1,
+          borderColor: 'white',
+          backgroundColor: this.getRandomColor(),
         });
       }
       this.datasets = datasets;
@@ -345,6 +374,8 @@ export class DashComponent {
         label: `${element.hallName}`,
         data: data,
         borderWidth: 1,
+        borderColor: 'white',
+        backgroundColor: this.getRandomColor(),
       });
       this.datasets = datasets;
 
@@ -381,6 +412,8 @@ export class DashComponent {
           label: `${element.hallName}`,
           data: data,
           borderWidth: 1,
+          borderColor: 'white',
+          backgroundColor: this.getRandomColor(),
         });
       }
       this.datasets = datasets;
@@ -390,7 +423,7 @@ export class DashComponent {
       let element = this.halls?.filter(
         (element: any) => element._id == this.hallName
       )[0];
-console.log(element);
+      console.log(element);
 
       this.datasets = [];
       data = [];
@@ -400,9 +433,7 @@ console.log(element);
           const reservation = element?.reservations[z];
           let date = new Date();
           date.setDate(date.getUTCMonth() - x);
-          if (
-            new Date(reservation.createdAt).getUTCMonth() == date.getDate()
-          ) {
+          if (new Date(reservation.createdAt).getUTCMonth() == date.getDate()) {
             num.push(reservation);
           }
         }
@@ -420,6 +451,8 @@ console.log(element);
         label: `${element.hallName}`,
         data: data,
         borderWidth: 1,
+        borderColor: 'white',
+        backgroundColor: this.getRandomColor(),
       });
     }
     this.datasets = datasets;

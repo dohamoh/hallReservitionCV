@@ -7,6 +7,9 @@ section{
   @media screen and (max-width: 760px) {
     height: 60vh;
   }
+  p{
+    white-space: nowrap;
+  }
     .mask{
       position: absolute;
       height: 50vh;
