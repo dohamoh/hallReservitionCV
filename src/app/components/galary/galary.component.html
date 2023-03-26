@@ -1,9 +1,11 @@
 <section class="py-5 px-4 bg-light">
-  <a class="addIcon w-25 pe-3 rounded-2 d-flex align-items-center text-decoration-none link-dark border-0 me-3" routerLink="/addHall">
+  <!-- <a class="addIcon w-auto pe-3 rounded-2 d-flex align-items-center text-decoration-none link-dark bg-black border-0 me-3" routerLink="/addHall">
     <i class="bi bi-plus-lg fs-3 fw-bold ms-3"></i>
-    <span class="fw-semibold">أضف قاعة</span>
-  </a>
-  <div class="galary">
+    <span class="fw-semibold">{{'addHallBtn.addHall' | translate}}</span>
+  </a> -->
+  <button routerLink="/addHall" class="addIcon btn px-3 mx-5 d-flex align-items-center justify-content-between"><i class="bi bi-plus-lg fs-3 fw-bold ms-3"></i>
+    <span class="fw-semibold">{{'addHallBtn.addHall' | translate}}</span></button>
+  <div class="galary p-5">
     <div class="position-relative" (click)="disPlayHall = hall" *ngFor="let hall of allHalls let x = index" [ngClass]="[(x+1)%9 == 1 ? 'tall' : '',  (x+1)%9 == 4 ? 'tall' : '', (x+1)%9 == 0 ? 'wide' : '']">
 
       <img class="" src="{{hall.hallImg}}"  alt="">

@@ -10,8 +10,8 @@
             <p class="p-2 rounded-3 mainBg text-white">{{reservation?.status}}</p>
           </div>
         </div>
-        <div class="col-md-9 col-12 d-flex align-items-start justify-content-between">
-          <div class="resDetials mt-3 text-end fw-semibold">
+        <div class="col-md-9 row col-12 d-flex align-items-start justify-content-between  p-0">
+          <div class="resDetials mt-3 text-end fw-semibold col-md-9">
             <p>
               التاريخ :
               <span>{{reservation?.date}}</span>
@@ -29,8 +29,9 @@
               <span> {{reservation?.encounterType}}</span>
             </p>
           </div>
-          <div class="">
-            <button class="btn btn-primary" (click)="OnHoldReservation(reservation._id)" *ngIf="userData?.role == 'Admin'">On hold</button>
+          <div class=" col-md-3 d-flex justify-content-end p-0 mt-md-0 mt-3" >
+            <button class="btn btn-primary" (click)="OnHoldReservation(reservation._id)"
+              *ngIf="userData?.role == 'Admin'">On hold</button>
           </div>
         </div>
 

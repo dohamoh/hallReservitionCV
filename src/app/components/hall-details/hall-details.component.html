@@ -1,17 +1,17 @@
-<section class=" bg-light p-5 pt-5 position-relative">
-  <div class=" position-absolute top-0 end-0 p-5 d-flex flex-column  align-items-center justify-content-between">
+<section class=" bg-light  position-relative p-3">
+  <div class=" position-absolute top-0 end-0 p-2 bg-white box-shadow d-flex flex-column  align-items-center justify-content-between">
     <i class="bi bi-x p-1 mb-2 rounded-2 fs-2 fw-bold cursor-pointer" (click)="closeDetails()"></i>
     <button class=" btn btn-light box-shadow"><i
-        class="bi bi-trash3-fill p-1 rounded-2 fw-bold transition cursor-pointer text-danger"
+        class="bi bi-trash3-fill pe-1  rounded-2 fw-bold transition cursor-pointer text-danger"
         (click)="confirmDeletion=!confirmDeletion" ></i></button>
     <button class=" btn btn-light box-shadow mt-2"><i
         class="bi bi-pencil-fill p-1 rounded-2 fw-bold transition cursor-pointer mainColor"
         (click)="editHall=!editHall"></i></button>
   </div>
-  <div class="w-100 h-auto d-flex justify-content-center">
-    <img class=" w-75 rounded-3" src="{{hallData.hallImg}}" alt="">
+  <div class="w-100 h-75  img d-flex justify-content-center" style="background-image: url({{hallData.hallImg}});">
+    <!-- <img class=" w-75 rounded-3" src="{{hallData.hallImg}}" alt=""> -->
   </div>
-  <div class="details w-75 rounded-2 mt-md-4 pe-5 p-2">
+  <div class="details w-75 h-25">
     <h2 class="mb-3 position-relative">{{hallData.hallName}}
 
     </h2>

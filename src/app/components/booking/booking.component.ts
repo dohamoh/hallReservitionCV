@@ -16,13 +16,17 @@ export class BookingComponent {
   allHalls: any;
   meeting = 'نوع اللقاء';
   file: any;
+  hallAttendees:any
   encounterTime: any;
   reservationForm: FormGroup = new FormGroup({
     AdministrationName: new FormControl(null, [
       Validators.required,
       Validators.minLength(4),
     ]),
-    members: new FormControl(null, [Validators.required]),
+    members: new FormControl(null, [
+      Validators.required,
+
+    ]),
     date: new FormControl(null, [Validators.required]),
     encounterType: new FormControl(null, [Validators.required]),
     whatDoYouNeed: new FormControl(null),
@@ -34,7 +38,9 @@ export class BookingComponent {
     private ReservationService: ReservationService,
     private SharedService: SharedService,
     private Router: Router
-  ) {}
+  ) {
+
+  }
   ngOnInit(): void {
     this.SharedService.currentAllHalls.subscribe((data: any) => {
       this.allHalls = data;
@@ -47,6 +53,17 @@ export class BookingComponent {
     let date = yyyy + '-' + mm + '-' + dd;
 
     this.elementRef.nativeElement.querySelector('#date').min = date;
+  }
+  setMember(){
+    let hallAttendees = this.allHalls?.filter((element:any)=>element._id==this.reservationForm.value.hallId)[0].hallAttendees
+    console.log(hallAttendees);
+
+    this.hallAttendees =hallAttendees
+    this.reservationForm.controls["members"].addValidators([
+
+      Validators.max(hallAttendees)
+    ]);
+
   }
   type(event: any) {
     const dom: HTMLElement = this.elementRef.nativeElement;

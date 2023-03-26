@@ -1,41 +1,46 @@
 <section class="p-3 pb-0">
   <div
-    class=" vw-100 vh-100 position-absolute top-0 end-0 d-flex align-items-center justify-content-center bg-black bg-opacity-75"
+    class=" vw-100 vh-100 position-absolute top-0 end-0 d-flex align-items-center justify-content-center bg-black bg-opacity-75 "
     style="z-index: 8;">
     <div
-      class="bg-white d-flex align-items-center justify-content-evenly flex-column w-50 rounded-3 mt-5 position-relative"
-      style="height: 40%;">
+      class="bg-white d-flex align-items-center justify-content-evenly flex-column w-50 rounded-3 mt-5 position-relative py-3"
+      style="height: auto;">
       <i class="bi bi-x position-absolute top-0 end-0 m-2 cursor-pointer fs-2" (click)="closeEditPage()"></i>
       <div class="container">
         <form [formGroup]="editHallForm" (ngSubmit)="editHall(editHallForm.value)">
-          <div class="row justify-content-center mb-3">
-            <div class="col-md-5 col-12">
-              <div class="">
-                <label class="w-100 rounded-3 p-2" for="updateImg"><i class="bi bi-pencil-square ms-3"></i><span>أختر صورة
-                    جديدة</span></label>
-                <input class="opacity-0" type="file" id="updateImg" name="updateImg">
-              </div>
+          <div class="row justify-content-center p-3 ">
+
+            <div class=" col-md-6 col-12 px-3 py-2">
+              <label class="w-100 rounded-3 p-2" for="updateImg"><i
+                  class="bi bi-pencil-square ms-3"></i><span>{{'editHall.ChooseANewPhoto' | translate}}</span></label>
+              <input class="d-none" type="file" id="updateImg" name="updateImg">
             </div>
-            <div class="col-md-5 col-12 justify-content-center">
-              <input class="w-100 rounded-3 p-2" formControlName="newAttendees" type="text" placeholder="الحد الأقصئ من الحاضرين">
+
+            <div class=" col-md-6 col-12 px-3 py-2">
+              <input class="w-100 rounded-3 p-2" formControlName="newAttendees" type="text"
+                placeholder="{{'editHall.maximumNumberOfAttendees' | translate}}">
             </div>
-          </div>
-          <div class="row justify-content-center mb-3">
-            <div class="col-md-5 col-12 justify-content-center">
-              <input class="w-100 rounded-3 p-2" type="text" placeholder="{{'editHall.ChangingTheNameOfTheHall' | translate}}" name="newName"
+
+
+            <div class=" col-md-6 col-12 px-3 py-2">
+              <input class="w-100 rounded-3 p-2" type="text"
+                placeholder="{{'editHall.ChangingTheNameOfTheHall' | translate}}" name="newName"
                 formControlName="newName">
             </div>
-            <div class="col-md-5 col-12 justify-content-center">
-              <input class="w-100 rounded-3 p-2" type="text" placeholder="{{'editHall.ChangingTheDescriptionOfTheHall' | translate}}" name="newDesc"
+            <div class=" col-md-6 col-12 px-3 py-2">
+              <input class="w-100 rounded-3 p-2" type="text"
+                placeholder="{{'editHall.ChangingTheDescriptionOfTheHall' | translate}}" name="newDesc"
                 formControlName="newDesc">
             </div>
+
+
           </div>
-          <div class="row d-flex w-100 me-md-4 me-0 me-lg-0 mt-lg-5 mt-1 justify-content-lg-center justify-content-start align-items-end">
-            <div class="col-lg-4 col-md-3 col-12">
+          <div  class="row d-flex w-100 justify-content-lg-center justify-content-start align-items-end m-0 px-3">
+            <div class="col-lg-4 col-md-3 col-12 p-0">
               <button type="submit" class="btn mainBg w-100 px-3 text-white border-0">Done</button>
             </div>
-            <div class="col-lg-4 col-md-3 col-12 mt-md-0 mt-3">
-              <button class="btn bg-danger text-white w-100 border-0" (click)="closeEditPage()">Cancel</button>
+            <div class="col-lg-4 col-md-3 col-12 mt-md-0 mt-3 p-0">
+              <button class="btn bg-danger text-white w-100 border-0 me-0 me-md-2" (click)="closeEditPage()">Cancel</button>
             </div>
           </div>
         </form>
@@ -52,3 +57,5 @@
   </div>
 
 </section>
+<app-loading *ngIf="loading"></app-loading
+>

@@ -43,6 +43,16 @@
 
 
   },
+  "addHall": {
+    "hallName" : "أسم القاعة",
+    "hallDes" : "وصف القاعة",
+    "hallAttendees" : "الحد الاقصى من الحاضرين",
+
+    "save" : "حفظ",
+    "cancel" : "إلغاء"
+
+
+  },
   "footer": {
     "forContactUs" : "للتواصل معنا",
     "dimensions" :"أفضل أبعاد للموقع",
@@ -58,5 +68,22 @@
   },
   "deletion": {
     "sure?" : "هل انت متاكد ؟"
+  },
+  "addHallBtn": {
+    "addHall" : "أضف قاعة"
+  },
+
+  "signUp": {
+    "signUp" : "إنشاء حساب",
+    "login" : "تسجيل الدخول",
+    "IFOS" : "أنا من خارج وزارة التعليم",
+    "DepartmentName" : "أسم ألاداره",
+    "email" : "الاميل",
+    "password" : "كلمة المرور",
+    "phone" : "رقم الهاتف",
+    "choose" : "أختر",
+    "male" : "ذكر",
+    "female" : "انثى"
   }
+
  }
