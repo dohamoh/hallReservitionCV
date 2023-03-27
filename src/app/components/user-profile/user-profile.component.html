@@ -34,7 +34,7 @@
                 <img class="w-10 ms-3 pt-md-3" src="../../../assets/images/calendar-x.svg" alt="">
                 <p class="pt-3" (click)="open()">unapproved</p>
               </li>
-              <li class="cursor-pointer d-flex justify-content-start align-items-center my-2" id="v-pills-dash-tab"
+              <li *ngIf="userData.role == 'Admin'" class="cursor-pointer d-flex justify-content-start align-items-center my-2" id="v-pills-dash-tab"
                 data-bs-toggle="pill" data-bs-target="#v-pills-dash" type="button" role="tab"
                 aria-controls="v-pills-dash" aria-selected="false">
                 <img class="w-10 ms-3 pt-md-3" src="../../../assets/images/graph-up.svg" alt="">

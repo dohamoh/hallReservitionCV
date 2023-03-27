@@ -1,6 +1,6 @@
-<div class=" vw-100 vh-100 position-absolute top-0 end-0 d-flex align-items-center justify-content-center"
+<section class=" vw-100 vh-100 row position-absolute top-0 end-0 d-flex align-items-center justify-content-center"
   style="z-index: 5;">
-  <div class="bg-white d-flex align-items-center  justify-content-evenly flex-column w-25 h-25 rounded-3">
+  <div class="bg-white d-flex align-items-center  justify-content-evenly flex-column col-lg-4 col-md-6 col-8 h-25 rounded-3">
     <p>{{'deletion.sure?'|translate}}</p>
     <div class=" w-75 d-flex align-items-center justify-content-evenly row">
       <button class="mainColor bg-light btn col-3 p-0" (click)="delete()"><i class="bi bi-check-lg"></i></button>
@@ -8,4 +8,5 @@
           class="bi bi-x-lg"></i></button>
     </div>
   </div>
-</div>
+</section>
+<app-loading *ngIf="loading"></app-loading>

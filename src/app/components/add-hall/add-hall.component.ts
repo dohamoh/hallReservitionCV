@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AddHallComponent {
   file:any = '';
+  loading=false
   addHallForm: FormGroup = new FormGroup({
     hallName: new FormControl(null, [Validators.required]),
     hallDesc: new FormControl(null, [Validators.required]),
@@ -17,6 +18,7 @@ export class AddHallComponent {
   });
   constructor(private router:Router , private hallService:HallService){}
   addHall(data: any) {
+    this.loading = true
     const formData = new FormData();
     formData.append('file', this.file);
     formData.append('hallName', data.hallName);
@@ -25,6 +27,7 @@ export class AddHallComponent {
 
     this.hallService.addHall(formData).subscribe((Data:any) => {
       if (Data.message == 'hall added') {
+        this.loading = false
         this.router.navigate(['/home'])
       }
     })

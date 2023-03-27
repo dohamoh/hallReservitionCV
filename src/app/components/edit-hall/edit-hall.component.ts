@@ -10,7 +10,8 @@ import { Component, EventEmitter, Input, Output, ElementRef } from '@angular/cor
 })
 export class EditHallComponent {
   // @Input() id: any
-  file: any;
+  file: any = ''
+  loading=false
   editHallForm: FormGroup = new FormGroup({
     newName: new FormControl(null, [Validators.required]),
     newDesc: new FormControl(null, [Validators.maxLength(300)]),
@@ -25,7 +26,7 @@ export class EditHallComponent {
   }
   editHall(data: any) {
     console.log(this.id);
-
+    this.loading = !this.loading
     const formData = new FormData();
     formData.append('file', this.file);
     formData.append('newName', data.newName);
@@ -36,6 +37,7 @@ export class EditHallComponent {
     this.hallService.editHall(formData, this.id).subscribe((Data: any) => {
       console.log(Data);
       if (Data.message == 'Updated') {
+        this.loading = !this.loading
         this.router.navigate(['/home'])
       }
     })
@@ -43,7 +45,7 @@ export class EditHallComponent {
   upload(event: any) {
     const file = event.target.files[0];
     this.file = file;
-    
+
 
   }
 }

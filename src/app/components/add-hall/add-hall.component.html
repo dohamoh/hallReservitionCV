@@ -1,4 +1,4 @@
-<section class="p-3 h-100 d-flex align-items-center justify-content-center">
+<section class="p-3 h-auto d-flex align-items-center justify-content-center">
   <div class="d-flex align-items-center justify-content-center">
     <div class="bg-light h-100 p-5 d-flex align-items-center justify-content-evenly flex-column w-75 rounded-3 my-5 position-relative">
       <i class="bi bi-x position-absolute top-0 end-0 m-2 cursor-pointer fs-2" (click)="closeAddPage()"></i>
@@ -6,25 +6,25 @@
         <form [formGroup]="addHallForm" (ngSubmit)="addHall(addHallForm.value)">
           <div class="row justify-content-center mb-3">
             <div class="col-md-3 col-12 mb-3 mb-lg-0">
-                <label class="bg-white cursor-pointer h-100 rounded-2" for="updateImg">
+                <label class="bg-white cursor-pointer h-100 rounded-2 w-100" for="updateImg">
                   <img class="w-100 pt-3" src="../../../assets/images/images (1).png" alt="">
                 </label>
                 <input class="opacity-0" type="file" id="updateImg" name="updateImg" (change)="upload($event)">
             </div>
             <div class="col-md-8 col-12 d-flex flex-column justify-content-around">
-              <input class="w-100 rounded-3 p-2 mb-3" type="text" placeholder="أسم القاعة" name="hallName" formControlName="hallName">
+              <input class="w-100 rounded-3 p-2 mb-3" type="text" placeholder="{{'addHall.hallName' | translate}}" name="hallName" formControlName="hallName">
 
-              <input class="w-100 rounded-3 p-2 mb-3" type="text" placeholder="وصف القاعة" name="hallDesc" formControlName="hallDesc">
+              <input class="w-100 rounded-3 p-2 mb-3" type="text" placeholder="{{'addHall.hallDes' | translate}}" name="hallDesc" formControlName="hallDesc">
 
-              <input class="w-100 rounded-3 p-2" type="number" placeholder="الحد الأقصئ من الحاضرين" formControlName="hallAttendees">
+              <input class="w-100 rounded-3 p-2" type="number" placeholder="{{'addHall.hallAttendees' | translate}}" formControlName="hallAttendees">
             </div>
           </div>
           <div class="row d-flex w-100 justify-content-end">
             <div class="col-md-2 col-6 d-flex justify-content-center">
-              <button class="btn mainBg text-white border-0" type="submit">حفط</button>
+              <button class="btn mainBg text-white border-0" type="submit">{{'addHall.save' | translate}}</button>
             </div>
             <div class="col-md-2 col-6 d-flex justify-content-start">
-              <button class="btn bg-danger text-white border-0" (click)="closeAddPage()">ألغاء</button>
+              <button class="btn bg-danger text-white border-0" (click)="closeAddPage()">{{'addHall.cancel' | translate}}</button>
             </div>
           </div>
         </form>
@@ -33,3 +33,4 @@
   </div>
 </section>
 <!-- <app-footer></app-footer> -->
+<app-loading *ngIf="loading"></app-loading>

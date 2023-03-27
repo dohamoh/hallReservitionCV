@@ -70,7 +70,7 @@ this.height = 300
   handelChart() {
     const ctx = this.ElementRef.nativeElement.querySelector('#chart');
     new Chart(ctx, {
-      type: 'line',
+      type: 'bar',
       data: {
         labels: this.x,
         datasets: this.datasets,

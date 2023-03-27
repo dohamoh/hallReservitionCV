@@ -10,15 +10,17 @@ import { Output, EventEmitter } from '@angular/core';
 export class ConfirmDeletionComponent {
   @Output() confirmDeletion: EventEmitter<any> = new EventEmitter<any>();
   @Input() id:any
+  loading=false
   constructor(private HallService: HallService, private Router: Router) { }
   closeConfirmDeletion() {
     this.confirmDeletion.emit(false);
   }
   delete() {
-    console.log(this.id);
+    this.loading = !this.loading
     this.HallService.deleteHall(this.id).subscribe((data: any) => {
-      console.log(data);
+   
       if (data.message == 'deleted') {
+        this.loading = !this.loading
         this.Router.navigate(["/home"])
       }
     })

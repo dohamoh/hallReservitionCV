@@ -44,6 +44,14 @@
 
 
   },
+
+  "addHall": {
+    "hallName" : "Hall name",
+    "hallDes" : "Hall description",
+    "hallAttendees" : "Maximum number of attendees",
+    "save" : "Save",
+    "cancel" : "Cancel"
+  },
   "footer": {
     "forContactUs" : "for contact us",
     "dimensions" :"Best site dimensions",
@@ -58,5 +66,20 @@
   },
   "deletion": {
     "sure?" : "Are you sure?"
+  },
+  "addHallBtn": {
+    "addHall" : "Add hall"
+  },
+  "signUp": {
+    "signUp" : "Sign up",
+    "login" : "Login",
+    "IFOS" : "I am from outside the Ministry of Education",
+    "DepartmentName" : "Department name",
+    "email" : "Email",
+    "password" : "Password",
+    "phone" : "Phone",
+    "choose" : "Choose",
+    "male" : "Male",
+    "female" : "Female"
   }
  }

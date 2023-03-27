@@ -10,10 +10,11 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AddHallComponent } from './components/add-hall/add-hall.component';
 
+
 const routes: Routes = [
   {path:'',redirectTo:"home",pathMatch:'full'},
   {path:'home',component:HomeComponent},
-  {path:'booking',canActivate:[LoginGuard],component:BookingComponent},
+  {path:'booking',component:BookingComponent},
   {path:'gallery',component:GalaryComponent},
   {path:'addHall',component:AddHallComponent},
   {path:'register',canActivate:[LogoutGuard],component:SignUpComponent},
