@@ -29,6 +29,7 @@ ngOnInit(): void {
       } else {
         this.reservations = data.reservations?.filter(
                 (element: any) => element.status == 'On hold'
+                
               );
 
       }

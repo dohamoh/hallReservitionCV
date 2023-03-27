@@ -33,6 +33,7 @@
     "tables":"طاوالت"
 
   },
+  "hallAttendees": "العدد الأقصى من الحضور",
   "editHall": {
     "ChooseANewPhoto" : "أختر صورة جديدة",
     "maximumNumberOfAttendees" : "الحد الأقصى لعدد الحاضرين",
@@ -40,8 +41,6 @@
     "ChangingTheDescriptionOfTheHall" : "تعديل علي وصف القاعة",
     "done" : "تم",
     "cancel" : "إلغاء"
-
-
   },
   "footer": {
     "forContactUs" : "للتواصل معنا",

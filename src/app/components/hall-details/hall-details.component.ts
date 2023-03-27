@@ -1,14 +1,26 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SharedService } from './../../services/shared.service';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hall-details',
   templateUrl: './hall-details.component.html',
   styleUrls: ['./hall-details.component.scss']
 })
-export class HallDetailsComponent {
+export class HallDetailsComponent implements OnInit {
+
   confirmDeletion:Boolean=false
+  userData: any;
   editHall:Boolean=false
+  constructor(private SharedService:SharedService){}
+  ngOnInit(): void {
+    this.SharedService.currentUserData.subscribe((data: any) => {
+      this.userData = data;
+      console.log(data);
+    });
+  }
+
   @Input()hallData:any
+
 
   @Output() closeHallDetails:EventEmitter<any> = new EventEmitter<any>();
 

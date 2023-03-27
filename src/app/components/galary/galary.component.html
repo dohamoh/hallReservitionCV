@@ -1,12 +1,12 @@
 <section class="py-5 px-4 bg-light">
-  <a class="addIcon w-25 pe-3 rounded-2 d-flex align-items-center text-decoration-none link-dark border-0 me-3" routerLink="/addHall">
+  <a *ngIf="userData?.role == 'Admin'" class="addIcon w-25 pe-3 rounded-2 d-flex align-items-center text-decoration-none link-dark border-0 me-3" routerLink="/addHall">
     <i class="bi bi-plus-lg fs-3 fw-bold ms-3"></i>
     <span class="fw-semibold">أضف قاعة</span>
   </a>
   <div class="galary">
     <div class="position-relative" (click)="disPlayHall = hall" *ngFor="let hall of allHalls let x = index" [ngClass]="[(x+1)%9 == 1 ? 'tall' : '',  (x+1)%9 == 4 ? 'tall' : '', (x+1)%9 == 0 ? 'wide' : '']">
 
-      <img class="" src="{{hall.hallImg}}"  alt="">
+      <img class="" src="{{hall.hallImg}}" alt="">
       <div class="mask">
         <h1 class="text-white">{{hall.hallName}}</h1>
       </div>

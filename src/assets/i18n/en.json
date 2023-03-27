@@ -33,6 +33,7 @@
     "tables":"tables"
 
   },
+  "hallAttendees": "العدد الأقصى من الحضور",
   "editHall": {
     "ChooseANewPhoto" : "Choose a new photo",
     "maximumNumberOfAttendees" : "Maximum number of attendees",

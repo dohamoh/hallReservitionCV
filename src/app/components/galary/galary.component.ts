@@ -7,6 +7,7 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./galary.component.scss']
 })
 export class GalaryComponent {
+  userData: any;
   disPlayHall: any = ''
   allHalls: any[] = []
   constructor(private SharedService: SharedService) { }
@@ -15,7 +16,10 @@ export class GalaryComponent {
     this.SharedService.currentAllHalls.subscribe((data: any) => {
       console.log(data);
       this.allHalls = data
-
+      this.SharedService.currentUserData.subscribe((data: any) => {
+        this.userData = data;
+        console.log(data);
+      });
     })
   }
   //   getSrc(event: any) {

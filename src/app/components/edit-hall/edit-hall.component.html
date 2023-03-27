@@ -13,7 +13,7 @@
               <div class="">
                 <label class="w-100 rounded-3 p-2" for="updateImg"><i class="bi bi-pencil-square ms-3"></i><span>أختر صورة
                     جديدة</span></label>
-                <input class="opacity-0" type="file" id="updateImg" name="updateImg">
+                <input class="opacity-0" type="file" id="updateImg" name="updateImg" (change)="upload($event)">
               </div>
             </div>
             <div class="col-md-5 col-12 justify-content-center">
