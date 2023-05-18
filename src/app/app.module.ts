@@ -28,7 +28,7 @@ import { NoDataComponent } from './components/no-data/no-data.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DashComponent } from './components/dash/dash.component';
 
-import { ChartsModule } from 'ng2-charts';
+// import { ChartsModule } from 'ng2-charts';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -71,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ChartsModule,
+    // ChartsModule,
 
     TranslateModule.forRoot({
       loader: {
