@@ -1,67 +1,14 @@
 <section class="py-5 px-4 bg-light">
-  <a *ngIf="userData?.role == 'Admin'" class="addIcon w-25 pe-3 rounded-2 d-flex align-items-center text-decoration-none link-dark border-0 me-3" routerLink="/addHall">
-    <i class="bi bi-plus-lg fs-3 fw-bold ms-3"></i>
-    <span class="fw-semibold">{{'addHallBtn.addHall' | translate}}</span>
-  </a>
-  <button routerLink="/addHall" class="addIcon btn px-3 mx-5 d-flex align-items-center justify-content-between"><i class="bi bi-plus-lg fs-3 fw-bold ms-3"></i>
+
+  <button routerLink="/addHall"  *ngIf="userData?.role == 'Admin'" class="addIcon btn px-3 mx-5 d-flex align-items-center justify-content-between"><i class="bi bi-plus-lg fs-3 fw-bold ms-3"></i>
     <span class="fw-semibold">{{'addHallBtn.addHall' | translate}}</span></button>
   <div class="galary p-5">
-    <div class="position-relative" (click)="disPlayHall = hall" *ngFor="let hall of allHalls let x = index" [ngClass]="[(x+1)%9 == 1 ? 'tall' : '',  (x+1)%9 == 4 ? 'tall' : '', (x+1)%9 == 0 ? 'wide' : '']">
+    <div style="background-image: url({{hall.hallImg}});" class="position-relative img transition" (click)="disPlayHall = hall" *ngFor="let hall of allHalls let x = index" [ngClass]="[(x+1)%9 == 1 ? 'tall' : '',  (x+1)%9 == 4 ? 'tall' : '', (x+1)%9 == 0 ? 'wide' : '']">
 
-      <img class="" src="{{hall.hallImg}}" alt="">
       <div class="mask">
         <h1 class="text-white">{{hall.hallName}}</h1>
       </div>
     </div>
-<!--
-    <div class=" position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3462.jpg" alt="">
-      <div class="mask">
-        <h1 class="text-white">hall name</h1>
-      </div>
-    </div>
-    <div class=" position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3470.jpg" alt="">
-      <div class="mask">
-        <h1 class="text-white">hall name</h1>
-      </div>
-    </div>
-    <div class="tall position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3466.jpg" alt="">
-      <div class="mask">
-        <h1 class="text-white">hall name</h1>
-      </div>
-    </div>
-    <div class=" position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3480.jpg" alt="">
-      <div class="mask">
-        <h1 class="text-white">hall name</h1>
-      </div>
-    </div>
-    <div class=" position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3483.jpg" alt="">
-      <div class="mask">
-        <h1 class="text-white">hall name</h1>
-      </div>
-    </div>
-    <div class=" position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3464.jpg" alt="">
-      <div class="mask">
-        <h1 class="text-white">hall name</h1>
-      </div>
-    </div>
-    <div class=" position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3481.jpg" alt="">
-      <div class="mask">
-        <h1 class="text-white">hall name</h1>
-      </div>
-    </div>
-    <div class="wide position-relative" (click)="getSrc($event)">
-      <img class="" src="../../../assets/images/halls/DSC_3472.jpg" alt="">
-      <div class="mask">
-        <h1 class="text-white">hall name</h1>
-      </div>
-    </div> -->
   </div>
 </section>
 <div class=" top-0 w-100 vh-100 bg-black bg-opacity-75 position-fixed d-flex align-items-center justify-content-center "

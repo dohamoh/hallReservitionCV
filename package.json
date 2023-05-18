@@ -29,10 +29,9 @@
     "fusioncharts": "^3.19.0",
     "highcharts": "^10.3.3",
     "html2canvas": "^1.4.1",
-    "jspdf": "^2.5.1",
-    "jspdf-invoice-template": "^1.4.3",
     "ng2-charts": "^2.4.3",
     "ngx-owl-carousel-o": "^15.0.0",
+    "pdfmake": "^0.2.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

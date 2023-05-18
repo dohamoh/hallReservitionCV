@@ -3,7 +3,6 @@ import { SharedService } from './../../services/shared.service';
 import { ReservationService } from './../../services/reservation.service';
 import { Component, ElementRef, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-booking',
@@ -11,6 +10,8 @@ import { jsPDF } from 'jspdf';
   styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent {
+  private readonly pdfFonts: any;
+    pdfMake: any;
   loading: Boolean = false;
   userData: any;
   allHalls: any;
@@ -39,7 +40,9 @@ export class BookingComponent {
     private SharedService: SharedService,
     private Router: Router
   ) {
-
+    this.pdfMake = require('pdfmake/build/pdfmake.js');
+    this.pdfFonts = require('pdfmake/build/vfs_fonts.js');
+    this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs;
   }
   ngOnInit(): void {
     this.SharedService.currentAllHalls.subscribe((data: any) => {
@@ -102,11 +105,18 @@ export class BookingComponent {
 
 
 `;
-    const doc = new jsPDF();
-    doc.getR2L()
-    doc.text('هلا يا حب', 10, 10);
-    doc.save('reservation.pdf');
+
+const pdfDefinition:any = {
+  content:[
+    {
+      text
+    }
+  ]
+}
+const pdf = this.pdfMake.createPdf(pdfDefinition)
+pdf.open()
   }
+
   reservation() {
     this.loading = !this.loading;
 
