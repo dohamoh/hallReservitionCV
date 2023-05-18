@@ -50,19 +50,7 @@ export class SharedService {
       this.LoggedIn.next(false);
     }
   }
-  // LogIn() {
-  //   if (localStorage.getItem('userToken')) {
-  //     this.isLoggedIn = true
-  //   }
-  // }
-  // logOut() {
-  //   if (localStorage.getItem('userToken')) {
-  //     localStorage.removeItem('userToken');
-  //     this.isLoggedIn = false
-  //   }else{
-  //     this.isLoggedIn = false
-  //   }
-  // }
+
   updateAllHalls() {
 
  this.HallService.getHalls().subscribe((data:any)=>{
@@ -75,11 +63,4 @@ export class SharedService {
     this.updateAllHalls()
     this.updateUserData()
   }
-
-
-
-
-
-
-
 }

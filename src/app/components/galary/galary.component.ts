@@ -16,13 +16,11 @@ export class GalaryComponent {
     this.SharedService.currentAllHalls.subscribe((data: any) => {
       console.log(data);
       this.allHalls = data
+      
       this.SharedService.currentUserData.subscribe((data: any) => {
         this.userData = data;
         console.log(data);
       });
     })
   }
-  //   getSrc(event: any) {
-  //    this.disPlayHall = event.target.parentElement.children[0].attributes.src.nodeValue
-  //  }
 }

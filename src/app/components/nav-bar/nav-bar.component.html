@@ -33,16 +33,12 @@
           <a class="nav-link text-white " routerLink="/register" (click)="logOut()">{{'navBar.logout' | translate}}</a>
         </li>
       </div>
-      <!-- <label for="ar" class="arabicLang"></label>
-      <label for="en" class="englishLang"></label> -->
       <span class="pb-2 pb-md-0 mainBg text-white">
         <select class="form-control text-white mainBg border-0 fs-4 fw-semibold text-start" #selectedLang
           (change)="switchLang(selectedLang.value)">
 
           <option *ngFor="let language of translate.getLangs()" [value]="language"
             [selected]="language === translate.currentLang">
-            <!-- <label for="ar" class="arabicLang"></label>
-          <label for="en" class="englishLang"></label> -->
             {{ language }}
           </option>
         </select>

@@ -4,14 +4,7 @@ section {
   width: 75vw;
   height: 60vh;
   margin-top: 6rem;
-  // .closeIcon {
-  //   top: 17%;
-  //   right: 15%;
-  //   z-index: 8;
-  //   @media screen and (max-width: 768px) {
-  //     top: 25%;
-  //   }
-  // }
+
     img{
       height: 20rem;
     }
@@ -42,21 +35,6 @@ section {
         }
       }
     }
-  // @media screen and (max-width: 768px) {
-  //   height: 60vh !important;
-  //   img{
-  //     height: 100%;
-  //   }
-  // }
-  // .details{
-  //   @media screen and (max-width: 768px) {
-  //     width: 100% !important;
-  //     margin-top: 3rem;
-  //     p{
-  //       width: 100% !important;
-  //     }
-  //   }
-  // }
 }
 
 

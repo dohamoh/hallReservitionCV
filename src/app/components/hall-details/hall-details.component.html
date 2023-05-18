@@ -9,7 +9,6 @@
         (click)="editHall=!editHall"></i></button>
   </div>
   <div class="w-100 h-75  img d-flex justify-content-center" style="background-image: url({{hallData.hallImg}});">
-    <!-- <img class=" w-75 rounded-3" src="{{hallData.hallImg}}" alt=""> -->
   </div>
   <div class="details w-75 rounded-2 mt-md-4 pe-5 p-2">
     <h2 class="mb-3 position-relative">{{hallData.hallName}}
@@ -19,7 +18,7 @@
 
   </div>
 </section>
-<app-confirm-deletion style="z-index: 5; " *ngIf="confirmDeletion" [id]="hallData._id"
+<!-- <app-confirm-deletion style="z-index: 5; " *ngIf="confirmDeletion" [id]="hallData._id"
   (confirmDeletion)="closeConfirmDeletion($event)"></app-confirm-deletion>
 
-<app-edit-hall [id]="hallData._id" *ngIf="editHall" (editPage)="closeEditPage($event)"></app-edit-hall>
+<app-edit-hall [id]="hallData._id" *ngIf="editHall" (editPage)="closeEditPage($event)"></app-edit-hall> -->
