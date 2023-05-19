@@ -11,13 +11,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class BookingComponent {
   private readonly pdfFonts: any;
-    pdfMake: any;
+  pdfMake: any;
   loading: Boolean = false;
   userData: any;
   allHalls: any;
   meeting = 'نوع اللقاء';
   file: any;
-  hallAttendees:any
+  hallAttendees: any
   encounterTime: any;
   reservationForm: FormGroup = new FormGroup({
     AdministrationName: new FormControl(null, [
@@ -57,11 +57,11 @@ export class BookingComponent {
 
     this.elementRef.nativeElement.querySelector('#date').min = date;
   }
-  setMember(){
-    let hallAttendees = this.allHalls?.filter((element:any)=>element._id==this.reservationForm.value.hallId)[0].hallAttendees
+  setMember() {
+    let hallAttendees = this.allHalls?.filter((element: any) => element._id == this.reservationForm.value.hallId)[0].hallAttendees
     console.log(hallAttendees);
 
-    this.hallAttendees =hallAttendees
+    this.hallAttendees = hallAttendees
     this.reservationForm.controls["members"].addValidators([
 
       Validators.max(hallAttendees)
@@ -106,15 +106,15 @@ export class BookingComponent {
 
 `;
 
-const pdfDefinition:any = {
-  content:[
-    {
-      text
+    const pdfDefinition: any = {
+      content: [
+        {
+          text
+        }
+      ]
     }
-  ]
-}
-const pdf = this.pdfMake.createPdf(pdfDefinition)
-pdf.open()
+    const pdf = this.pdfMake.createPdf(pdfDefinition)
+    pdf.open()
   }
 
   reservation() {
@@ -137,7 +137,7 @@ pdf.open()
 
 
       if (data.message == 'Reservation added') {
-        if (  this.elementRef.nativeElement.querySelector('#pdfCheck').checked) {
+        if (this.elementRef.nativeElement.querySelector('#pdfCheck').checked) {
           this.pdf()
         }
         this.SharedService.updateUserData()

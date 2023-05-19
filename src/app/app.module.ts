@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { BookingComponent } from './components/booking/booking.component';
 import { GalaryComponent } from './components/galary/galary.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -27,6 +25,9 @@ import { OnHoldComponent } from './components/on-hold/on-hold.component';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DashComponent } from './components/dash/dash.component';
+import { ChartsModule } from 'ng2-charts';
+import { FooterComponent } from './components/footer/footer.component';
+import { BookingComponent } from './components/booking/booking.component';
 
 // import { ChartsModule } from 'ng2-charts';
 
@@ -46,7 +47,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserProfileComponent,
     SignUpComponent,
     HallDetailsComponent,
-    // ReservationsComponent,
     ReservationsComponent,
     OnHoldComponent,
     UnapprovedComponent,
@@ -55,10 +55,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditHallComponent,
     AddHallComponent,
     ConnectUsComponent,
-
-    UnapprovedComponent,
-    OnHoldComponent,
-    UnapprovedComponent,
     NoDataComponent,
     LoadingComponent,
     DashComponent
