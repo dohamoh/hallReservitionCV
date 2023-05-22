@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   // private baseUrl = 'https://halls-apis.vercel.app/auth';
-  private baseUrl = 'http://localhost:3000/auth';
+  private baseUrl = 'https://hall-ap-is.vercel.app';
 
   constructor(private HttpClient:HttpClient) { }
 

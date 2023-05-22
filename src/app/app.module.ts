@@ -1,9 +1,9 @@
-import {  HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule,enableProdMode  } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgModule, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -29,6 +29,7 @@ import { ChartsModule } from 'ng2-charts';
 import { FooterComponent } from './components/footer/footer.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
 // import { ChartsModule } from 'ng2-charts';
 
 
@@ -72,12 +73,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChartsModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       },
       defaultLanguage: 'En'
-  })
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
