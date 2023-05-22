@@ -6,15 +6,12 @@
     <div style="background-image: url({{hall.hallImg}});" class="position-relative img transition" (click)="disPlayHall = hall" *ngFor="let hall of allHalls let x = index" [ngClass]="[(x+1)%9 == 1 ? 'tall' : '',  (x+1)%9 == 4 ? 'tall' : '', (x+1)%9 == 0 ? 'wide' : '']">
 
       <div class="mask">
-        <h1 class="text-white">{{hall.hallName}}</h1>
+        <h1 class="text-white bg-black p-2 opacity-75">{{hall.hallName}}</h1>
       </div>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> f0fee44c95b38fe2ce13e9879cf77db8c5ff605f
   </div>
 </section>
+<app-footer></app-footer>
 <div class=" top-0 w-100 vh-100 bg-black bg-opacity-75 position-fixed d-flex align-items-center justify-content-center "
   *ngIf="disPlayHall!=''">
   <div class="">

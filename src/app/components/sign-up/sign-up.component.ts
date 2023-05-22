@@ -81,9 +81,9 @@ export class SignUpComponent {
         }
       },
       (err: HttpErrorResponse) => {
-        if (err.error.message == 'in valid password') {
+        if (err.error.message == 'invalid password') {
           this.emailErr = '';
-          this.passwordErr = 'in valid password';
+          this.passwordErr = 'invalid password';
         } else if (err.error.message == 'You have to register first') {
           this.passwordErr = '';
           this.emailErr = 'You have to register first';

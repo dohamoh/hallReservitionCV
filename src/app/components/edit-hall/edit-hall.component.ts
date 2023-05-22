@@ -9,7 +9,6 @@ import { Component, EventEmitter, Input, Output, ElementRef } from '@angular/cor
   styleUrls: ['./edit-hall.component.scss']
 })
 export class EditHallComponent {
-  // @Input() id: any
   file: any = ''
   loading=false
   editHallForm: FormGroup = new FormGroup({
@@ -45,7 +44,5 @@ export class EditHallComponent {
   upload(event: any) {
     const file = event.target.files[0];
     this.file = file;
-
-
   }
 }

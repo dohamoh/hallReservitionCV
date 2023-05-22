@@ -1,17 +1,20 @@
-.main{
-	height: 38rem;
-	overflow: hidden;
-	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
-	box-shadow: 5px 20px 50px #5b5858;
-  #chk{
+.main {
+  height: 38rem;
+  overflow: hidden;
+  background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+  box-shadow: 5px 20px 50px #5b5858;
+
+  #chk {
     display: none;
   }
-  select{
+
+  select {
     outline: #fff !important;
     border: 1px solid #2fab99;
     width: 60%;
   }
-  label{
+
+  label {
     color: #2fab99;
     font-size: 2.3em;
     justify-content: center;
@@ -21,16 +24,18 @@
     cursor: pointer;
     transition: .5s ease-in-out;
   }
-  .inputDiv{
-width: 100%;
-position: relative;
+
+  .inputDiv {
+    width: 100%;
+    position: relative;
   }
-  input{
+
+  input {
     width: 100%;
     background: #f3f3f3;
     justify-content: center;
     display: flex;
-    margin:  auto;
+    margin: auto;
     padding: .5rem;
     border: none;
     outline: none;
@@ -38,7 +43,8 @@ position: relative;
     position: relative;
 
   }
-  button{
+
+  button {
     width: 60%;
     height: 40px;
     margin: 10px auto;
@@ -54,50 +60,62 @@ position: relative;
     border-radius: 5px;
     transition: .2s ease-in;
     cursor: pointer;
-      &:hover{
-        background: #238173;
-      }
+
+    &:hover {
+      background: #238173;
+    }
   }
 
-  .login{
+  .login {
     height: inherit;
     background: #2fab99;
     border-radius: 60% / 15%;
     transform: translateY(-190px);
     transition: .8s ease-in-out;
   }
-  .login label{
+
+  .login label {
     color: #ffffff;
     font-size: 3.3rem;
     transform: scale(.6);
+    white-space: nowrap;
+    @media screen and (max-width:480px) {
+      font-size: 3rem !important;
+      padding-top: 2rem !important;
+    }
   }
-  #chk:checked ~ .login{
+
+  #chk:checked~.login {
     transform: translateY(-580px);
   }
-  #chk:checked ~ .login label{
+
+  #chk:checked~.login label {
     transform: scale(1);
+    font-size: 2rem;
   }
-  #chk:checked ~ .signup label{
+
+  #chk:checked~.signup label {
     transform: scale(.6);
   }
 }
-.w-10{
+
+.w-10 {
   width: 10% !important;
 }
 
-.signUpErrs{
-  p{
+.signUpErrs {
+  p {
     color: rgb(137, 0, 0);
   }
 }
-.loginErrs{
-  p{
+
+.loginErrs {
+  p {
     color: white !important;
   }
 }
-.invalid{
+
+.invalid {
   pointer-events: none;
   opacity: 50%;
 }
-
-

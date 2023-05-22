@@ -67,8 +67,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // ChartsModule,
-
+    ChartsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

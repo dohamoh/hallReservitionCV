@@ -88,7 +88,7 @@
         </div>
         <div class="login">
           <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <label class="" for="chk" aria-hidden="true">{{'signUp.login'| translate}}</label>
+            <label class="pt-3" for="chk" aria-hidden="true">{{'signUp.login'| translate}}</label>
 
             <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
               <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
@@ -98,7 +98,7 @@
                 <div class=" loginErrs "
                   *ngIf="loginForm.get('email')?.errors !==null && loginForm.get('email')?.touched">
                   <p *ngIf="loginForm.get('email')?.errors?.['required'] ">Email is required</p>
-                  <p *ngIf="loginForm.get('email')?.errors?.['email'] ">Email is In-valid </p>
+                  <p *ngIf="loginForm.get('email')?.errors?.['email'] ">Email is Invalid </p>
                 </div>
               </div>
             </div>

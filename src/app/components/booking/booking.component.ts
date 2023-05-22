@@ -40,9 +40,9 @@ export class BookingComponent {
     private SharedService: SharedService,
     private Router: Router
   ) {
-    this.pdfMake = require('pdfmake/build/pdfmake.js');
-    this.pdfFonts = require('pdfmake/build/vfs_fonts.js');
-    this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs;
+    // this.pdfMake = require('pdfmake/build/pdfmake.js');
+    // this.pdfFonts = require('pdfmake/build/vfs_fonts.js');
+    // this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs;
   }
   ngOnInit(): void {
     this.SharedService.currentAllHalls.subscribe((data: any) => {
@@ -87,39 +87,38 @@ export class BookingComponent {
     this.file = file;
     console.log(file);
   }
-  pdf() {
+//   pdf() {
 
 
-    let hall = this.allHalls?.filter(
-      (element: any) => element._id == this.reservationForm.value.hallId
-    );
-    let text = `
- تم ارسال طلبك و جار مراجعته
- اسم الادارة:${this.reservationForm.value.AdministrationName}
- التاريخ:${this.reservationForm.value.date}
- الوقت:${this.encounterTime}
- السبب:${this.reservationForm.value.encounterType}
- عدد الحضور:${this.reservationForm.value.members}
- اسم القاعه: ${hall.hallName}
- احتاج لــ:${this.reservationForm.value.whatDoYouNeed}
+//     let hall = this.allHalls?.filter(
+//       (element: any) => element._id == this.reservationForm.value.hallId
+//     );
+//     let text = `
+//  تم ارسال طلبك و جار مراجعته
+//  اسم الادارة:${this.reservationForm.value.AdministrationName}
+//  التاريخ:${this.reservationForm.value.date}
+//  الوقت:${this.encounterTime}
+//  السبب:${this.reservationForm.value.encounterType}
+//  عدد الحضور:${this.reservationForm.value.members}
+//  اسم القاعه: ${hall.hallName}
+//  احتاج لــ:${this.reservationForm.value.whatDoYouNeed}
 
 
-`;
+// `;
 
-    const pdfDefinition: any = {
-      content: [
-        {
-          text
-        }
-      ]
-    }
-    const pdf = this.pdfMake.createPdf(pdfDefinition)
-    pdf.open()
-  }
+//     const pdfDefinition: any = {
+//       content: [
+//         {
+//           text
+//         }
+//       ]
+//     }
+//     const pdf = this.pdfMake.createPdf(pdfDefinition)
+//     pdf.open()
+//   }
 
   reservation() {
     this.loading = !this.loading;
-
     const formData = new FormData();
     formData.append(
       'AdministrationName',
@@ -134,12 +133,10 @@ export class BookingComponent {
     formData.append('file', this.file);
 
     this.ReservationService.addReservation(formData).subscribe((data: any) => {
-
-
       if (data.message == 'Reservation added') {
-        if (this.elementRef.nativeElement.querySelector('#pdfCheck').checked) {
-          this.pdf()
-        }
+        // if (this.elementRef.nativeElement.querySelector('#pdfCheck').checked) {
+        //   // this.pdf()
+        // }
         this.SharedService.updateUserData()
         this.loading = !this.loading;
         this.Router.navigate(['/userProfile']);
