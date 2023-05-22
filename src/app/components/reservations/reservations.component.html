@@ -13,6 +13,11 @@
         <div class="col-md-9 row col-12 d-flex align-items-start justify-content-between  p-0">
           <div class="resDetials mt-3 text-end fw-semibold col-md-9">
             <p>
+              اسم الادارة :
+              <span>{{reservation?.
+                AdministrationName}}</span>
+            </p>
+            <p>
               التاريخ :
               <span>{{reservation?.date}}</span>
             </p>
@@ -27,6 +32,12 @@
             <p>
               المناسبة :
               <span> {{reservation?.encounterType}}</span>
+            </p>
+            <p class=" d-flex" *ngIf="reservation?.needs.length != 0">
+
+              الاحتياجات :
+
+              <span class=" d-flex"> <p *ngFor="let item of reservation?.needs">{{item}},</p></span>
             </p>
           </div>
           <div class=" col-md-3 d-flex justify-content-end p-0 mt-md-0 mt-3" >

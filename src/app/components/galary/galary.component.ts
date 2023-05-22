@@ -12,14 +12,14 @@ export class GalaryComponent {
   allHalls: any[] = []
   constructor(private SharedService: SharedService) { }
   ngOnInit(): void {
-    console.log(1 % 9);
+
     this.SharedService.currentAllHalls.subscribe((data: any) => {
-      console.log(data);
+
       this.allHalls = data
-      
+
       this.SharedService.currentUserData.subscribe((data: any) => {
         this.userData = data;
-        console.log(data);
+     
       });
     })
   }

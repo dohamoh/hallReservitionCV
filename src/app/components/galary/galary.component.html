@@ -3,7 +3,7 @@
   <button routerLink="/addHall"  *ngIf="userData?.role == 'Admin'" class="addIcon btn px-3 mx-5 d-flex align-items-center justify-content-between"><i class="bi bi-plus-lg fs-3 fw-bold ms-3"></i>
     <span class="fw-semibold">{{'addHallBtn.addHall' | translate}}</span></button>
   <div class="galary p-5">
-    <div style="background-image: url({{hall.hallImg}});" class="position-relative img transition" (click)="disPlayHall = hall" *ngFor="let hall of allHalls let x = index" [ngClass]="[(x+1)%9 == 1 ? 'tall' : '',  (x+1)%9 == 4 ? 'tall' : '', (x+1)%9 == 0 ? 'wide' : '']">
+    <div style="background-image: url({{hall.hallImg}});" class="position-relative img transition cursor-pointer" (click)="disPlayHall = hall" *ngFor="let hall of allHalls let x = index" [ngClass]="[(x+1)%9 == 1 ? 'tall' : '',  (x+1)%9 == 4 ? 'tall' : '', (x+1)%9 == 0 ? 'wide' : '']">
 
       <div class="mask">
         <h1 class="text-white bg-black p-2 opacity-75">{{hall.hallName}}</h1>

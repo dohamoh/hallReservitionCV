@@ -1,10 +1,15 @@
 nav{
+  .sign{
+    @media screen and (max-width:991px) {
+      width: 100% !important;
+    }
+  }
   img{
     width: 40% !important;
   }
   .navbar-brand{
-    @media screen and (max-width:600px) {
-      width: 70%;
+    @media screen and (min-width:766px) {
+      width: 30% !important;
     }
   }
   a{

@@ -30,6 +30,7 @@
     "highcharts": "^10.3.3",
     "html2canvas": "^1.4.1",
     "jquery": "^3.7.0",
+    "ng-multiselect-dropdown": "^0.3.9",
     "ng2-charts": "^2.4.3",
     "ngx-owl-carousel-o": "^15.0.0",
     "pdfmake": "^0.2.7",

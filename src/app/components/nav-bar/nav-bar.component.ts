@@ -11,15 +11,19 @@ import * as $ from 'jquery'
 })
 export class NavBarComponent implements OnInit {
   isLoggedIn:any;
+  // userData:any
   constructor(public translate: TranslateService, private SharedService: SharedService , private router:Router) {
-    translate.addLangs(['ar', 'en']);
-    translate.setDefaultLang('ar');
-    translate.use('ar')
+    translate.addLangs(['En', 'Ar']);
+    translate.setDefaultLang('En');
+    translate.use('En')
   }
   switchLang(lang: string) {
     this.translate.use(lang);
   }
   ngOnInit(): void {
+//     this.SharedService.currentUserData.subscribe((data:any)=>{
+// this.userData = data
+//     })
     this.SharedService.isLoggedIn.subscribe((value: any) => {
       if (value == true) {
         this.isLoggedIn = true

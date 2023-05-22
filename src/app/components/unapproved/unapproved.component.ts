@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { SharedService } from './../../services/shared.service';
 import { Component } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service';
@@ -42,8 +43,14 @@ export class UnapprovedComponent {
     this.ReservationService.OnHoldReservation(id).subscribe((data: any) => {
       if (data.message == 'on hold') {
         this.SharedService.updateAllData();
-        this.loading = !this.loading;
+        setTimeout(() => {
+          this.loading = !this.loading;
+        }, 2000);
       }
-    });
+    },  (err: HttpErrorResponse) => {
+      this.loading = false
+
+    }
+    );
   }
 }

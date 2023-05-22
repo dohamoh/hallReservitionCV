@@ -1,88 +1,86 @@
- {
+{
   "navBar": {
-    "home" : "الرئسية",
-    "bookNow" : "أحجز الأن",
-    "gallery" : "معرض الصور ",
-    "reservations" : "الحجوزات",
-    "signIn" : "تسجيل الدخول",
-    "logout" : "تسجيل الخروج"
+    "home" : "home",
+    "bookNow" : "Book Now",
+    "gallery" : "gallery",
+    "reservations" : "reservations",
+    "signIn" : "signIn",
+    "logout" : "logout"
   },
   "home": {
-    "bookNow" : "أحجز الأن",
-    "gallery" : "معرض الصور "
-
+    "bookNow" : "Book Now",
+    "gallery" : "gallery"
   },
   "booking": {
-    "MakeReservation" : "أحجز الأن",
-    "AdministrationName" : "اسم الادارة",
-    "NumberOfMembers" : "عدد الاعضاء",
-    "bookNow" : "أحجز الأن",
-    "encounterType" : "نوع اللقاء",
-    "choose" : "أختر",
-    "program" : "برنامج",
-    "Workshop" : "ورشة عمل",
-    "other" : "اخرى",
-    "meeting" : "اجتماع",
-    "encounter" : "لقاء",
-    "date" : "التاريخ",
-    "hall" : "القاعه",
-    "reserve" : "أحجز",
-    "whatDoYouNeed":"ماذا تحتاج",
-    "Projector":"جهاز عرض",
-    "displayScreen":"شاشة عرض",
-    "tables":"طاولات"
+    "MakeReservation" : "Make Reservation",
+    "AdministrationName" : "Administration Name",
+    "NumberOfMembers" : "Number Of Members",
+    "bookNow" : "Book Now",
+    "encounterType" : "EncounterType",
+    "choose" : "Choose",
+    "program" : "program",
+    "Workshop" : "Workshop",
+    "other" : "other",
+    "meeting" : "meeting",
+    "encounter" : "Encounter",
+    "date" : "Date",
+    "hall" : "Hall",
+    "reserve" : "reserve",
+    "whatDoYouNeed":"what do you need",
+
+    "Projector":"Projector",
+    "displayScreen":"displayScreen",
+    "tables":"tables",
+    "addMessage":"Your reservation is now on hold and you can track it on the reservations page"
 
   },
   "hallAttendees": "العدد الأقصى من الحضور",
   "editHall": {
-    "ChooseANewPhoto" : "أختر صورة جديدة",
-    "maximumNumberOfAttendees" : "الحد الأقصى لعدد الحاضرين",
-    "ChangingTheNameOfTheHall" : "تعديل علي أسم القاعة",
-    "ChangingTheDescriptionOfTheHall" : "تعديل علي وصف القاعة",
-    "done" : "تم",
-    "cancel" : "إلغاء"
+    "ChooseANewPhoto" : "Choose a new photo",
+    "maximumNumberOfAttendees" : "Maximum number of attendees",
+    "ChangingTheNameOfTheHall" : "Change the name of the hall",
+    "ChangingTheDescriptionOfTheHall" : "Change the description of the hall",
+    "done" : "done",
+    "cancel" : "cancel"
+
+
   },
+
   "addHall": {
-    "hallName" : "أسم القاعة",
-    "hallDes" : "وصف القاعة",
-    "hallAttendees" : "الحد الاقصى من الحاضرين",
-
-    "save" : "حفظ",
-    "cancel" : "إلغاء"
-
-
+    "hallName" : "Hall name",
+    "hallDes" : "Hall description",
+    "hallAttendees" : "Maximum number of attendees",
+    "save" : "Save",
+    "cancel" : "Cancel"
   },
   "footer": {
-    "forContactUs" : "للتواصل معنا",
-    "dimensions" :"أفضل أبعاد للموقع",
-    "AvailableHalls" : "القاعات المتوفرة",
-    "HallReservation" :"حجز القاعات",
+    "forContactUs" : "for contact us",
+    "dimensions" :"Best site dimensions",
+    "AvailableHalls" : "Available halls",
+    "HallReservation" :"Hall reservation",
 
-    "contactUs" : "تواصل معنا",
-    "login" : "تسجيل الدخول",
-    "footerText":"جميع الحقوق محفوظة لوزارة التعليم - المملكة العربية السعودية"
-
+    "contactUs" : "contacu s",
+    "login" : "login",
+"footerText":"All rights reserved to the Ministry of Education - Kingdom of Saudi Arabia"
 
 
   },
   "deletion": {
-    "sure?" : "هل انت متاكد ؟"
+    "sure?" : "Are you sure?"
   },
   "addHallBtn": {
-    "addHall" : "أضف قاعة"
+    "addHall" : "Add hall"
   },
-
   "signUp": {
-    "signUp" : "إنشاء حساب",
-    "login" : "تسجيل الدخول",
-    "IFOS" : "أنا من خارج وزارة التعليم",
-    "DepartmentName" : "أسم ألاداره",
-    "email" : "الاميل",
-    "password" : "كلمة المرور",
-    "phone" : "رقم الهاتف",
-    "choose" : "أختر",
-    "male" : "ذكر",
-    "female" : "انثى"
+    "signUp" : "Sign up",
+    "login" : "Login",
+    "IFOS" : "I am from outside the Ministry of Education",
+    "DepartmentName" : "Department name",
+    "email" : "Email",
+    "password" : "Password",
+    "phone" : "Phone",
+    "choose" : "Choose",
+    "male" : "Male",
+    "female" : "Female"
   }
-
  }

@@ -23,7 +23,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.SharedService.currentUserData.subscribe((data: any) => {
       this.userData = data;
-      console.log(data);
+
     });
     if (window.innerWidth <= 375) {
       this.width = '55%';

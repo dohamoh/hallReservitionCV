@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { SharedService } from 'src/app/services/shared.service';
@@ -29,7 +30,7 @@ ngOnInit(): void {
       } else {
         this.reservations = data.reservations?.filter(
                 (element: any) => element.status == 'On hold'
-                
+
               );
 
       }
@@ -40,10 +41,18 @@ ngOnInit(): void {
   UnapprovedReservation(id: Object) {
     this.loading = !this.loading;
     this.ReservationService.UnapprovedReservation(id).subscribe((data: any) => {
+      this.ReservationService.sendUnapproved(id).subscribe((data:any)=>{
+
+      })
       if (data.message == 'Unapproved') {
         this.SharedService.updateAllData();
-        this.loading = !this.loading;
+        setTimeout(() => {
+          this.loading = !this.loading;
+        }, 2000);
       }
+    },  (err: HttpErrorResponse) => {
+      this.loading = false
+
     });
   }
   Cancel(id: Object) {
@@ -56,14 +65,22 @@ ngOnInit(): void {
     });
   }
   ApprovedReservation(id: Object) {
-    console.log(id);
+
 
     this.loading = !this.loading;
     this.ReservationService.ApprovedReservation(id).subscribe((data: any) => {
       if (data.message == 'Approved') {
+        this.ReservationService.sendApproved(id).subscribe((data:any)=>{
+
+        })
         this.SharedService.updateAllData();
-        this.loading = !this.loading;
+        setTimeout(() => {
+          this.loading = !this.loading;
+        }, 2000);
       }
+    },  (err: HttpErrorResponse) => {
+      this.loading =false
+
     });
   }
 }

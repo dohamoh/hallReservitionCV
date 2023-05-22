@@ -3,22 +3,26 @@ import { SharedService } from './../../services/shared.service';
 import { ReservationService } from './../../services/reservation.service';
 import { Component, ElementRef, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent {
+
   private readonly pdfFonts: any;
   pdfMake: any;
   loading: Boolean = false;
+  addMessage: Boolean = false;
+  isFile: Boolean = false;
   userData: any;
   allHalls: any;
   meeting = 'نوع اللقاء';
   file: any;
+  member:any
   hallAttendees: any
-  encounterTime: any;
+  encounterTime: any=" 8am-12pm "
   reservationForm: FormGroup = new FormGroup({
     AdministrationName: new FormControl(null, [
       Validators.required,
@@ -26,6 +30,8 @@ export class BookingComponent {
     ]),
     members: new FormControl(null, [
       Validators.required,
+      Validators.min(1),
+      Validators.max(2),
 
     ]),
     date: new FormControl(null, [Validators.required]),
@@ -34,6 +40,12 @@ export class BookingComponent {
     hallId: new FormControl(null, [Validators.required]),
   });
 
+
+
+
+  dropdownList:any = [];
+  selectedItems:any = [];
+  dropdownSettings:any = {};
   constructor(
     private elementRef: ElementRef,
     private ReservationService: ReservationService,
@@ -43,8 +55,31 @@ export class BookingComponent {
     // this.pdfMake = require('pdfmake/build/pdfmake.js');
     // this.pdfFonts = require('pdfmake/build/vfs_fonts.js');
     // this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs;
+
   }
   ngOnInit(): void {
+    this.dropdownList= [
+      { item_id: 1, item_text: 'جهاز عرض' },
+      { item_id: 2, item_text: 'شاشة عرض' },
+      { item_id: 3, item_text: 'طاولات' },
+
+    ];
+    this.selectedItems = [
+
+    ];
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+
+      itemsShowLimit: 3,
+      allowSearchFilter: false
+    };
+this.SharedService.currentUserData.subscribe((data: any) => {
+  this.userData = data;
+});
     this.SharedService.currentAllHalls.subscribe((data: any) => {
       this.allHalls = data;
     });
@@ -57,16 +92,26 @@ export class BookingComponent {
 
     this.elementRef.nativeElement.querySelector('#date').min = date;
   }
+
+  onItemSelect(item: any) {
+
+  }
+  onSelectAll(items: any) {
+
+  }
+
+
   setMember() {
+
+this.member = null
     let hallAttendees = this.allHalls?.filter((element: any) => element._id == this.reservationForm.value.hallId)[0].hallAttendees
-    console.log(hallAttendees);
 
     this.hallAttendees = hallAttendees
-    this.reservationForm.controls["members"].addValidators([
+    this.reservationForm.controls["members"].setValidators([
 
       Validators.max(hallAttendees)
     ]);
-
+this.reservationForm.updateValueAndValidity()
   }
   type(event: any) {
     const dom: HTMLElement = this.elementRef.nativeElement;
@@ -79,45 +124,28 @@ export class BookingComponent {
   }
   time(event: any) {
     this.encounterTime = event.target.innerHTML;
-    console.log(this.encounterTime);
   }
   upload(event: any) {
 
     const file = event.target.files[0];
     this.file = file;
-    console.log(file);
+
+    this.isFile = true
   }
-//   pdf() {
+  removeFile() {
 
+    this.file = ''
+    this.isFile = false
 
-//     let hall = this.allHalls?.filter(
-//       (element: any) => element._id == this.reservationForm.value.hallId
-//     );
-//     let text = `
-//  تم ارسال طلبك و جار مراجعته
-//  اسم الادارة:${this.reservationForm.value.AdministrationName}
-//  التاريخ:${this.reservationForm.value.date}
-//  الوقت:${this.encounterTime}
-//  السبب:${this.reservationForm.value.encounterType}
-//  عدد الحضور:${this.reservationForm.value.members}
-//  اسم القاعه: ${hall.hallName}
-//  احتاج لــ:${this.reservationForm.value.whatDoYouNeed}
-
-
-// `;
-
-//     const pdfDefinition: any = {
-//       content: [
-//         {
-//           text
-//         }
-//       ]
-//     }
-//     const pdf = this.pdfMake.createPdf(pdfDefinition)
-//     pdf.open()
-//   }
-
+  }
   reservation() {
+
+    let needs:any = []
+    for (let i = 0; i < this.selectedItems.length; i++) {
+      const element = this.selectedItems[i];
+      needs.push(element.item_text)
+
+    }
     this.loading = !this.loading;
     const formData = new FormData();
     formData.append(
@@ -129,17 +157,24 @@ export class BookingComponent {
     formData.append('encounterType', this.reservationForm.value.encounterType);
     formData.append('hallId', this.reservationForm.value.hallId);
     formData.append('encounterTime', this.encounterTime);
-    formData.append('whatDoYouNeed', this.reservationForm.value.whatDoYouNeed);
+    formData.append('whatDoYouNeed', needs);
     formData.append('file', this.file);
+    formData.append('email', this.userData.email);
 
     this.ReservationService.addReservation(formData).subscribe((data: any) => {
       if (data.message == 'Reservation added') {
-        // if (this.elementRef.nativeElement.querySelector('#pdfCheck').checked) {
-        //   // this.pdf()
-        // }
+        // this.ReservationService.sendReservationData(formData).subscribe((data: any) => {
+        //   console.log(data);
+
+        // })
+        this.addMessage = true
+        setTimeout(() => {
+          this.addMessage = false
+        this.Router.navigate(['/userProfile']);
+
+        }, 5000);
         this.SharedService.updateUserData()
         this.loading = !this.loading;
-        this.Router.navigate(['/userProfile']);
       }
     });
   }

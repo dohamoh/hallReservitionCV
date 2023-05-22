@@ -28,7 +28,7 @@ import { DashComponent } from './components/dash/dash.component';
 import { ChartsModule } from 'ng2-charts';
 import { FooterComponent } from './components/footer/footer.component';
 import { BookingComponent } from './components/booking/booking.component';
-
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 // import { ChartsModule } from 'ng2-charts';
 
 
@@ -67,6 +67,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot(),
+
     ChartsModule,
     TranslateModule.forRoot({
       loader: {
@@ -74,7 +76,7 @@ export function HttpLoaderFactory(http: HttpClient) {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       },
-      defaultLanguage: 'ar'
+      defaultLanguage: 'En'
   })
   ],
   providers: [],

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { SharedService } from './../../services/shared.service';
 import { Component, Input } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service';
@@ -36,14 +37,19 @@ export class ReservationsComponent {
   }
 
   OnHoldReservation(id: Object) {
-    console.log(id);
+
 
     this.loading = !this.loading;
     this.ReservationService.OnHoldReservation(id).subscribe((data: any) => {
       if (data.message == 'on hold') {
         this.SharedService.updateAllData();
-        this.loading = !this.loading;
+        setTimeout(() => {
+          this.loading = !this.loading;
+        }, 2000);
       }
+    },  (err: HttpErrorResponse) => {
+      this.loading = false
+
     });
   }
 }

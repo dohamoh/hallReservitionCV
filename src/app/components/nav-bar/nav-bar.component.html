@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg mainBg bg-body-tertiary sticky-top">
+<nav class="navbar navbar-expand-md mainBg bg-body-tertiary sticky-top">
   <div class="container-xl container-fluid">
-    <a class="navbar-brand me-xxl-5 pe-xxl-3 me-0 pe-0 d-flex justify-content-lg-center" routerLink="/home">
+    <a class="navbar-brand me-xxl-5 pe-xxl-3 me-0 pe-0 d-flex justify-content-md-start" routerLink="/home">
       <img class="logo" src="../../../assets/images/Logo.svg" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -24,26 +24,35 @@
           <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/userProfile">{{'navBar.reservations' |
             translate}} </a>
         </li>
-        <div class="sign fs-5 ps-lg-5 pe-lg-5 pe-0 d-flex w-25">
+        <!-- <div class="sign fs-5 ps-lg-5 pe-lg-5 pe-0 d-flex w-25">
           <li *ngIf="!isLoggedIn" class="nav-item text-decoration-none list-unstyled">
             <a class="nav-link text-white px-xl-4 px-md-3 px-0" #outOrIn routerLink="/register">{{'navBar.signIn' | translate}}</a>
           </li>
           <li *ngIf="isLoggedIn" class="nav-item text-decoration-none list-unstyled">
             <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/register" (click)="logOut()">{{'navBar.logout' | translate}}</a>
           </li>
-        </div>
+        </div> -->
       </ul>
+      <div class="sign fs-5 ps-lg-5 pe-0 d-flex justify-content-md-end justify-content-md-start justify-content-between w-50">
+        <li *ngIf="!isLoggedIn" class="nav-item text-decoration-none list-unstyled d-flex align-items-center">
+          <a class="nav-link text-white " #outOrIn routerLink="/register">{{'navBar.signIn' | translate}}</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item text-decoration-none list-unstyled d-flex align-items-center">
+          <a class="nav-link text-white " routerLink="/register" (click)="logOut()">{{'navBar.logout' | translate}}</a>
+        </li>
 
-      <span class="pb-2 pb-md-0 ms-md-4 ms-0 mainBg text-white">
-        <select class="form-control text-white mainBg border-0 fs-4 fw-semibold text-start" #selectedLang
-          (change)="switchLang(selectedLang.value)">
+        <span class="pb-2 pb-md-0 mainBg text-white me-4">
+          <select class="form-control text-white mainBg border-0 fs-5 p-2 fw-semibold text-start" #selectedLang
+            (change)="switchLang(selectedLang.value)">
 
-          <option *ngFor="let language of translate.getLangs()" [value]="language"
-            [selected]="language === translate.currentLang">
-            {{ language }}
-          </option>
-        </select>
-      </span>
+            <option *ngFor="let language of translate.getLangs()" [value]="language"
+              [selected]="language === translate.currentLang">
+              {{ language }}
+            </option>
+          </select>
+        </span>
+      </div>
+
 
     </div>
   </div>

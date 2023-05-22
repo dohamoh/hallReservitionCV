@@ -3,6 +3,19 @@ section{
     z-index: 5 !important;
   }
   .bookBtn {
+    p{
+      opacity: 0;
+      transition: 0.5s;
+
+    }
+    &:hover{
+      p{
+        transition: 0.5s;
+        opacity: 1;
+      }
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
     position: relative;
     background-image: url(../../../assets/images/images.jpg);
     background-position: center;
@@ -36,6 +49,19 @@ section{
     }
   }
   .galaryBtn {
+    p{
+      opacity: 0;
+      transition: 0.5s;
+
+    }
+    &:hover{
+      p{
+        transition: 0.5s;
+        opacity: 1;
+      }
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
     position: relative;
     background-image: url(../../../assets/images/halls/DSC_3480.jpg);
     background-position: center;

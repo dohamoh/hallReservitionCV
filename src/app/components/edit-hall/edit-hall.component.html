@@ -4,16 +4,16 @@
     style="z-index: 8;">
     <div
       class="bg-white d-flex align-items-center justify-content-evenly flex-column w-50 rounded-3 mt-5 position-relative py-3"
-      style="height: auto;">
+      style="height: auto; padding-top: 45px !important;">
       <i class="bi bi-x position-absolute top-0 end-0 m-2 cursor-pointer fs-2" (click)="closeEditPage()"></i>
       <div class="container">
         <form [formGroup]="editHallForm" (ngSubmit)="editHall(editHallForm.value)">
           <div class="row justify-content-center mb-3">
-            <div class="col-md-5 col-12">
-              <div class="">
+            <div class="col-md-6 col-12 d-flex align-items-center justify-content-center">
+              <div class=" w-100">
                 <label class="w-100 rounded-3 p-2" for="updateImg"><i class="bi bi-pencil-square ms-3"></i><span>أختر صورة
                     جديدة</span></label>
-                <input class="opacity-0" type="file" id="updateImg" name="updateImg">
+                <input class="opacity-0 d-none" type="file" id="updateImg" name="updateImg" (change)="upload($event)">
               </div>
             </div>
 

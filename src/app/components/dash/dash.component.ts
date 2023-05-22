@@ -35,7 +35,7 @@ export class DashComponent {
   date: any;
   height:any
   ngOnInit(): void {
-console.log(window.innerWidth);
+
 if (window.innerWidth >=1000) {
 this.height = 300
 }else if (window.innerWidth<1000 && window.innerWidth>=800) {
@@ -423,7 +423,7 @@ this.height = 300
       let element = this.halls?.filter(
         (element: any) => element._id == this.hallName
       )[0];
-      console.log(element);
+
 
       this.datasets = [];
       data = [];
@@ -441,11 +441,7 @@ this.height = 300
         data.push(`${num.length}`);
       }
       data.reverse();
-      console.log({
-        label: `${element.hallName}`,
-        data: data,
-        borderWidth: 1,
-      });
+
 
       datasets.push({
         label: `${element.hallName}`,

@@ -10,17 +10,15 @@ import { SharedService } from './services/shared.service';
 export class AppComponent {
   title = 'hallReservation-code';
   constructor(public translate:TranslateService,private SharedService:SharedService) {
-    translate.addLangs(['ar' , 'en']);
-    translate.setDefaultLang('ar');
-    translate.use('ar')
+    translate.addLangs(['En' , 'Ar']);
+    translate.setDefaultLang('En');
+    translate.use('En')
   }
   switchLang(lang: string) {
     this.translate.use(lang);
  }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem("userToken"));
-
-    this.SharedService.updateAllData()
+ this.SharedService.updateAllData()
   }
 }

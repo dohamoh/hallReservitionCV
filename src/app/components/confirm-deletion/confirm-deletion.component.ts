@@ -16,9 +16,11 @@ export class ConfirmDeletionComponent {
     this.confirmDeletion.emit(false);
   }
   delete() {
+
+
     this.loading = !this.loading
     this.HallService.deleteHall(this.id).subscribe((data: any) => {
-   
+
       if (data.message == 'deleted') {
         this.loading = !this.loading
         this.Router.navigate(["/home"])

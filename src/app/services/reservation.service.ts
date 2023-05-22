@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ReservationService {
-  private baseUrl = 'https://halls-apis.vercel.app/reservation';
+  // private baseUrl = 'https://halls-apis.vercel.app/reservation';
+  private baseUrl = 'http://localhost:3000/reservation';
 
   constructor(private HttpClient: HttpClient) {}
 
@@ -24,21 +25,23 @@ export class ReservationService {
     });
   }
   OnHoldReservation(id: Object): any {
-    return this.HttpClient.patch(`${this.baseUrl}/OnHoldReservation/${id}`, {
+    return this.HttpClient.put(`${this.baseUrl}/OnHoldReservation/${id}`, {
       headers: {
         authorization: `Bearer__${localStorage.getItem('userToken')}`,
       },
     });
   }
   ApprovedReservation(id: Object): any {
-    return this.HttpClient.patch(`${this.baseUrl}/ApprovedReservation/${id}`, {
+
+
+    return this.HttpClient.put(`${this.baseUrl}/ApprovedReservation/${id}`, {
       headers: {
         authorization: `Bearer__${localStorage.getItem('userToken')}`,
       },
     });
   }
   UnapprovedReservation(id: Object): any {
-    return this.HttpClient.patch(`${this.baseUrl}/UnapprovedReservation/${id}`, {
+    return this.HttpClient.put(`${this.baseUrl}/UnapprovedReservation/${id}`, {
       headers: {
         authorization: `Bearer__${localStorage.getItem('userToken')}`,
       },
@@ -51,4 +54,26 @@ export class ReservationService {
       },
     });
   }
+  // sendReservationData(data: any): any {
+  //   return this.HttpClient.post(`${this.baseUrl}/sendReservationData`,data, {
+
+  //   });
+  // }
+  sendUnapproved(id: any): any {
+    let data = {
+      id
+    }
+    return this.HttpClient.post(`${this.baseUrl}/sendUnapproved`,data, {
+
+    });
+  }
+  sendApproved(id: any): any {
+    let data = {
+      id
+    }
+    return this.HttpClient.post(`${this.baseUrl}/sendApproved`,data, {
+
+    });
+  }
+
 }

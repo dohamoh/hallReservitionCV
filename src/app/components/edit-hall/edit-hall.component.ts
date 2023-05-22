@@ -24,17 +24,18 @@ export class EditHallComponent {
     this.editPage.emit(false);
   }
   editHall(data: any) {
-    console.log(this.id);
+
     this.loading = !this.loading
     const formData = new FormData();
     formData.append('file', this.file);
     formData.append('newName', data.newName);
     formData.append('newDesc', data.newDesc);
     formData.append('attendees', data.newAttendees);
-    console.log(data);
+
+
 
     this.hallService.editHall(formData, this.id).subscribe((Data: any) => {
-      console.log(Data);
+
       if (Data.message == 'Updated') {
         this.loading = !this.loading
         this.router.navigate(['/home'])
@@ -44,5 +45,7 @@ export class EditHallComponent {
   upload(event: any) {
     const file = event.target.files[0];
     this.file = file;
+
+
   }
 }
