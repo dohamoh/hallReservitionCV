@@ -5,12 +5,35 @@ nav{
     }
   }
   img{
-    width: 35% !important;
+    width: 100% !important;
+    @media (min-width:800px) {
+      width: 90% !important;
+
+    }
+    @media (max-width:767px) and (min-width:600px) {
+      width: 60% !important;
+
+    }
+
   }
   .navbar-brand{
-    @media screen and (min-width:766px) {
+    @media (min-width:1000px) {
+      width: 15% !important;
+    }
+  
+    @media (min-width:800px) and (max-width:1000px) {
+      width: 20% !important;
+    }
+    @media (min-width:440px) and (max-width:800px) {
       width: 30% !important;
     }
+    @media (max-width:440px) {
+      width: 40% !important;
+    }
+
+    // @media screen and (max-width:600px) {
+    //   width: 20% !important;
+    // }
   }
   a{
     white-space: nowrap;

@@ -1,7 +1,7 @@
 import { SharedService } from './../../services/shared.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -91,5 +91,12 @@ export class SignUpComponent {
       }
     );
   }
+  // @HostListener('window:click', [])
+  switch(event:any){
+    console.log(event.target);
+
+
+  }
+
 }
 
