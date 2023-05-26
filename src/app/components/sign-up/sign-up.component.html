@@ -1,11 +1,11 @@
-<section class=" w-100 my-5" (click)="switch($event)">
+<section class=" w-100 my-5">
   <div class="container">
     <div class="row justify-content-center">
       <div class="main p-0 rounded-3 col-lg-5 col-md-8 col-10">
         <input type="checkbox" id="chk" aria-hidden="true">
         <div class="signup h-100">
           <form [formGroup]="registerForm" (ngSubmit)="signUp()">
-            <label for="chk" aria-hidden="true">{{'signUp.signUp'| translate}}</label>
+            <label for="chk" aria-hidden="true">{{'signUp.signUp'| translate}} </label>
 
             <div class="d-flex justify-content-center align-items-center mb-3 w-100 ">
               <div class=" w-75  d-flex align-items-center justify-content-start">
@@ -39,6 +39,7 @@
                   <p *ngIf="registerForm.get('email')?.errors?.['required'] ">Email is required</p>
                   <p *ngIf="registerForm.get('email')?.errors?.['email'] ">Email is Invalid </p>
                 </div>
+                <p  class=" text-danger" *ngIf="signEmailErr && signEmailErr != ''">{{signEmailErr}}</p>
               </div>
             </div>
 
@@ -83,7 +84,7 @@
               </div>
             </div>
 
-            <button class="" type="submit" [ngClass]="{'invalid': registerForm.invalid}">{{'signUp.signUp'| translate}}</button>
+            <button class="" type="submit" [ngClass]="{'invalid': registerForm.invalid}"><p *ngIf="!SIGNUPloading">{{'signUp.signUp'| translate}}</p><i *ngIf="SIGNUPloading" class="p-0 m-0 spinner-border " role="status"></i></button>
           </form>
         </div>
         <div class="login">
@@ -116,10 +117,11 @@
                 </div>
               </div>
             </div>
-            <button class="mainColor bg-light" type="submit" >{{'signUp.login'| translate}}</button>
+            <button class="mainColor bg-light" type="submit" ><p *ngIf="!SIGNUPloading">{{'signUp.login'| translate}}</p><i *ngIf="SIGNUPloading" class="p-0 m-0 spinner-border " role="status"></i></button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </section>
+
