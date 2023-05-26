@@ -35,7 +35,10 @@ export class SignUpComponent {
   });
 
   emailErr: any;
+  signEmailErr: any;
   passwordErr: any;
+  SIGNUPloading: Boolean = false;
+  LOGINloading: Boolean = false;
   constructor(
     private AuthService: AuthService,
     private ElementRef: ElementRef,
@@ -64,23 +67,49 @@ export class SignUpComponent {
     }
   }
   signUp() {
-    this.AuthService.signUp(this.registerForm.value).subscribe((data: any) => {
-      if (data.message == 'added successfully') {
-        this.ElementRef.nativeElement.querySelector('#chk').checked =
-          !this.ElementRef.nativeElement.querySelector('#chk').checked;
+    this.SIGNUPloading = true;
+
+    this.AuthService.signUp(this.registerForm.value).subscribe(
+      (data: any) => {
+        if (data.message == 'added successfully') {
+          this.SIGNUPloading = false;
+          this.registerForm.reset();
+          this.loginForm.reset();
+          this.ElementRef.nativeElement.querySelector('#chk').checked =
+            !this.ElementRef.nativeElement.querySelector('#chk').checked;
+        }
+      },
+      (err: HttpErrorResponse) => {
+        this.SIGNUPloading = false;
+
+        if (
+          err.error.message == 'Invalid email' ||
+          err.error.message == 'This email already register'
+        ) {
+          this.signEmailErr = err.error.message;
+        } else {
+          this.signEmailErr = '';
+        }
       }
-    });
+    );
   }
   login() {
+    this.LOGINloading = !this.LOGINloading;
+
     this.AuthService.login(this.loginForm.value).subscribe(
       (data: any) => {
         if (data.token) {
+          this.LOGINloading = !this.LOGINloading;
+          this.registerForm.reset();
+          this.loginForm.reset();
           localStorage.setItem('userToken', data.token);
           this.SharedService.isLoggedInFun();
           this.Router.navigate(['/home']);
         }
       },
       (err: HttpErrorResponse) => {
+        this.LOGINloading = !this.LOGINloading;
+
         if (err.error.message == 'invalid password') {
           this.emailErr = '';
           this.passwordErr = 'invalid password';
@@ -92,11 +121,8 @@ export class SignUpComponent {
     );
   }
   // @HostListener('window:click', [])
-  switch(event:any){
-    console.log(event.target);
+  // switch(event:any){
+  //   console.log(event.target);
 
-
-  }
-
+  // }
 }
-
