@@ -3,7 +3,7 @@
     class=" col-md-6 col-8 h-auto bg-black bg-opacity-75 rounded-3 position-relative my-5 p-3 row" style="box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);">
 
     <div class=" col-12 col-md-6 my-2 d-flex align-items-end">
-      <select class="rounded-0 w-100 p-2 " formControlName="hallId" (change)="setMember()">
+      <select class="rounded-0 w-100 p-1 " formControlName="hallId" (change)="setMember()">
         <option [ngValue]="null" disabled>{{'booking.hall' | translate}}
         </option>
         <option *ngFor="let hall of allHalls" value="{{hall?._id}}">{{hall?.hallName}} </option>
@@ -22,11 +22,6 @@
 
     </div>
 
-    <div class=" col-12 col-md-4  my-2">
-      <label class="m-2 mainColor" for="date">{{'booking.date' | translate}}</label>
-      <input id="date" type="date" class=" w-100 rounded-0 p-2" formControlName="date"
-        placeholder="{{'booking.date' | translate}}">
-    </div>
 
     <div class=" col-12 col-md-4 my-2 d-flex  justify-content-end flex-column">
       <div class="text-danger"
@@ -41,7 +36,7 @@
     </div>
 
     <div class=" col-12 col-md-4 my-2 d-flex align-items-end ">
-      <select class="rounded-0 w-100 p-2" formControlName="encounterType">
+      <select class="rounded-0 w-100 p-1" formControlName="encounterType">
         <option [ngValue]="null" disabled>{{'booking.choose' | translate}} {{'booking.encounterType' | translate}}
         </option>
         <option value="{{'booking.program' | translate}}">{{'booking.program' | translate}}</option>
@@ -81,6 +76,12 @@
           1pm-8pm
         </label>
       </div>
+    </div>
+
+    <div class=" col-12 col-md-4  my-2">
+      <label class="m-2 mainColor" for="date">{{'booking.date' | translate}}</label>
+      <input id="date" type="date" class=" w-100 rounded-0 p-2" formControlName="date"
+        placeholder="{{'booking.date' | translate}}">
     </div>
     <div class=" col-12 col-lg-2 col-md-3 d-flex justify-content-end flex-column m-0 my-lg-2 my-3">
       <input type="file" id="uploadeFile" class="d-none" (change)="upload($event)">
