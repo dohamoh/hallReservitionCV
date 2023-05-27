@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HallService {
-  // private baseUrl = 'http://localhost:3000/hall';
-  private baseUrl = 'https://hall-apis.vercel.app/hall';
+  private baseUrl = 'http://localhost:3000/hall';
+  // private baseUrl = 'https://hall-apis.vercel.app/hall';
 
   constructor(private HttpClient: HttpClient) { }
 
@@ -22,5 +22,8 @@ export class HallService {
   }
   getHalls(): any {
     return this.HttpClient.get(`${this.baseUrl}/getHalls`);
+  }
+  getHallReservations(id:any): any {
+    return this.HttpClient.get(`${this.baseUrl}/id`);
   }
 }
