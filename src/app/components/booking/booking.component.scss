@@ -10,7 +10,8 @@ color:#fff
   background-image: url('../../../assets/images/business-online-shopping-concept-people-shopping-pay-by-credeit-card1.jpg');
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 97px) !important;
+  // height: calc(100vh - 97px) !important;
+  height: auto !important;
 
   input:focus {
     border-right: #2fab99 solid 7px;

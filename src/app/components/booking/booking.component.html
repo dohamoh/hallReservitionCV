@@ -1,9 +1,6 @@
-<section id='booking' class=" w-100 row d-flex align-items-center justify-content-center bg-light m-0 ">
+<section id='booking' class=" w-100 row d-flex align-items-center justify-content-center py-5 bg-light m-0 ">
   <form [formGroup]="reservationForm" (ngSubmit)="reservation()"
-    class=" col-md-6 col-8 h-auto bg-black bg-opacity-75 rounded-3 position-relative p-3 row" style="box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);">
-
-
-
+    class=" col-md-6 col-8 h-auto bg-black bg-opacity-75 rounded-3 position-relative my-5 p-3 row" style="box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);">
 
     <div class=" col-12 col-md-6 my-2 d-flex align-items-end">
       <select class="rounded-0 w-100 p-2 " formControlName="hallId" (change)="setMember()">
@@ -12,7 +9,6 @@
         <option *ngFor="let hall of allHalls" value="{{hall?._id}}">{{hall?.hallName}} </option>
       </select>
     </div>
-
 
     <div class="  col-12 col-md-6 my-2">
       <div class="text-danger"
@@ -44,15 +40,6 @@
 
     </div>
 
-
-
-
-
-
-
-
-
-
     <div class=" col-12 col-md-4 my-2 d-flex align-items-end ">
       <select class="rounded-0 w-100 p-2" formControlName="encounterType">
         <option [ngValue]="null" disabled>{{'booking.choose' | translate}} {{'booking.encounterType' | translate}}
@@ -77,8 +64,6 @@
       (onSelectAll)="onSelectAll($event)"
     >
     </ng-multiselect-dropdown>
-
-
 
     </div>
     <div class=" col-12 col-md-8 col-lg-6 row m-0  my-2 d-flex  align-items-end ">
