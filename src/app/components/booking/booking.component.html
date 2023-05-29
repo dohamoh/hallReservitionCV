@@ -79,9 +79,14 @@
     </div>
 
     <div class=" col-12 col-md-4  my-2">
-      <label class="m-2 mainColor" for="date">{{'booking.date' | translate}}</label>
-      <input id="date" type="date" class=" w-100 rounded-0 p-2" formControlName="date"
-        placeholder="{{'booking.date' | translate}}">
+      <!-- <label class="m-2 mainColor" for="date">{{'booking.date' | translate}}</label>
+      <input id="date" type="date" class=" w-100 rounded-0 p-2 highlighted-dates" formControlName="date"
+        placeholder="{{'booking.date' | translate}}"> -->
+   
+
+        <p *ngIf="datemessage" class=" text-danger">{{datemessage}}</p>
+        <input id="date" type="date" class=" w-100 rounded-0 p-2 highlighted-dates" formControlName="date"
+        placeholder="{{'booking.date' | translate}}"  [(ngModel)]="selectedDate" (change)="isDateDisabled()">
     </div>
     <div class=" col-12 col-lg-2 col-md-3 d-flex justify-content-end flex-column m-0 my-lg-2 my-3">
       <input type="file" id="uploadeFile" class="d-none" (change)="upload($event)">
@@ -93,7 +98,7 @@
       </label>
     </div>
     <div class=" col-12 col-md-7 row m-0 my-lg-2 my-3">
-      <button [disabled]="reservationForm.status == 'INVALID'"
+      <button [disabled]="reservationForm.status == 'INVALID' || datemessage !='' "
         class=" btn mainBg  text-white  rounded-0  col-12">{{'booking.MakeReservation' | translate}}</button>
       </div>
       <p *ngIf="addMessage" class=" text-success ">{{'booking.addMessage' | translate}}</p>

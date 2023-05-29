@@ -24,6 +24,6 @@ export class HallService {
     return this.HttpClient.get(`${this.baseUrl}/getHalls`);
   }
   getHallReservations(id:any): any {
-    return this.HttpClient.get(`${this.baseUrl}/id`);
+    return this.HttpClient.get(`${this.baseUrl}/getHallReservations/${id}`);
   }
 }
