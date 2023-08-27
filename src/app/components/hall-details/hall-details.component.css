@@ -1,0 +1,31 @@
+section {
+  position: relative;
+  z-index: 5;
+  width: 75vw;
+  height: 60vh;
+  margin-top: 6rem;
+}
+section img {
+  height: 20rem;
+}
+section .img {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+section .details h2:hover .editHall, section .details h2:hover .deleteHall {
+  opacity: 1;
+  transition: 0.5s;
+}
+section .details h2 .editHall {
+  right: -20px;
+  top: -15px;
+  font-size: 15px;
+  opacity: 0;
+}
+section .details h2 .deleteHall {
+  right: -45px;
+  top: -15px;
+  font-size: 15px;
+  opacity: 0;
+}/*# sourceMappingURL=hall-details.component.css.map */

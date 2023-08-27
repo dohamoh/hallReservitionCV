@@ -1,0 +1,8 @@
+section .slide {
+  height: auto;
+}
+section .slide img {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  height: 40rem !important;
+}/*# sourceMappingURL=slider-holder.component.css.map */

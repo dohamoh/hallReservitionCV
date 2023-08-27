@@ -12,9 +12,9 @@
   </div>
   <div class="w-100 h-75  img d-flex justify-content-center" style="background-image: url({{hallData.hallImg}});">
   </div>
-  <div class="details w-75 rounded-2 mt-md-4 pe-5 p-2">
+  <div class="details w-100 text-center rounded-2 mt-md-4  p-2">
     <h2 class="mb-3 position-relative">{{hallData.hallName}}</h2>
-    <p class="w-75">{{hallData.hallDesc}}</p>
+    <p class="">{{hallData.hallDesc}}</p>
   </div>
 </section>
 <app-confirm-deletion style="z-index: 5; " *ngIf="confirmDeletion" [id]="hallData._id"

@@ -1,0 +1,95 @@
+section p {
+  z-index: 5 !important;
+}
+section .bookBtn {
+  position: relative;
+  background-image: url(../../../assets/images/images.jpg);
+  background-position: center;
+  background-size: 50rem;
+  transition: 0.5s;
+  height: 20rem;
+}
+section .bookBtn p {
+  opacity: 0;
+  transition: 0.5s;
+}
+section .bookBtn:hover {
+  filter: grayscale(100%);
+}
+section .bookBtn:hover p {
+  transition: 0.5s;
+  opacity: 1;
+}
+section .bookBtn:hover {
+  background-size: 55rem;
+  transform: scale(97%);
+  transition: 0.5s;
+}
+@media screen and (max-width: 600px) {
+  section .bookBtn {
+    height: 15rem !important;
+    background-size: 35rem !important;
+  }
+}
+section .bookBtn::after {
+  content: "";
+  position: absolute;
+  height: 20rem;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 600px) {
+  section .bookBtn::after {
+    height: 15rem !important;
+  }
+}
+section .galaryBtn {
+  position: relative;
+  background-image: url(../../../assets/images/halls/photo-1542665952-14513db15293.jpeg);
+  background-position: center;
+  background-size: 50rem;
+  transition: 0.5s;
+  height: 20rem;
+}
+section .galaryBtn p {
+  opacity: 0;
+  transition: 0.5s;
+}
+section .galaryBtn:hover {
+  filter: grayscale(100%);
+}
+section .galaryBtn:hover p {
+  transition: 0.5s;
+  opacity: 1;
+}
+section .galaryBtn:hover {
+  background-size: 55rem;
+  transform: scale(97%);
+  transition: 0.5s;
+}
+@media screen and (max-width: 600px) {
+  section .galaryBtn {
+    height: 15rem !important;
+    background-size: 35rem !important;
+  }
+}
+section .galaryBtn::after {
+  content: "";
+  position: absolute;
+  height: 20rem;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 600px) {
+  section .galaryBtn::after {
+    height: 15rem !important;
+  }
+}/*# sourceMappingURL=home.component.css.map */

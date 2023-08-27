@@ -6,40 +6,16 @@
         <div class="signup h-100">
           <form [formGroup]="registerForm" (ngSubmit)="signUp()">
             <label for="chk" aria-hidden="true">{{'signUp.signUp'| translate}} </label>
-
-            <div class="d-flex justify-content-center align-items-center mb-3 w-100 ">
-              <div class=" w-75  d-flex align-items-center justify-content-start">
-
-                <input class=" m-0 w-auto ms-3" type="checkbox" id="exampleCheck"
-                  (click)="ifChecked()" formControlName="outMinistry">
-                <label class="fs-6 m-0  " for="exampleCheck">أنا من خارج وزارة التعليم</label>
-              </div>
-            </div>
             <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
               <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
-                <input class="mb-1" type="text" name="managementName" id="managementName"
-                  formControlName="managementName" placeholder="{{'signUp.DepartmentName'| translate}}" required="">
-                <div class="signUpErrs"
-                  *ngIf="registerForm.get('managementName')?.errors !==null && registerForm.get('managementName')?.touched && registerForm.get('managementName')">
-                  <p *ngIf="registerForm.get('managementName')?.errors?.['minlength'] ">Management Name min char is 4
-                  </p>
-                  <p *ngIf="registerForm.get('managementName')?.errors?.['maxlength'] ">Management Name min char is 20
-                  </p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
-              <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
-                <input class="my-1" type="email" formControlName="email" name="email" placeholder="{{'signUp.email'| translate}}"
-                  required="">
+                <input class="my-1" type="email" formControlName="email" name="email"
+                  placeholder="{{'signUp.email'| translate}}" required="">
                 <div class="signUpErrs"
                   *ngIf="registerForm.get('email')?.errors !==null && registerForm.get('email')?.touched">
                   <p *ngIf="registerForm.get('email')?.errors?.['required'] ">Email is required</p>
                   <p *ngIf="registerForm.get('email')?.errors?.['email'] ">Email is Invalid </p>
                 </div>
-                <p  class=" text-danger" *ngIf="signEmailErr && signEmailErr != ''">{{signEmailErr}}</p>
+                <p class=" text-danger" *ngIf="signEmailErr && signEmailErr != ''">{{signEmailErr}}</p>
               </div>
             </div>
 
@@ -57,8 +33,8 @@
 
             <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
               <div class=" w-75 d-flex align-items-start justify-content-center flex-column">
-                <input class="mt-1" type="number" name="phone" formControlName="phone" placeholder="{{'signUp.phone'| translate}}"
-                  required="">
+                <input class="mt-1" type="number" name="phone" formControlName="phone"
+                  placeholder="{{'signUp.phone'| translate}}" required="">
                 <div class="signUpErrs"
                   *ngIf="registerForm.get('phone')?.errors !==null && registerForm.get('phone')?.touched">
                   <p *ngIf="registerForm.get('phone')?.errors?.['required'] ">phone is required</p>
@@ -84,7 +60,10 @@
               </div>
             </div>
 
-            <button class="" type="submit" [ngClass]="{'invalid': registerForm.invalid}"><p *ngIf="!SIGNUPloading">{{'signUp.signUp'| translate}}</p><i *ngIf="SIGNUPloading" class="p-0 m-0 spinner-border " role="status"></i></button>
+            <button class="" type="submit" [ngClass]="{'invalid': registerForm.invalid}">
+              <p *ngIf="!SIGNUPloading">{{'signUp.signUp'| translate}}</p><i *ngIf="SIGNUPloading"
+                class="p-0 m-0 spinner-border " role="status"></i>
+            </button>
           </form>
         </div>
         <div class="login">
@@ -94,8 +73,8 @@
             <div class="inputDiv d-flex align-items-center justify-content-center flex-column ">
               <div class="w-75 d-flex align-items-start justify-content-center flex-column">
                 <p class=" text-white">{{emailErr}}</p>
-                <input class="my-1" type="email" formControlName="email" name="email" placeholder="{{'signUp.email'| translate}}"
-                  required="">
+                <input class="my-1" type="email" formControlName="email" name="email"
+                  placeholder="{{'signUp.email'| translate}}" required="">
                 <div class=" loginErrs "
                   *ngIf="loginForm.get('email')?.errors !==null && loginForm.get('email')?.touched">
                   <p *ngIf="loginForm.get('email')?.errors?.['required'] ">Email is required</p>
@@ -117,11 +96,13 @@
                 </div>
               </div>
             </div>
-            <button class="mainColor bg-light" type="submit" ><p *ngIf="!LOGINloading">{{'signUp.login'| translate}}</p><i *ngIf="LOGINloading" class="p-0 m-0 spinner-border " role="status"></i></button>
+            <button class="mainColor bg-light" type="submit">
+              <p *ngIf="!LOGINloading">{{'signUp.login'| translate}}</p><i *ngIf="LOGINloading"
+                class="p-0 m-0 spinner-border " role="status"></i>
+            </button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </section>
-

@@ -10,7 +10,7 @@
       </select>
     </div>
 
-    <div class="  col-12 col-md-6 my-2">
+    <!-- <div class="  col-12 col-md-6 my-2">
       <div class="text-danger"
       *ngIf="reservationForm.get('AdministrationName')?.errors !==null && reservationForm.get('AdministrationName')?.touched">
       <p *ngIf="reservationForm.get('AdministrationName')?.errors?.['required'] ">Administration Name is required</p>
@@ -20,10 +20,10 @@
       <input type="text" class=" w-100 rounded-0 p-2 pe-3" formControlName="AdministrationName"
         placeholder="{{'booking.AdministrationName' | translate}}">
 
-    </div>
+    </div> -->
 
 
-    <div class=" col-12 col-md-4 my-2 d-flex  justify-content-end flex-column">
+    <div class=" col-12 col-md-6 my-2 d-flex  justify-content-end flex-column">
       <div class="text-danger"
         *ngIf="reservationForm.get('members')?.errors !==null && reservationForm.get('members')?.touched">
         <p *ngIf="reservationForm.get('members')?.errors?.['required'] ">members is required</p>
@@ -34,7 +34,7 @@
         placeholder=" {{'booking.NumberOfMembers' | translate}}">
 
     </div>
-
+<!--
     <div class=" col-12 col-md-4 my-2 d-flex align-items-end ">
       <select class="rounded-0 w-100 p-1" formControlName="encounterType">
         <option [ngValue]="null" disabled>{{'booking.choose' | translate}} {{'booking.encounterType' | translate}}
@@ -45,8 +45,8 @@
         <option value="{{'booking.Workshop' | translate}}">{{'booking.Workshop' | translate}}</option>
         <option value="{{'booking.other' | translate}}">{{'booking.other' | translate}}</option>
       </select>
-    </div>
-    <div class=" col-12 col-md-4 my-2">
+    </div> -->
+    <div class=" col-12 col-md-6 my-2">
 
       <label class=" mainColor" for="name">{{'booking.whatDoYouNeed' | translate}}
       </label>
@@ -92,7 +92,7 @@
         <i  class="bi bi-x text-white" ></i>
       </label>
     </div>
-    <div class=" col-12 col-md-7 row m-0 my-lg-2 my-3">
+    <div class=" col-12 col-md-6 row align-items-end m-0 my-lg-2 my-3">
       <button [disabled]="reservationForm.status == 'INVALID'"
         class=" btn mainBg  text-white  rounded-0  col-12">{{'booking.MakeReservation' | translate}}</button>
       </div>

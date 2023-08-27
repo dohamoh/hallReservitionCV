@@ -1,0 +1,44 @@
+.disabled {
+  pointer-events: none !important;
+  cursor: none !important;
+}
+
+input[type=radio]:checked ~ label {
+  background: #2fab99 !important;
+  color: #fff;
+}
+
+#booking {
+  background-image: url("../../../assets/images/business-online-shopping-concept-people-shopping-pay-by-credeit-card1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: auto !important;
+}
+#booking input:focus {
+  border-right: #2fab99 solid 7px;
+}
+#booking label {
+  white-space: nowrap !important;
+}
+#booking .radioBtn:checked {
+  background-color: rgba(198, 243, 223, 0.8156862745) !important;
+}
+#booking input,
+#booking button {
+  outline: none !important;
+  border: 0;
+}
+#booking .activeType {
+  background-color: #2fab99;
+}
+#booking .timeFocus {
+  background-color: #2fab99 !important;
+  color: white;
+}
+#booking .dropdown-menu {
+  --bs-dropdown-link-active-bg: #2fab99;
+  width: 100%;
+}
+#booking .dropdown-menu li a {
+  text-align: initial !important;
+}/*# sourceMappingURL=booking.component.css.map */

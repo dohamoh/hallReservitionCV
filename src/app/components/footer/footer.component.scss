@@ -1,18 +1,15 @@
 section{
   position: relative;
-  height: 50vh;
-  background-image: url('../../../assets/images/footerPic.jpeg');
+  height: 35vh;
+  background-image: url('../../../assets/images/backDark.jpeg');
   background-position: center top;
   background-size: cover;
   @media screen and (max-width: 760px) {
     height: 60vh;
   }
-  p{
-    // white-space: nowrap;
-  }
     .mask{
       position: absolute;
-      height: 50vh;
+      height: 35vh;
       width: 100%;
       background-color: black;
       opacity: .7;

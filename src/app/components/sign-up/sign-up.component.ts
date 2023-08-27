@@ -12,14 +12,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SignUpComponent {
   registerForm: FormGroup = new FormGroup({
-    managementName: new FormControl(null, [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(20),
-    ]),
+    // managementName: new FormControl(null, [
+    //   Validators.required,
+    //   Validators.minLength(3),
+    //   Validators.maxLength(20),
+    // ]),
     gender: new FormControl(null, [Validators.required]),
     phone: new FormControl(null, [Validators.required]),
-    outMinistry: new FormControl(null),
+    // outMinistry: new FormControl(null),
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [
       Validators.required,
@@ -41,42 +41,20 @@ export class SignUpComponent {
   LOGINloading: Boolean = false;
   constructor(
     private AuthService: AuthService,
-    private ElementRef: ElementRef,
+    // private ElementRef: ElementRef,
     private Router: Router,
     private SharedService: SharedService
   ) {}
 
-  ifChecked() {
-    if (this.ElementRef.nativeElement.querySelector('#exampleCheck').checked) {
-      this.registerForm.removeControl('managementName');
-      this.ElementRef.nativeElement.querySelector(
-        '#managementName'
-      ).style.display = 'none';
-    } else {
-      this.registerForm.addControl(
-        'managementName',
-        new FormControl(null, [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(20),
-        ])
-      );
-      this.ElementRef.nativeElement.querySelector(
-        '#managementName'
-      ).style.display = 'flex';
-    }
-  }
+
   signUp() {
     this.SIGNUPloading = true;
-
     this.AuthService.signUp(this.registerForm.value).subscribe(
       (data: any) => {
         if (data.message == 'added successfully') {
           this.SIGNUPloading = false;
           this.registerForm.reset();
           this.loginForm.reset();
-          this.ElementRef.nativeElement.querySelector('#chk').checked =
-            !this.ElementRef.nativeElement.querySelector('#chk').checked;
         }
       },
       (err: HttpErrorResponse) => {

@@ -1,0 +1,111 @@
+.main {
+  height: 33rem;
+  overflow: hidden;
+  background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/cover;
+  box-shadow: 5px 20px 50px #5b5858;
+}
+.main #chk {
+  display: none;
+}
+.main select {
+  outline: #fff !important;
+  border: 1px solid #2fab99;
+  width: 60%;
+}
+.main label {
+  color: #2fab99;
+  font-size: 2.3em;
+  justify-content: center;
+  display: flex;
+  margin: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.main .inputDiv {
+  width: 100%;
+  position: relative;
+}
+.main input {
+  width: 100%;
+  background: #f3f3f3;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  position: relative;
+}
+.main button {
+  width: 60%;
+  height: 40px;
+  margin: 10px auto;
+  justify-content: center;
+  display: block;
+  color: #fff;
+  background: #2fab99;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+.main button:hover {
+  background: #238173;
+}
+.main .login {
+  height: inherit;
+  background: #2fab99;
+  border-radius: 60%/15%;
+  transform: translateY(-190px);
+  transition: 0.8s ease-in-out;
+}
+.main .login label {
+  color: #ffffff;
+  font-size: 3.3rem;
+  transform: scale(0.6);
+  white-space: nowrap;
+}
+@media screen and (max-width: 480px) {
+  .main .login label {
+    font-size: 2rem !important;
+    padding-top: 2rem !important;
+  }
+}
+.main #chk:checked ~ .login {
+  transform: translateY(-580px);
+}
+.main #chk:checked ~ .login label {
+  transform: scale(1);
+  font-size: 2rem;
+}
+.main #chk:checked ~ .signup label {
+  transform: scale(0.6);
+}
+
+.w-10 {
+  width: 10% !important;
+}
+
+.signUpErrs p {
+  color: rgb(137, 0, 0);
+}
+
+.loginErrs p {
+  color: white !important;
+}
+
+.invalid {
+  pointer-events: none;
+  opacity: 50%;
+}
+
+.spinner-border {
+  width: 24px;
+  height: 24px;
+}/*# sourceMappingURL=sign-up.component.css.map */

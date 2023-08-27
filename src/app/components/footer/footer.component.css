@@ -1,0 +1,42 @@
+section {
+  position: relative;
+  height: 35vh;
+  background-image: url("../../../assets/images/backDark.jpeg");
+  background-position: center top;
+  background-size: cover;
+}
+@media screen and (max-width: 760px) {
+  section {
+    height: 60vh;
+  }
+}
+section .mask {
+  position: absolute;
+  height: 35vh;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
+}
+@media screen and (max-width: 760px) {
+  section .mask {
+    height: 60vh;
+  }
+}
+section .iconDiv {
+  color: #f1ecec !important;
+}
+@media screen and (max-width: 600px) {
+  section .iconDiv {
+    width: 50% !important;
+  }
+}
+section .iconBorder {
+  border: 2px solid #f1ecec !important;
+  opacity: 0.5;
+  border-radius: 1.3rem;
+}
+
+.iconDiv :hover {
+  color: #ffffff;
+  opacity: 1;
+}/*# sourceMappingURL=footer.component.css.map */

@@ -1,0 +1,59 @@
+@media screen and (max-width: 991px) {
+  nav .sign {
+    width: 100% !important;
+  }
+}
+nav img {
+  width: 100% !important;
+}
+@media (min-width: 800px) {
+  nav img {
+    width: 90% !important;
+  }
+}
+@media (max-width: 767px) and (min-width: 600px) {
+  nav img {
+    width: 60% !important;
+  }
+}
+@media (min-width: 1000px) {
+  nav .navbar-brand {
+    width: 15% !important;
+  }
+}
+@media (min-width: 800px) and (max-width: 1000px) {
+  nav .navbar-brand {
+    width: 20% !important;
+  }
+}
+@media (min-width: 440px) and (max-width: 800px) {
+  nav .navbar-brand {
+    width: 30% !important;
+  }
+}
+@media (max-width: 440px) {
+  nav .navbar-brand {
+    width: 40% !important;
+  }
+}
+nav a {
+  white-space: nowrap;
+}
+nav .logo {
+  transition: all 1s;
+  padding-bottom: 10px;
+}
+nav .arabicLang {
+  width: 20px;
+  height: 10px;
+  background-image: url(../../../assets/images/saudi-arabia-flag.png);
+  background-position: center;
+  background-size: contain;
+}
+nav .englishLang {
+  width: 20px;
+  height: 10px;
+  background-image: url(../../../assets/images/Flag_of_the_United_States.svg);
+  background-position: center;
+  background-size: contain;
+}/*# sourceMappingURL=nav-bar.component.css.map */

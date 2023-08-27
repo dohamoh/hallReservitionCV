@@ -1,5 +1,6 @@
 {
   "navBar": {
+    "title" : "halls",
     "home" : "home",
     "bookNow" : "Book Now",
     "gallery" : "gallery",

@@ -1,0 +1,7 @@
+section input,
+section button,
+section label {
+  white-space: nowrap;
+  outline: none !important;
+  border: 1px rgb(198, 196, 196) solid;
+}/*# sourceMappingURL=edit-hall.component.css.map */
