@@ -66,3 +66,6 @@ label{
 //     border-radius: 4px;
 //   }
 // }
+.highlighted-dates::-webkit-calendar-picker-indicator {
+  filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(160deg);
+}
