@@ -1,0 +1,87 @@
+{
+  "navBar": {
+    "title" : "halls",
+    "home" : "home",
+    "bookNow" : "Book Now",
+    "gallery" : "gallery",
+    "reservations" : "reservations",
+    "signIn" : "signIn",
+    "logout" : "logout"
+  },
+  "home": {
+    "bookNow" : "Book Now",
+    "gallery" : "gallery"
+  },
+  "booking": {
+    "MakeReservation" : "Make Reservation",
+    "AdministrationName" : "Administration Name",
+    "NumberOfMembers" : "Number Of Members",
+    "bookNow" : "Book Now",
+    "encounterType" : "EncounterType",
+    "choose" : "Choose",
+    "program" : "program",
+    "Workshop" : "Workshop",
+    "other" : "other",
+    "meeting" : "meeting",
+    "encounter" : "Encounter",
+    "date" : "Date",
+    "hall" : "Hall",
+    "reserve" : "reserve",
+    "whatDoYouNeed":"what do you need",
+
+    "Projector":"Projector",
+    "displayScreen":"displayScreen",
+    "tables":"tables",
+    "addMessage":"Your reservation is now on hold and you can track it on the reservations page"
+
+  },
+  "hallAttendees": "العدد الأقصى من الحضور",
+  "editHall": {
+    "ChooseANewPhoto" : "Choose a new photo",
+    "maximumNumberOfAttendees" : "Maximum number of attendees",
+    "ChangingTheNameOfTheHall" : "Change the name of the hall",
+    "ChangingTheDescriptionOfTheHall" : "Change the description of the hall",
+    "done" : "done",
+    "cancel" : "cancel"
+
+
+  },
+
+  "addHall": {
+    "hallName" : "Hall name",
+    "hallDes" : "Hall description",
+    "hallAttendees" : "Maximum number of attendees",
+    "save" : "Save",
+    "cancel" : "Cancel"
+  },
+  "footer": {
+    "forContactUs" : "for contact us",
+    "dimensions" :"Best site dimensions",
+    "AvailableHalls" : "Available halls",
+    "HallReservation" :"Hall reservation",
+
+    "contactUs" : "contacu s",
+    "login" : "login",
+"footerText":"All rights reserved to the Ministry of Education - Kingdom of Saudi Arabia"
+
+
+  },
+  "deletion": {
+    "sure?" : "Are you sure?"
+  },
+  "addHallBtn": {
+    "addHall" : "Add hall"
+  },
+  "signUp": {
+    "signUp" : "Sign up",
+    "login" : "Login",
+    "IFOS" : "I am from outside the Ministry of Education",
+    "DepartmentName" : "Department name",
+    "email" : "Email",
+    "password" : "Password",
+    "phone" : "Phone",
+    "choose" : "Choose",
+    "male" : "Male",
+    "female" : "Female"
+  }
+ }

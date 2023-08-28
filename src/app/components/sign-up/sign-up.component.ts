@@ -12,11 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SignUpComponent {
   registerForm: FormGroup = new FormGroup({
-    // managementName: new FormControl(null, [
-    //   Validators.required,
-    //   Validators.minLength(3),
-    //   Validators.maxLength(20),
-    // ]),
+ 
     gender: new FormControl(null, [Validators.required]),
     phone: new FormControl(null, [Validators.required]),
     // outMinistry: new FormControl(null),
