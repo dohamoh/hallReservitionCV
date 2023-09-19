@@ -2,7 +2,8 @@
   <div class="container-xl">
     <a class="navbar-brand me-xxl-5 pe-xxl-3 me-0 pe-0 d-flex justify-content-md-start" routerLink="/home">
       <!-- <img class="logo" src="../../../assets/images/Logo.svg" alt=""> -->
-      <h3 class="text-white fw-bold px-xl-4 px-md-3 px-0 mt-2">{{'navBar.title' | translate}}</h3>
+      <h3 class="text-white fw-bold px-xl-4 px-md-3 px-0 mt-2">Halls</h3>
+      <!-- {{'navBar.title' | translate}} -->
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,35 +12,33 @@
     <div class="collapse navbar-collapse" style="justify-content: space-between;" id="navbarNavDropdown">
       <ul class="navbar-nav fs-5 pe-0 justify-content-start d-flex">
         <li class="nav-item">
-          <a class="nav-link active text-white px-xl-4 px-md-3 px-0" aria-current="page" routerLink="/home">{{'navBar.home' | translate}}</a>
+          <a class="nav-link active text-white px-xl-4 px-md-3 px-0" aria-current="page" routerLink="/home">Home</a>
+          <!-- {{'navBar.home' | translate}} -->
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/booking">{{'navBar.bookNow' | translate}}
+          <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/booking">Book Now
           </a>
+          <!-- {{'navBar.bookNow' | translate}} -->
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/gallery">{{'navBar.gallery' | translate}}
+          <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/gallery">Gallery
           </a>
+          <!-- {{'navBar.gallery' | translate}} -->
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/userProfile">{{'navBar.reservations' |
-            translate}} </a>
+          <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/userProfile">Reservtions</a>
+          <!-- {{'navBar.reservations' | translate}} -->
         </li>
-        <!-- <div class="sign fs-5 ps-lg-5 pe-lg-5 pe-0 d-flex w-25">
-          <li *ngIf="!isLoggedIn" class="nav-item text-decoration-none list-unstyled">
-            <a class="nav-link text-white px-xl-4 px-md-3 px-0" #outOrIn routerLink="/register">{{'navBar.signIn' | translate}}</a>
-          </li>
-          <li *ngIf="isLoggedIn" class="nav-item text-decoration-none list-unstyled">
-            <a class="nav-link text-white px-xl-4 px-md-3 px-0" routerLink="/register" (click)="logOut()">{{'navBar.logout' | translate}}</a>
-          </li>
-        </div> -->
+
       </ul>
       <div class="sign fs-5 ps-lg-5 pe-0 d-flex justify-content-md-end justify-content-md-start justify-content-between w-50">
         <li *ngIf="!isLoggedIn" class="nav-item text-decoration-none list-unstyled d-flex align-items-center">
-          <a class="nav-link text-white " #outOrIn routerLink="/register">{{'navBar.signIn' | translate}}</a>
+          <a class="nav-link text-white " #outOrIn routerLink="/register">Sign In</a>
+          <!-- {{'navBar.signIn' | translate}} -->
         </li>
         <li *ngIf="isLoggedIn" class="nav-item text-decoration-none list-unstyled d-flex align-items-center">
-          <a class="nav-link text-white " routerLink="/register" (click)="logOut()">{{'navBar.logout' | translate}}</a>
+          <a class="nav-link text-white " routerLink="/register" (click)="logOut()">Log Out</a>
+          <!-- {{'navBar.logout' | translate}} -->
         </li>
 
         <span class="pb-2 pb-md-0 mainBg text-white me-4">
