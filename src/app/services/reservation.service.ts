@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ReservationService {
-  private baseUrl = 'https://hall-cv-be-2q67.vercel.app/reservation';
+  private baseUrl = 'https://hall-cv-be.vercel.app/reservation';
   // private baseUrl = 'http://localhost:3000/reservation';
 
   constructor(private HttpClient: HttpClient) {}

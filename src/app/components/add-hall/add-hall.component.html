@@ -12,19 +12,19 @@
                 <input class="opacity-0" type="file" id="updateImg" name="updateImg" (change)="upload($event)">
             </div>
             <div class="col-md-8 col-12 d-flex flex-column justify-content-around">
-              <input class="w-100 rounded-3 p-2 mb-3" type="text" placeholder="{{'addHall.hallName' | translate}}" name="hallName" formControlName="hallName">
+              <input class="w-100 rounded-3 p-2 mb-3" type="text" placeholder="Hall name" name="hallName" formControlName="hallName">
 
-              <input class="w-100 rounded-3 p-2 mb-3" type="text" placeholder="{{'addHall.hallDes' | translate}}" name="hallDesc" formControlName="hallDesc">
+              <input class="w-100 rounded-3 p-2 mb-3" type="text" placeholder="Hall desc" name="hallDesc" formControlName="hallDesc">
 
-              <input class="w-100 rounded-3 p-2" type="number" placeholder="{{'addHall.hallAttendees' | translate}}" formControlName="hallAttendees">
+              <input class="w-100 rounded-3 p-2" type="number" placeholder="Hall Attendees" formControlName="hallAttendees">
             </div>
           </div>
           <div class="row d-flex w-100 justify-content-end">
             <div class="col-md-2 col-6 d-flex justify-content-center">
-              <button class="btn mainBg text-white border-0" type="submit">{{'addHall.save' | translate}}</button>
+              <button class="btn mainBg text-white border-0" type="submit">save</button>
             </div>
             <div class="col-md-2 col-6 d-flex justify-content-start">
-              <button class="btn bg-danger text-white border-0" (click)="closeAddPage()">{{'addHall.cancel' | translate}}</button>
+              <button class="btn bg-danger text-white border-0" (click)="closeAddPage()">cancel</button>
             </div>
           </div>
         </form>
@@ -32,5 +32,4 @@
     </div>
   </div>
 </section>
-<!-- <app-footer></app-footer> -->
 <app-loading *ngIf="loading"></app-loading>

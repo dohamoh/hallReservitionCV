@@ -10,9 +10,9 @@
             </div>
             <div #user class="user p-3 pe-0 fs-4" *ngIf="userData.role == 'User'">
               <!-- <h5 class="w-100">الأسم :{{userData?.username}}</h5> -->
-              <h5 *ngIf="!userData?.outMinistry" class="w-100">الأدارة :{{userData?.managementName}}</h5>
-              <h5 class="w-100">التليفون :{{userData?.phone}}</h5>
-              <h5 class="w-100">الجنس :{{userData?.gender}}</h5>
+              <h5 *ngIf="!userData?.outMinistry" class="w-100">Department:{{userData?.managementName}}</h5>
+              <h5 class="w-100">Phone :{{userData?.phone}}</h5>
+              <h5 class="w-100">Gender :{{userData?.gender}}</h5>
             </div>
             <ul class="text-decoration-none mt-2 list-unstyled p-3" id="v-pills-tab" role="tablist"
               aria-orientation="vertical">

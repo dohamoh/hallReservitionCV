@@ -11,26 +11,25 @@
           <div class="row justify-content-center mb-3">
             <div class="col-md-6 col-12 d-flex align-items-center justify-content-center">
               <div class=" w-100">
-                <label class="w-100 rounded-3 p-2" for="updateImg"><i class="bi bi-pencil-square ms-3"></i><span>أختر صورة
-                    جديدة</span></label>
+                <label class="w-100 rounded-3 p-2" for="updateImg"><i class="bi bi-pencil-square ms-3"></i><span>choose a new photo</span></label>
                 <input class="opacity-0 d-none" type="file" id="updateImg" name="updateImg" (change)="upload($event)">
               </div>
             </div>
 
             <div class=" col-md-6 col-12 px-3 py-2">
               <input class="w-100 rounded-3 p-2" formControlName="newAttendees" type="text"
-                placeholder="{{'editHall.maximumNumberOfAttendees' | translate}}">
+                placeholder="Maximum number of attendees">
             </div>
 
 
             <div class=" col-md-6 col-12 px-3 py-2">
               <input class="w-100 rounded-3 p-2" type="text"
-                placeholder="{{'editHall.ChangingTheNameOfTheHall' | translate}}" name="newName"
+                placeholder="change the name of hall" name="newName"
                 formControlName="newName">
             </div>
             <div class=" col-md-6 col-12 px-3 py-2">
               <input class="w-100 rounded-3 p-2" type="text"
-                placeholder="{{'editHall.ChangingTheDescriptionOfTheHall' | translate}}" name="newDesc"
+                placeholder="Change the description of the hall" name="newDesc"
                 formControlName="newDesc">
             </div>
 

@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-md mainBg bg-body-tertiary sticky-top">
   <div class="container-xl">
     <a class="navbar-brand me-xxl-5 pe-xxl-3 me-0 pe-0 d-flex justify-content-md-start" routerLink="/home">
-      <!-- <img class="logo" src="../../../assets/images/Logo.svg" alt=""> -->
       <h3 class="text-white fw-bold px-xl-4 px-md-3 px-0 mt-2">Halls</h3>
       <!-- {{'navBar.title' | translate}} -->
     </a>
@@ -10,7 +9,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" style="justify-content: space-between;" id="navbarNavDropdown">
-      <ul class="navbar-nav fs-5 pe-0 justify-content-start d-flex">
+      <ul class="navbar-nav fs-5 pe-0 justify-content-end d-flex w-100">
         <li class="nav-item">
           <a class="nav-link active text-white px-xl-4 px-md-3 px-0" aria-current="page" routerLink="/home">Home</a>
           <!-- {{'navBar.home' | translate}} -->
@@ -31,7 +30,7 @@
         </li>
 
       </ul>
-      <div class="sign fs-5 ps-lg-5 pe-0 d-flex justify-content-md-end justify-content-md-start justify-content-between w-50">
+      <div class="sign fs-5 ps-lg-5 pe-0 d-flex justify-content-md-end justify-content-between w-50">
         <li *ngIf="!isLoggedIn" class="nav-item text-decoration-none list-unstyled d-flex align-items-center">
           <a class="nav-link text-white " #outOrIn routerLink="/register">Sign In</a>
           <!-- {{'navBar.signIn' | translate}} -->

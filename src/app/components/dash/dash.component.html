@@ -5,15 +5,15 @@
       <select class="rounded-0 w-100 p-2 rounded-3 border-0 box-shadow" id="name" (change)="name()">
 
         <option *ngFor="let hall of halls" value="{{hall?._id}}">{{hall?.hallName}} </option>
-        <option [ngValue]="null" selected>جميع القاعات</option>
+        <option [ngValue]="null" selected>All Halls</option>
       </select>
     </div>
     <div class=" col my-2 d-flex align-items-end">
       <select class="rounded-0 w-100 p-2 rounded-3 border-0 box-shadow" id="date" (change)="getDate()">
-        <option value="اليوم">اليوم</option>
-        <option value="الاسبوع الاخير" selected>الاسبوع الاخير</option>
-        <option value="الشهر الاخير">الشهر الاخير</option>
-        <option value="السنه الاخيره">السنه الاخيره</option>
+        <option value="اليوم">today</option>
+        <option value="الاسبوع الاخير" selected>Last week</option>
+        <option value="الشهر الاخير">Last month</option>
+        <option value="السنه الاخيره">Last year</option>
       </select>
     </div>
   </div>

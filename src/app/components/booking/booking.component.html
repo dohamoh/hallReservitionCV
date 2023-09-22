@@ -4,25 +4,11 @@
 
     <div class=" col-12 col-md-6 my-2 d-flex align-items-end">
       <select class="rounded-0 w-100 p-1 " formControlName="hallId" (change)="setMember()">
-        <option [ngValue]="null" disabled>{{'booking.hall' | translate}}
+        <option [ngValue]="null" disabled>Hall
         </option>
         <option *ngFor="let hall of allHalls" value="{{hall?._id}}">{{hall?.hallName}} </option>
       </select>
     </div>
-
-    <!-- <div class="  col-12 col-md-6 my-2">
-      <div class="text-danger"
-      *ngIf="reservationForm.get('AdministrationName')?.errors !==null && reservationForm.get('AdministrationName')?.touched">
-      <p *ngIf="reservationForm.get('AdministrationName')?.errors?.['required'] ">Administration Name is required</p>
-      <p *ngIf="reservationForm.get('AdministrationName')?.errors?.['minlength'] ">Administration Name min char is 4
-      </p>
-    </div>
-      <input type="text" class=" w-100 rounded-0 p-2 pe-3" formControlName="AdministrationName"
-        placeholder="{{'booking.AdministrationName' | translate}}">
-
-    </div> -->
-
-
     <div class=" col-12 col-md-6 my-2 d-flex  justify-content-end flex-column">
       <div class="text-danger"
         *ngIf="reservationForm.get('members')?.errors !==null && reservationForm.get('members')?.touched">
@@ -31,7 +17,7 @@
         <p *ngIf="reservationForm.get('members')?.errors?.['max'] ">maximum persons is {{hallAttendees}}</p>
       </div>
       <input type="number" class=" w-100 rounded-0 p-2 pe-3" [(ngModel)]="member" [ngClass]="{'disabled': reservationForm.value.hallId == null}" formControlName="members"
-        placeholder=" {{'booking.NumberOfMembers' | translate}}">
+        placeholder="Number Of Members">
 
     </div>
 <!--
@@ -48,7 +34,7 @@
     </div> -->
     <div class=" col-12 col-md-6 my-2">
 
-      <label class=" mainColor" for="name">{{'booking.whatDoYouNeed' | translate}}
+      <label class=" mainColor" for="name">What Do You Need
       </label>
       <ng-multiselect-dropdown  formControlName="whatDoYouNeed"
       [placeholder]="''"
@@ -79,14 +65,9 @@
     </div>
 
     <div class=" col-12 col-md-4  my-2">
-      <!-- <label class="m-2 mainColor" for="date">{{'booking.date' | translate}}</label>
-      <input id="date" type="date" class=" w-100 rounded-0 p-2 highlighted-dates" formControlName="date"
-        placeholder="{{'booking.date' | translate}}"> -->
-
-
         <p *ngIf="datemessage" class=" text-danger">{{datemessage}}</p>
         <input id="date" type="date" class=" w-100 rounded-0 p-2 highlighted-dates" formControlName="date"
-        placeholder="{{'booking.date' | translate}}"  [(ngModel)]="selectedDate" (change)="isDateDisabled()">
+        placeholder="Date"  [(ngModel)]="selectedDate" (change)="isDateDisabled()">
     </div>
     <div class=" col-12 col-lg-2 col-md-3 d-flex justify-content-end flex-column m-0 my-lg-2 my-3">
       <input type="file" id="uploadeFile" class="d-none" (change)="upload($event)">
@@ -99,9 +80,9 @@
     </div>
     <div class=" col-12 col-md-6 row align-items-end m-0 my-lg-2 my-3">
       <button [disabled]="reservationForm.status == 'INVALID'"
-        class=" btn mainBg  text-white  rounded-0  col-12">{{'booking.MakeReservation' | translate}}</button>
+        class=" btn mainBg  text-white  rounded-0  col-12">Make Reservation</button>
       </div>
-      <p *ngIf="addMessage" class=" text-success ">{{'booking.addMessage' | translate}}</p>
+      <p *ngIf="addMessage" class=" text-success ">Your reservation is now on hold and you can track it on the reservations page</p>
   </form>
 </section>
 <app-footer></app-footer>
