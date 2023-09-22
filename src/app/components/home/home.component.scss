@@ -2,6 +2,10 @@ section{
   p{
     z-index: 5 !important;
   }
+  .mainImg {
+    object-fit: cover !important;
+    height: 40rem !important;
+  }
   .bookBtn {
     p{
       opacity: 0;
