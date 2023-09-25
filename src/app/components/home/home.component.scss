@@ -3,8 +3,11 @@ section{
     z-index: 5 !important;
   }
   .mainImg {
-    object-fit: cover !important;
+    // object-fit: cover !important;
     height: 40rem !important;
+    background-image: url(../../../assets/images/halls/Slide4.png);
+    background-size: cover;
+    background-position: center;
   }
   .bookBtn {
     p{
